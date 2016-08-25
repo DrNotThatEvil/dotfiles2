@@ -1,0 +1,14 @@
+gtk-theme-arc
+i3blocks-git
+libspotify
+light-git
+mopidy-notifier-git
+mopidy-soundcloud
+mopidy-spotify
+mopidy-youtube 
+numix-circle-icon-theme-git 
+numix-icon-theme-git
+playerctl
+pulseaudio-ctl
+python2-pyspotify 
+yaaw-git 

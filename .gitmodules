@@ -1,0 +1,9 @@
+[submodule "fonts/YosemiteSanFranciscoFont"]
+	path = fonts/YosemiteSanFranciscoFont
+	url = git@github.com:supermarin/YosemiteSanFranciscoFont.git
+[submodule "fonts/Font-Awesome"]
+	path = fonts/Font-Awesome
+	url = git@github.com:FortAwesome/Font-Awesome.git
+[submodule "fonts/fonts"]
+	path = fonts/fonts
+	url = https://github.com/powerline/fonts

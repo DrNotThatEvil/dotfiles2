@@ -1,0 +1,18 @@
+#!/bin/sh
+# set -x
+
+song=$(ncmpcpp --current-song)
+songl=${#song}
+constr="refused"
+
+if [ "${song/$constr}" != "$song" ] ; then
+  echo "No Song Playing"
+  echo "No Song Playing"
+else
+  if [ "$songl" -gt "0" ] ; then
+    echo "$song"
+  else
+    echo "No Song Playing"
+    echo "No Song Playing"
+  fi
+fi

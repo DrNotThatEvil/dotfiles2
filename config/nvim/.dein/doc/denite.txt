@@ -1,0 +1,140 @@
+*denite.txt*	Dark powered asynchronous unite all interfaces for neovim.
+
+Version: 0.0
+Author:  Shougo <Shougo.Matsu at gmail.com>
+License: MIT license
+
+CONTENTS						*denite-contents*
+
+Introduction		|denite-introduction|
+Usage			|denite-usage|
+Install			|denite-install|
+Configuration Examples	|denite-examples|
+Interface		|denite-interface|
+  Commands		  |denite-commands|
+  Variables		  |denite-variables|
+  Key mappings		  |denite-key-mappings|
+  Functions		  |denite-functions|
+  Options		  |denite-options|
+Sources			|denite-sources|
+Kinds			|denite-kinds|
+Actions			|denite-actions|
+Filters			|denite-filters|
+Create source		|denite-create-source|
+Create kind		|denite-create-kind|
+Create filter		|denite-create-filter|
+External source		|denite-external-sources|
+FAQ			|denite-faq|
+Compatibility		|denite-compatibility|
+
+==============================================================================
+INTRODUCTION						*denite-introduction*
+
+==============================================================================
+USAGE							*denite-usage*
+
+==============================================================================
+INSTALL							*denite-install*
+
+Note: denite requires Neovim(latest is recommended) with Python3 enabled.
+
+1. Extract the files and put them in your Neovim directory
+   (usually `$XDG_CONFIG_HOME/nvim/`).
+2. Execute the |:UpdateRemotePlugins| and restart Neovim.
+
+If ":echo has('python3')" returns `1`, then you're done; otherwise, see below.
+
+You can enable Python3 interface with pip: >
+
+    sudo pip3 install neovim
+
+If you want to read for Neovim-python/python3 interface install documentation,
+you should read |nvim-python| and the Wiki.
+https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
+
+You can check the Python3 installation by nvim-python-doctor or |:CheckHealth|
+command.
+https://github.com/tweekmonster/nvim-python-doctor
+
+==============================================================================
+EXAMPLES						*denite-examples*
+
+==============================================================================
+INTERFACE						*denite-interface*
+
+------------------------------------------------------------------------------
+COMMANDS 						*denite-commands*
+
+:Denite [{options}] {sources}				*:Denite*
+		Creates a new Denite buffer.
+
+------------------------------------------------------------------------------
+VARIABLES 						*denite-variables*
+
+------------------------------------------------------------------------------
+KEY MAPPINGS 						*denite-key-mappings*
+
+------------------------------------------------------------------------------
+FUNCTIONS						*denite-functions*
+
+							*denite#initialize()*
+denite#initialize()
+		Initialize denite and sources.
+
+							*denite#start()*
+denite#start({sources}[, {context}])
+		Creates a new Denite buffer.
+
+		{sources} is a list of elements which are formatted as
+		"{'name': {source-name}, 'args': {source-args}}".
+
+		Refer to |denite-notation-{context}| about {context}.  If you
+		skip a value, it uses the default value.
+>
+		call denite#start({'name': 'file_rec', 'args': []})
+<
+
+------------------------------------------------------------------------------
+OPTIONS							*denite-options*
+
+==============================================================================
+SOURCES							*denite-sources*
+
+==============================================================================
+KINDS							*denite-kinds*
+
+==============================================================================
+FILTERS							*denite-filters*
+
+==============================================================================
+ACTIONS							*denite-actions*
+
+==============================================================================
+CREATE SOURCE						*denite-create-source*
+
+------------------------------------------------------------------------------
+SOURCE ATTRIBUTES				*denite-source-attributes*
+
+==============================================================================
+CREATE KIND						*denite-create-kind*
+
+------------------------------------------------------------------------------
+KIND ATTRIBUTES					*denite-kind-attributes*
+
+==============================================================================
+CREATE FILTER						*denite-create-filter*
+
+------------------------------------------------------------------------------
+FILTER ATTRIBUTES				*denite-filter-attributes*
+
+==============================================================================
+EXTERNAL SOURCES				*denite-external-sources*
+
+==============================================================================
+FAQ							*denite-faq*
+
+==============================================================================
+COMPATIBILITY						*denite-compatibility*
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:
