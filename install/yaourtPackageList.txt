@@ -1,3 +1,7 @@
+i3-gaps-git
+i3blocks-git
+i3lock
+i3status
 gtk-theme-arc
 i3blocks-git
 libspotify

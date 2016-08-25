@@ -40,10 +40,6 @@ groff
 grub
 gtk-theme-arc
 gzip
-i3-wm
-i3blocks-git
-i3lock
-i3status
 imagemagick
 inetutils
 intel-ucode
