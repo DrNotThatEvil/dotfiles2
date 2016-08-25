@@ -6,6 +6,11 @@ INSTALL_DIR="$HOME/.local/share/fonts"
 
 echo -e "\n\nInstalling your fonts!"
 
+if [ ! -d "$INSTALL_DIR" ]; then
+  echo -e "\n\nFont directory not found creating it..."
+  mkdir -p "$INSTALL_DIR"
+fi
+
 cp -v $FONTS_DIR/Font-Awesome/fonts/*.ttf $INSTALL_DIR/.
 echo -e "\n\nFont Awesome installed"
 
