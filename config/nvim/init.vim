@@ -139,9 +139,13 @@
   set noswapfile
   filetype on
   set number
-  set tabstop=4 
-  set softtabstop=0 noexpandtab
+  set tabstop=2 
+  set softtabstop=2
+  set shiftwidth=2
+  set smarttab
+  set expandtab
   set wildmenu
+  set expandtab 
   set laststatus=2
   set wrap linebreak nolist
   set wildmode=full
@@ -206,7 +210,7 @@
   let g:multi_cursor_prev_key='<C-p>'
   let g:multi_cursor_skip_key='<C-x>'
   let g:multi_cursor_quit_key='<Esc>'
-  
+
 " Fold, gets it's own section  ----------------------------------------------{{{
 
   function! MyFoldText() " {{{
@@ -438,32 +442,30 @@ nnoremap <silent> <Leader>g :Unite -direction=botright -silent -buffer-name=git 
 "}}}
 
 " Linting -------------------------------------------------------------------{{{
+		
+  nmap <Leader><Space>o :lopen<CR>      " open location window
+  nmap <Leader><Space>c :lclose<CR>     " close location window
+  nmap <Leader><Space>, :ll<CR>         " go to current error/warning
+  nmap <Leader><Space>n :lnext<CR>      " next error/warning
+  nmap <Leader><Space>p :lprev<CR>      " previous error/warning<Paste>
+  
 
   let g:neomake_warning_sign = {'text': '?', 'texthl': 'NeomakeWarningSign'}
-function! neomake#makers#ft#typescript#tsc()
-    return {
-        \ 'args': [
-            \ '-m', 'commonjs', '--target', 'es5', '--emitDecoratorMetadata', 'true', '--experimentalDecorators', 'true'
-        \ ],
-        \ 'errorformat':
-            \ '%f %#(%l\,%c): error %m,'
-        \ }
-endfunction
+  function! NeomakeESlintChecker()
+    let l:npm_bin = ''
+    let l:eslint = 'eslint'
 
+    if executable('npm')
+      let l:npm_bin = split(system('npm bin'), '\n')[0]
+    endif
 
-    let g:neomake_typescript_tslint = {
-        \ 'args': ['%:p', '--format verbose'],
-        \ 'errorformat': 'f:%l:%c: %m'
-        \ }
+    if strlen(l:npm_bin) && executable(l:npm_bin . '/eslint')
+      let l:eslint = l:npm_bin . '/eslint'
+    endif
 
-
-  let g:neomake_open_list = 2
-
-  let g:neomake_markdown_alex_maker = {
-    \ 'exe': 'alex',
-    \ 'errorformat': '%f: line %l\, col %c\, %m',
-    \ }
-  let g:neomake_markdown_enabled_makers = ['alex']
+    let b:neomake_javascript_eslint_exe = l:eslint
+  endfunction
+  autocmd FileType javascript :call NeomakeESlintChecker()
 
   autocmd! BufWritePost * Neomake
 " }}} 
