@@ -57,7 +57,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -rnow -show run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -148,11 +148,12 @@ bindsym $mod+0 workspace $workspace10
 
 assign [class="Firefox"] $workspace1   
 #As i sad only firefox on workspace1.
-assign [class="Atom"] $workspace3      
+# assign [class="Atom"] $workspace3      
 #As i sad other text editor on 3
 assign [class="KeePass2"] $workspace7  
 #As i sad keepass on workspace3
 
+for_window [class="VirtualBox"] floating enable
 for_window [class="^.*"] border pixel 1  
 
 # move focused container to workspace
@@ -166,6 +167,20 @@ bindsym $mod+Shift+7 move container to workspace $workspace7
 bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
+
+gaps inner 5	  
+gaps outer 5 
+
+
+# MULTI MONITOR WORKSPACE SETUP.
+
+workspace $workspace1 output DP-2
+workspace $workspace2 output DP-4
+workspace $workspace3 output HDMI-0
+
+bindsym $mod+Shift+n move workspace to output left
+bindsym $mod+Shift+m move workspace to output right
+# END OF MULTI MONITOR WORKSPACE SETUP	
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -207,6 +222,16 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+mode "moveit" {
+    bindsym Up move up 20px
+    bindsym Left move left 20px
+    bindsym Down move down 20px
+    bindsym Right move right 20px
+    bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+bindsym $mod+m mode "moveit"
 
 # Audio 
 bindsym $mod+minus exec pulseaudio-ctl down
@@ -256,6 +281,16 @@ exec_always feh --bg-scale ~/.dotfiles/pictures/Wallpaper.jpg
 # it looks nice. i have no idea if it's from a anime or something.
 # i just have it in my dotfiles so i can take it with me and not lose it.
 
+# MULTI MONITOR SETUP REMOVE IF ON LAPTOP PLZ
+
+# exec --no-startup-id xrandr --output DP-4 --auto --primary
+exec --no-startup-id xrandr --output DP-2 --auto --left-of DP-4 
+# exec --no-startup-id xrandr --output HDMI-0 --auto --right-of DP-4
+
+exec --no-startup-id xset s off
+exec --no-startup-id xset s off -dpms
+
+# END OF MULTIPLE MONITORS SECTION
 
 # Okay the next thing needs some explaining.
 # ever used vim? well its a text editors witch uses modes.
@@ -263,5 +298,7 @@ exec_always feh --bg-scale ~/.dotfiles/pictures/Wallpaper.jpg
 # i never use capslock cause i find it rather useless and it often makes me look 
 # like im screaming so with this i
 # diable capslock. and map it to escape! its the best thing you will ever do.
+exec --no-startup-id redshift-gtk
 exec xmodmap -e 'clear Lock'
 exec xmodmap -e 'keycode 0x42=Escape' 
+exec owncloud 

@@ -50,6 +50,7 @@
   call dein#add('airblade/vim-gitgutter')
 " call dein#add('Xuyuanp/nerdtree-git-plugin')
 " 
+  call dein#add('bonsaiben/bootstrap-snippets')
   call dein#add('tpope/vim-repeat')
   call dein#add('neomake/neomake')
   call dein#add('editorconfig/editorconfig-vim')
@@ -68,7 +69,10 @@
   call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('freeo/vim-kalisi')
-
+  call dein#add('tobyS/pdv')
+  call dein#add('sumpygump/php-documentor-vim')
+  call dein#add('posva/vim-vue')
+" c linux style checker 
 " deoplete stuff
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('carlitux/deoplete-ternjs')
@@ -93,6 +97,7 @@
   call dein#add('tyru/markdown-codehl-onthefly.vim')
   call dein#add('rafi/vim-unite-issue')
   call dein#add('tyru/open-browser.vim')
+  call dein#add('editorconfig/editorconfig-vim')
 " call dein#add('ryanoasis/vim-devicons')
 " call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
   if dein#check_install()
@@ -126,23 +131,29 @@
   set background=dark
 
   let g:vim_markdown_folding_disabled = 1
+  autocmd BufRead,BufNewFile *.blade.php set filetype=html
+  autocmd BufRead,BufNewFile *.vue set filetype=vue
   autocmd FileType markdown,text,html setlocal spell complete+=kspell
   autocmd FileType markdown,text,html hi SpellBad guibg=#ff2929 guifg=#ffffff" ctermbg=224
   let g:instant_markdown_autostart = 0
   autocmd TermOpen * set bufhidden=hide
 
 " Setting up some stuff.
-  
+  set dictionary+=~/.vim/bundle/bootstrap-snippets/dictionary
+  set complete+=k
   set t_Co=256
   set pastetoggle=<f6>
   set noshowmode
   set noswapfile
   filetype on
+  filetype plugin on
+  filetype indent on
   set number
   set tabstop=2 
   set softtabstop=2
-  set shiftwidth=2
   set smarttab
+  set autoindent
+  set shiftwidth=2
   set expandtab
   set wildmenu
   set expandtab 
@@ -152,6 +163,16 @@
   let mapleader = ','
   set undofile
   set undodir="$HOME/.VIM_UNDO_FILES"
+  nnoremap <silent> <leader>a :LinuxCodingStyle<cr> 
+
+  au BufRead,BufNewFile *.php inoremap <buffer> <leader>d :call PhpDoc()<CR>
+  au BufRead,BufNewFile *.php nnoremap <buffer> <leader>d :call PhpDoc()<CR>
+  au BufRead,BufNewFile *.php vnoremap <buffer> <leader>d :call PhpDocRange()<CR>
+
+   
+  let g:pdv_template_dir = $HOME."/.config/nvim/repos/github.com/tobyS/pdv/templates_snip"
+  nnoremap <buffer> <C-u> :call pdv#DocumentCurrentLine()<CR>
+
 " Remember cursor position between vim sessions
   autocmd BufReadPost *
               \ if line("'\"") > 0 && line ("'\"") <= line("$") |
@@ -466,6 +487,11 @@ nnoremap <silent> <Leader>g :Unite -direction=botright -silent -buffer-name=git 
     let b:neomake_javascript_eslint_exe = l:eslint
   endfunction
   autocmd FileType javascript :call NeomakeESlintChecker()
+  autocmd FileType javascript.jsx :call NeomakeESlintChecker()
+  autocmd FileType vue.vue :call NeomakeESlintChecker()
+  " autocmd FileType 
 
+  let g:neomake_php_phpcs_args_standard = 'PSR2'
+  
   autocmd! BufWritePost * Neomake
 " }}} 
