@@ -10,7 +10,6 @@ feh
 firefox
 scrot
 moc
-qutebrowser
 mutt
 thunderbird
 ffmpeg
