@@ -19,5 +19,4 @@ sudo pacman --noconfirm -S xf86-input-synaptics
 echo "======================="
 echo -e "\nInstalling network manager"
 sudo pacman --noconfirm -S networkmanager
-sudo pacman --noconfirm -S np-applet
-
+sudo pacman --noconfirm -S network-manager-applet
