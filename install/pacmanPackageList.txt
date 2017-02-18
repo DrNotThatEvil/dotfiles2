@@ -5,7 +5,8 @@ alsa-utils
 arduino
 atom
 bluedevil
-bluez-utilsfeh
+bluez-utils
+feh
 firefox
 scrot
 moc
