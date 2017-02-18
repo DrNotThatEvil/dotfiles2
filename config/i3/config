@@ -268,9 +268,10 @@ bar {
 bindsym $mod+Shift+x exec ~/.dotfiles/scripts/lock.sh
 
 # Other stuff im to lazy to start by hand. Strive to be lazy!
-exec compton
 exec pulseaudio --start
 exec_always feh --bg-scale ~/.dotfiles/pictures/Wallpaper.jpg
+exec --nostartup-id /usr/lib/gnome-settings-daemon/gnome-settings-deamon
+
 # About that wallpaper i have no idea where i found it once but
 # it looks nice. i have no idea if it's from a anime or something.
 # i just have it in my dotfiles so i can take it with me and not lose it.

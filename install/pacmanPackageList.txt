@@ -33,3 +33,6 @@ keepass-plugin-http
 google-chrome
 ttf-dejavu
 ttf-liberation
+gnome-keyring
+python2-neovim
+python-neovim
