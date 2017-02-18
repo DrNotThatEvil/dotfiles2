@@ -10,7 +10,7 @@ sudo pacman --noconfirm -S xf86-video-nouveau mesa-libgl lib32-mesa-libgl
 
 echo "======================="
 echo -e "\nInstalling xorg server"
-sudo pamcan --noconfirm -S xorg-server xorg-server-utils xorg-xinit
+sudo pacman --noconfirm -S xorg-server xorg-server-utils xorg-xinit
 
 echo "======================="
 echo -e "\nInstalling toch pad drivers"
