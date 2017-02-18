@@ -14,7 +14,6 @@ mutt
 thunderbird
 ffmpeg
 htop
-qalc
 owncloud-client
 pavucontrol
 pulseaudio
@@ -36,3 +35,4 @@ ttf-liberation
 gnome-keyring
 python2-neovim
 python-neovim
+libqalculate

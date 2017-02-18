@@ -164,16 +164,16 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Right move right
 # end of arrow key stuff
 
-set $ws1 "1: "
-set $ws2 "2: "
-set $ws3 "3: "
-set $ws4 "4: "
-set $ws5 "5: "
-set $ws6 "6: "
-set $ws7 "7: "
-set $ws8 "8: "
-set $ws9 "9: "
-set $ws10 "10: "
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5: "
+set $ws6 "6: "
+set $ws7 "7"
+set $ws8 "8: "
+set $ws9 "9: "
+set $ws10 "10: "
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -270,7 +270,6 @@ bindsym $mod+Shift+x exec ~/.dotfiles/scripts/lock.sh
 # Other stuff im to lazy to start by hand. Strive to be lazy!
 exec pulseaudio --start
 exec_always feh --bg-scale ~/.dotfiles/pictures/Wallpaper.jpg
-exec --nostartup-id /usr/lib/gnome-settings-daemon/gnome-settings-deamon
 
 # About that wallpaper i have no idea where i found it once but
 # it looks nice. i have no idea if it's from a anime or something.
