@@ -1,4 +1,5 @@
-# I use Mod1 this is because i started using arch linux and i3 in a virtualbox
+# I use Mod1 this is because i started 
+# using arch linux and i3 in a virtualbox
 # and windows is rather picky with using it windows key so i used alt.
 # and by the time i had arch installed on my laptop i was used i never changed it
 # to Mod4
@@ -68,7 +69,7 @@ bindsym $mod+w exec qutebrowser
 bindsym $mod+Shift+w exec --no-startup-id $browser
 
 bindsym $mod+e exec $term -e mutt
-bindsym $mod+Shift+w exec $mail
+bindsym $mod+u exec $mail
 
 bindsym $mod+r exec $term -e ranger
 bindsym $mod+Shift+r restart
@@ -86,7 +87,7 @@ bindsym $mod+Shift+i resize grow height q0 px or 10 ppt
 bindsym $mod+o exec --no-startup -id mocp -j 0%
 bindsym $mod+Shift+o resize grow width 10 px or 10 ppt
 
-bindsym $mod+a exec $term -e qalc
+bindsym $mod+y exec $term -e qalc
 # bindsym $mod+Shift+a audacity
 
 bindsym $mod+s gaps inner current plus 5
@@ -112,7 +113,7 @@ bindsym $mod+Shift+l move right 30
 bindsym $mod+z gaps outer current plus 5
 bindsym $mod+Shift+z gaps outer current minus 5
 
-bindsym $mod+Shift+x exec shutdown now
+bindsym $mod+Shift+v exec shutdown now
 
 bindsym $mod+c split toggle
 bindsym $mod+Shift+c reload
@@ -156,8 +157,8 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+
 bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Right move right
@@ -231,10 +232,8 @@ bindsym XF86AudioPause exec --no-startup-id mocp -G
 
 bindsym $mod+XF86WWW exec --no-startup-id $browser
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+b restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -261,16 +260,12 @@ bindsym $mod+F8 exec light -A 10
 ############
 
 bar {
-  status_command 
-~/.i3/bumblebee-status/bumble-status -m 
-battery nic pacman disk datetime -p 
-disk.path=/home datetime.format="%a, %b 
-%d, %Y at %H:%M:%S" -t gruvbox-powerline
+  status_command /home/wilvin/bumblebee-status/bumblebee-status -m battery nic pacman disk datetime -p disk.path=/home datetime.format="%a, %b %d, %Y at %H:%M:%S" -t gruvbox-powerline
   position top
 }
 
 # A unixporn worth lockscreen you can find it on google it looks wonderfull
-bindsym $mod+shift+x exec ~/.dotfiles/scripts/lock.sh
+bindsym $mod+Shift+x exec ~/.dotfiles/scripts/lock.sh
 
 # Other stuff im to lazy to start by hand. Strive to be lazy!
 exec compton
@@ -289,4 +284,5 @@ exec_always feh --bg-scale ~/.dotfiles/pictures/Wallpaper.jpg
 # diable capslock. and map it to escape! its the best thing you will ever do.
 exec xmodmap -e 'clear Lock'
 exec xmodmap -e 'keycode 0x42=Escape' 
+
 

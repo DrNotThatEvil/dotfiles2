@@ -32,4 +32,5 @@ yaourt
 keepass
 keepass-plugin-http
 google-chrome
-
+ttf-dejavu
+ttf-liberation
