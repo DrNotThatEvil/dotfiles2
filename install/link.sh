@@ -16,6 +16,21 @@ for file in $linkables ; do
 done
 
 echo "=============================="
+echo -e "\nLinking .i3 folder"
+target="$HOME/.i3"
+if [ -e $target ]; then
+    echo "~${target#$HOME} already exists.... skipping"
+else 
+    echo "Creating symlink for .i3 folder"
+    ln -s "$DOTFILES/i3" $target
+fi
+
+if [ ! -d $HOME/.i3-logs ]; then
+    echo "Creating ~/.i3-logs"
+    mkdir -p $HOME/.i3-logs
+fi
+
+echo "=============================="
 if [ ! -d $HOME/.config ]; then
     echo "Creating ~/.config"
     mkdir -p $HOME/.config

@@ -11,6 +11,8 @@ if [ ! -d "$INSTALL_DIR" ]; then
   mkdir -p "$INSTALL_DIR"
 fi
 
+source "$FONTS_DIR/fonts/nerd-fonts/install.sh"
+
 cp -v $FONTS_DIR/Font-Awesome/fonts/*.ttf $INSTALL_DIR/.
 echo -e "\n\nFont Awesome installed"
 

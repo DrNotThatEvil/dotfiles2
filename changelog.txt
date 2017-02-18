@@ -1,0 +1,13 @@
+Version 2.1
+Added a official changelog so i can keep track of the stuff i do in my dot files witch is pretty good
+i'm currently reworking my dotfiles and my laptop since i find it to slightly inificient and you know us nerds
+we hate slightly inefficient stuff and want to replace it by mildly better improvments.
+These mildly better improvements will once become something quite significant and one day and i will be faster
+then i ever was using windows.
+LONG LIVE midly better improvements!..
+
+
+Changes: 
+-- Removed all packages to start from scratch
+-- Moved to new branch so if my old setup does crash while writing this version i can still install it.
+-- Added OhMyZ and zsh to the system

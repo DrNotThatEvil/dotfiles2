@@ -37,7 +37,7 @@
   call dein#add('tmux-plugins/vim-tmux')
   call dein#add('Shougo/denite.nvim')
   call dein#add('reedes/vim-colors-pencil')
-  call dein#add('frankier/neovim-colors-solarized-truecolor-only')
+" call dein#add('frankier/neovim-colors-solarized-truecolor-only')
   call dein#add('mhartington/vim-folds')
   call dein#add('Yggdroot/indentLine')
   call dein#add('itmammoth/doorboy.vim')
@@ -67,7 +67,7 @@
   call dein#add('junkblocker/unite-codesearch')
   call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
   call dein#add('vim-airline/vim-airline-themes')
-  call dein#add('freeo/vim-kalisi')
+" call dein#add('freeo/vim-kalisi')
 
 " deoplete stuff
   call dein#add('Shougo/deoplete.nvim')
@@ -95,6 +95,8 @@
   call dein#add('tyru/open-browser.vim')
 " call dein#add('ryanoasis/vim-devicons')
 " call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
+  call dein#add('Soares/base16.nvim')
+
   if dein#check_install()
     call dein#install()
     let pluginsExist=1
@@ -122,7 +124,7 @@
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
  
   syntax enable
-  colorscheme kalisi
+  colorscheme atelier-cave
   set background=dark
 
   let g:vim_markdown_folding_disabled = 1
