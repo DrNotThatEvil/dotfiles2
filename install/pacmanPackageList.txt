@@ -10,7 +10,6 @@ feh
 firefox
 scrot
 moc
-mutt
 thunderbird
 ffmpeg
 htop

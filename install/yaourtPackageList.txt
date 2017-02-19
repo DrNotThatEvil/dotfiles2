@@ -1,3 +1,4 @@
 i3-gaps-git
 termite-git
 qutebrowser
+neomutt

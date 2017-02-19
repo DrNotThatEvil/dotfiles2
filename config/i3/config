@@ -260,7 +260,8 @@ bindsym $mod+F8 exec light -A 10
 ############
 
 bar {
-  status_command /home/wilvin/bumblebee-status/bumblebee-status -m battery nic pacman disk datetime -p disk.path=/home datetime.format="%a, %b %d, %Y at %H:%M:%S" -t gruvbox-powerline
+  status_command /home/wilvin/.i3/bumblebee-status/bumblebee-status -m battery nic pacman disk datetime -p disk.path=/home datetime.format="%a, %b %d, %Y at 
+%H:%M:%S" -t gruvbox-powerline
   position top
 }
 
