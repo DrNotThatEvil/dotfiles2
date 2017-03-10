@@ -294,6 +294,3 @@ exec_always --no-startup-id python ~/.dotfiles/scripts/CombineI3.py
 # diable capslock. and map it to escape! its the best thing you will ever do.
 exec --no-startup-id xmodmap -e 'clear Lock'
 exec --no-startup-id xmodmap -e 'keycode 0x42=Escape' 
-
-### LAPTOP BASE STARTS HERE ###
-

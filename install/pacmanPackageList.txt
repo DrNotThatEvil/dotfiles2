@@ -21,7 +21,6 @@ pulseaudio-bluetooth
 pulseaudio-ctl
 redshift
 rofi
-steam
 unzip
 vlc
 xdotool
@@ -35,3 +34,14 @@ gnome-keyring
 python2-neovim
 python-neovim
 libqalculate
+imagemagick
+xorg-xmodmap
+w3m
+ranger
+lsgst-libav
+gst-plugins-base
+lsgst-plugins-good
+lsgst-plugins-bad\gst-plugins-ugly
+arandr
+rfkill
+gnome-keyring

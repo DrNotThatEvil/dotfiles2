@@ -1,0 +1,47 @@
+set ssl_verify_dates=yes
+set ssl_verify_host=yes
+
+unset ssl_usesystemcerts
+# Here you include all the email configs .. these i will not put in my dotfile for privacy concerns.
+# Sorry mate. It's just life 
+
+# source ~/.config/mutt/..
+# source ~/.config/mutt/..
+# source ~/.config/mutt/..
+
+set sort = 'reverse-date'
+set editor = nvim
+set timeout = "5"
+set mail_check = "10"
+set mailcap_path = "~/.config/mutt/mailcap"
+set date_format="%m/%d %I:%M"
+set index_format="%2C %Z %d %-15.15F %s (%-4.4c)"
+
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+mono bold bold
+mono underline underline
+mono indicator reverse
+color index yellow default '.*'
+color index_author red default '.*'
+color index_number blue default
+color index_subject cyan default '.s'
+color index_size green default 
+color normal default default
+color body brightred default [\-\.+)a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+
+bind editor <space> noop
+bind index G last-entry
+bind index gg first-entry
+bind index d half-down
+bind index u half-up
+bind index D delete-message
+bind index U undelete-message
+bind index F search
+bind index R group-reply
+bind attach <return> view-mailcap
+
+# Here put the commands to switch to other inboxes. 
+# Also left out for privacy concerns sorry mate. or gal.. of course...
