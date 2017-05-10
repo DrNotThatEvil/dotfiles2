@@ -77,3 +77,18 @@ for file in "${!vimfiles[@]}"; do
         ln -s ${vimfiles[$file]} $file
     fi
 done
+
+echo -e "\n\nCreating other simlinks"
+echo "=============================="
+
+typeset -A otherfiles
+otherfiles[~/.moc]=$DOTFILES/moc
+
+for file in "${!otherfiles[@]}"; do
+    if [ -e ${file} ]; then
+        echo "${file} already exists... skipping"
+    else
+        echo "Creating symlink for $file"
+        ln -s ${otherfiles[$file]} $file
+    fi
+done

@@ -39,6 +39,9 @@
   call dein#add('tmux-plugins/vim-tmux')
   call dein#add('Shougo/denite.nvim')
   call dein#add('reedes/vim-colors-pencil')
+  call dein#add('plasticboy/vim-markdown')
+" Formatting
+  call dein#add('godlygeek/tabular')
 " call dein#add('frankier/neovim-colors-solarized-truecolor-only')
   call dein#add('mhartington/vim-folds')
   call dein#add('Yggdroot/indentLine')
@@ -195,7 +198,7 @@
   let g:go_fmt_command = "goimports"
   let g:table_mode_corner="|"
   let g:dein#install_progress_type = 'none'
-  
+  let g:jedi#auto_close_doc  = 1
 " No need for ex mode
   nnoremap Q <nop>
 " recording macros is not my thing

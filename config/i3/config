@@ -6,8 +6,8 @@
 
 hide_edge_borders both
 for_window [class="^.*"] border pixel 0
-gaps inner 15
-gaps outer 15
+gaps inner 5
+gaps outer 5
 
 set $mod Mod1
 
@@ -69,13 +69,12 @@ bindsym $mod+w exec qutebrowser
 bindsym $mod+Shift+w exec --no-startup-id $browser
 
 bindsym $mod+e exec $term -e mutt
-bindsym $mod+u exec $mail
 
 bindsym $mod+r exec $term -e ranger
 bindsym $mod+Shift+r restart
 
 bindsym $mod+t split toggle
-bindsym $mod+Shift+t gaps inner all set 15; gaps outer all set 15
+bindsym $mod+Shift+t gaps inner all set 5; gaps outer all set 5
 
 bindsym $mod+Shift+y resize shrink width 10 px or 10 ppt
 
@@ -113,10 +112,12 @@ bindsym $mod+Shift+l move right 30
 bindsym $mod+z gaps outer current plus 5
 bindsym $mod+Shift+z gaps outer current minus 5
 
-bindsym $mod+Shift+v exec shutdown now
+bindsym $mod+Shift+v exec "i3-nagbar -t warning -m 'You pressed the exit shutdown shortcut. Do you really want to shutdown your pc?.' -b 'Yes, SHUTDOWN' 'shutdown now'"
 
 bindsym $mod+c split toggle
 bindsym $mod+Shift+c reload
+
+bindsym $mod+g exec --no-startup-id pavucontrol
 
 # bindsym $mod+v exec $term -e nvim
 
@@ -200,8 +201,8 @@ assign [class="KeePass2"] $ws7
 #As i sad keepass on workspace3
 
 for_window [class="^.*"] border pixel 1  
-for_window [instance="sun-awt-X11-XFramePeer"] floating enable
-for_window [instance="sun-awt-X11-*"] floating enable
+# for_window [instance="sun-awt-X11-XFramePeer"] floating enable
+# for_window [instance="sun-awt-X11-*"] floating enable
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
@@ -227,6 +228,12 @@ bindsym $mod+Shift+bracketleft exec --no-startup-id mocp -k -120
 
 bindsym $mod+bracketright exec --no-startup-id mocp -k 10
 bindsym $mod+Shift+bracketright exec --no-startup-id mocp -k 120
+
+bindsym $mod+comma exec --no-startup-id exec mocp -v -10
+bindsym $mod+less exec --no-startup-id exec mocp -v -25
+
+bindsym $mod+period exec --no-startup-id exec mocp -v 10
+bindsym $mod+greater exec --no-startup-id exec mocp -v 25
 
 bindsym XF86AudioPlay exec --no-startup-id mocp -G
 bindsym XF86AudioPause exec --no-startup-id mocp -G
@@ -260,19 +267,16 @@ bindsym $mod+F7 exec light -U 10
 bindsym $mod+F8 exec light -A 10
 ############
 
-bar {
-  font pango:Inconsolata 10
-  status_command /home/wilvin/.i3/bumblebee-status/bumblebee-status -m battery nic pacman disk datetime -p disk.path=/home datetime.format="%a, %b %d, %Y at %H:%M:%S" nic.exclude="enp3s0,lo" -t gruvbox-powerline
-  position top
-  tray_output none
-}
-
 # A unixporn worth lockscreen you can find it on google it looks wonderfull
 bindsym $mod+Shift+x exec ~/.dotfiles/scripts/lock.sh
+
+# Diable screen blacking
+exec --no-startup-id xset s off -dpms 
 
 # Other stuff im to lazy to start by hand. Strive to be lazy!
 exec --no-startup-id pulseaudio --start
 exec --no-startup-id dunst -config ~/.dunstrc
+exec --no-startup-id owncloud
 exec_always --no-startup-id feh --bg-scale ~/.dotfiles/pictures/Wallpaper.jpg
 exec_always --no-startup-id python ~/.dotfiles/scripts/Shortcuts.py
 exec_always --no-startup-id python ~/.dotfiles/scripts/CombineI3.py
@@ -280,11 +284,22 @@ exec_always --no-startup-id python ~/.dotfiles/scripts/CombineI3.py
 # its pretty cool it helps me move from system to system and have some bindings specific for each system
 # ( For multi monitor stuff for example )
 
+## I saw this idea from Luke Smith. I thought I NEED THIS RIGHT NOW! Thanks Luke your videos make my i3 way more awesome then it was!
+exec --no-startup-id $term --name=dropdown -e tmux new-session
+for_window [instance="dropdown"] floating enable;
+for_window [instance="dropdown"] move scratchpad; [instance="dropdown"] scratchpad show; move scratchpad
+
+bindsym $mod+u [instance="dropdown"] scratchpad show
+
+# This is a custom sensor script for a sensor i have attached to my door.
+exec --no-startup-id python /home/wilvin/Development/DoorSensor/SensorService.py
+
+# For my emails
+exec --no-startup-id offlineimap
 
 # About that wallpaper i have no idea where i found it once but
 # it looks nice. i have no idea if it's from a anime or something.
 # i just have it in my dotfiles so i can take it with me and not lose it.
-
 
 # Okay the next thing needs some explaining.
 # ever used vim? well its a text editors witch uses modes.
@@ -295,5 +310,16 @@ exec_always --no-startup-id python ~/.dotfiles/scripts/CombineI3.py
 exec --no-startup-id xmodmap -e 'clear Lock'
 exec --no-startup-id xmodmap -e 'keycode 0x42=Escape' 
 
-### LAPTOP BASE STARTS HERE ###
+## MAIN DESKTOP SETTINGS ##
+
+bar {
+  font pango:Inconsolata 10
+  status_command /home/wilvin/.i3/bumblebee-status/bumblebee-status -m nic pacman disk datetime -p disk.path=/home datetime.format="%a, %b %d, %Y at %H:%M:%S" nic.exclude="enp3s0,lo" -t gruvbox-powerline
+  position top
+  tray_output none
+}
+
+workspace $ws2 output DP-2
+workspace $ws1 output DP-4.8
+workspace $ws3 output HDMI-0
 

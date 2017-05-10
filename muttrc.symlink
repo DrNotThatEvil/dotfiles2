@@ -5,9 +5,9 @@ unset ssl_usesystemcerts
 # Here you include all the email configs .. these i will not put in my dotfile for privacy concerns.
 # Sorry mate. It's just life 
 
-# source ~/.config/mutt/..
-# source ~/.config/mutt/..
-# source ~/.config/mutt/..
+source ~/.config/mutt/gpgrc
+source ~/.config/mutt/liverc
+#source ~/.config/mutt/..
 
 set sort = 'reverse-date'
 set editor = nvim
@@ -45,3 +45,5 @@ bind attach <return> view-mailcap
 
 # Here put the commands to switch to other inboxes. 
 # Also left out for privacy concerns sorry mate. or gal.. of course...
+macro index K "<sync-mailbox><enter-command>source ~/.config/mutt/cocklirc<enter><change-folder>!<enter>"
+macro index X "<sync-mailbox><enter-command>source ~/.config/mutt/liverc<enter><change-folder>!<enter>"

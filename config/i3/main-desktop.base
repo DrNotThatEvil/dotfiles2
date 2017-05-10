@@ -1,1 +1,12 @@
 ## MAIN DESKTOP SETTINGS ##
+
+bar {
+  font pango:Inconsolata 10
+  status_command /home/wilvin/.i3/bumblebee-status/bumblebee-status -m nic pacman disk datetime -p disk.path=/home datetime.format="%a, %b %d, %Y at %H:%M:%S" nic.exclude="enp3s0,lo" -t gruvbox-powerline
+  position top
+  tray_output none
+}
+
+workspace $ws2 output DP-2
+workspace $ws1 output DP-4.8
+workspace $ws3 output HDMI-0
