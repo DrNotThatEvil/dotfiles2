@@ -12,3 +12,5 @@ config/nvim/.cache
 config/i3/config
 config/weechat/irc.conf
 config/ranger/history
+
+**/cache/**
