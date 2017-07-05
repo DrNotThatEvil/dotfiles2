@@ -1,3 +1,5 @@
+scripts/device
+
 config/nvim/temp
 config/nvim/merged
 config/nvim/repos
@@ -6,3 +8,4 @@ config/nvim/.dein
 config/nvim/.cache
 config/mutt/**
 config/i3/config
+config/weechat/irc.conf
