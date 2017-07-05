@@ -1,5 +1,8 @@
 scripts/device
 
+weechat/logs/**
+weechat/irc.conf
+
 config/nvim/temp
 config/nvim/merged
 config/nvim/repos
