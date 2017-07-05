@@ -4,7 +4,6 @@ config/nvim/repos
 config/nvim/rollbacks
 config/nvim/.dein
 config/nvim/.cache
-config/mutt/**
 config/i3/config
 
 config/ranger/history
