@@ -4,3 +4,4 @@ qutebrowser
 neomutt
 i3lock
 dunst-git
+ttf-inconsolata
