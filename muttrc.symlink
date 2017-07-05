@@ -46,4 +46,6 @@ bind attach <return> view-mailcap
 # Here put the commands to switch to other inboxes. 
 # Also left out for privacy concerns sorry mate. or gal.. of course...
 macro index K "<sync-mailbox><enter-command>source ~/.config/mutt/cocklirc<enter><change-folder>!<enter>"
+macro index H "<sync-mailbox><enter-command>source ~/.config/mutt/cockliggphyduck<enter><change-folder>!<enter>"
+macro index L "<sync-mailbox><enter-command>source ~/.config/mutt/electrumrc<enter><change-folder>!<enter>"
 macro index X "<sync-mailbox><enter-command>source ~/.config/mutt/liverc<enter><change-folder>!<enter>"

@@ -145,6 +145,9 @@
   let g:instant_markdown_autostart = 0
   autocmd TermOpen * set bufhidden=hide
 
+  let g:tex_conceal = ""
+  let g:vim_markdown_math = 1
+
 " Setting up some stuff.
   set dictionary+=~/.vim/bundle/bootstrap-snippets/dictionary
   set complete+=k

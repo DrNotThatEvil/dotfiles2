@@ -6,6 +6,7 @@
 
 hide_edge_borders both
 for_window [class="^.*"] border pixel 0
+for_window [class="qjackctl"] floating enable
 gaps inner 5
 gaps outer 5
 
@@ -291,6 +292,9 @@ for_window [instance="dropdown"] floating enable;
 for_window [instance="dropdown"] move scratchpad; [instance="dropdown"] scratchpad show; move scratchpad
 
 bindsym $mod+u [instance="dropdown"] scratchpad show
+
+# This is a custom sensor script for a sensor i have attached to my door.
+# exec --no-startup-id /home/wilvin/Development/DoorSensor/venv/bin/python3.6 /home/wilvin/Development/DoorSensor/SensorService.py
 
 # For my emails
 exec --no-startup-id offlineimap

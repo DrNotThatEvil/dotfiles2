@@ -1,0 +1,116 @@
+# Sample minimal config file.  Copy this to ~/.offlineimaprc and edit to
+# get started fast.
+
+[general]
+accounts = main, cockli, electrum-server, cockli_irc
+maxsyncaccounts = 4
+pythonfile = ~/.offlineimap.py
+
+
+[Account main]
+localrepository = main-local
+remoterepository = main-remote
+autorefresh = 0.5
+quick = 10
+postsynchook = /home/wilvin/.config/offlineimap/offlineimaphook.sh live main Inbox
+
+[Account cockli]
+localrepository = cockli-local
+remoterepository = cockli-remote
+autorefresh = 0.5
+quick = 10
+postsynchook = /home/wilvin/.config/offlineimap/offlineimaphook.sh cock cockli INBOX
+
+[Account cockli_irc]
+localrepository = cockli-irc-local
+remoterepository = cockli-irc-remote
+autorefresh = 0.5
+quick = 10
+postsynchook = /home/wilvin/.config/offlineimap/offlineimaphook.sh cockli_irc irc INBOX
+
+[Account electrum-server]
+localrepository = transip-local
+remoterepository = transip-remote
+autorefresh = 0.5
+quick = 10
+postsynchook = /home/wilvin/.config/offlineimap/offlineimaphook.sh electrum transip-electrum INBOX
+
+[Repository main-local]
+type = Maildir
+localfolders = ~/Mail/main
+
+[Repository cockli-local]
+type = Maildir
+localfolders = ~/Mail/cockli
+
+[Repository cockli-irc-local]
+type = Maildir
+localfolders = ~/Mail/ggPhyduck
+
+[Repository transip-local]
+type = Maildir
+localfolders = ~/Mail/transip-electrum
+
+[Repository main-remote]
+type = IMAP
+ssl = yes
+remotehost = imap-mail.outlook.com
+remoteuser = wil7vin@live.nl
+remoteport = 993
+remotepasseval = get_pass("wil7vin@live.nl", "main")
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+folderfilter = lambda foldername: foldername in ["Inbox", "Sent", "Drafts", "Junk"]
+keepalive = 60
+holdconnectionopen = yes
+auth_mechanisms = GSSAPI, CRAM-MD5, PLAIN, LOGIN
+maxconnections = 1
+
+[Repository cockli-remote]
+type = IMAP
+ssl = yes
+remotehost = mail.cock.li
+remoteuser = wilvin@cock.li
+remoteport = 993
+remotepasseval = get_pass("wilvin@cock.li", "cockli")
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+#folderfilter = lambda foldername: foldername in ["INBOX", "Sent", "Drafts", "Junk"]
+keepalive = 60
+holdconnectionopen = yes
+auth_mechanisms = GSSAPI, CRAM-MD5, PLAIN, LOGIN
+maxconnections = 1
+
+[Repository cockli-irc-remote]
+type = IMAP
+ssl = yes
+remotehost = mail.cock.li
+remoteusereval = get_email("wil7vin@live.nl", "irc")
+remoteport = 993
+remotepasseval = get_pass("wil7vin@live.nl", "irc")
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+#folderfilter = lambda foldername: foldername in ["INBOX", "Sent", "Drafts", "Junk"]
+keepalive = 60
+holdconnectionopen = yes
+auth_mechanisms = GSSAPI, CRAM-MD5, PLAIN, LOGIN
+maxconnections = 1
+
+[Repository transip-remote]
+type = IMAP
+ssl = yes
+remotehost = imap.transip.email
+remoteuser = electrum-servers@wilv.in
+remoteport = 993
+remotepass = get_pass("wil7vin@live.nl", "electrum") 
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+#folderfilter = lambda foldername: foldername in ["Inbox", "Sent", "Drafts", "Junk"]
+keepalive = 60
+holdconnectionopen = yes
+auth_mechanisms = GSSAPI, CRAM-MD5, PLAIN, LOGIN
+maxconnections = 1
+
+[mbnames]
+enabled = yes
+filename = ~/.config/mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
