@@ -1,5 +1,7 @@
-source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-
 setopt HIST_IGNORE_SPACE
 alias jrnl=" jrnl"
-alias pac="sudo pacman"
+alias spac="sudo pacman"
+
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
