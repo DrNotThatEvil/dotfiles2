@@ -7,3 +7,5 @@ config/nvim/.cache
 config/i3/config
 
 config/ranger/history
+
+**/cache/**
