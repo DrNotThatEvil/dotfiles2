@@ -1,6 +1,6 @@
 #!/bin/env bash
-OLD_STAT_FILE='/home/wilvin/.new_mail_count_stat'
-new_dir="$HOME/Mail/main/Inbox/new"
+OLD_STAT_FILE="$HOME/.new_mail_count_stat_$1"
+new_dir="$HOME/Mail/$2/$3/new"
 num_mail=$(ls $new_dir|wc -l)
 message=""
 

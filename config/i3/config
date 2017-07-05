@@ -6,6 +6,7 @@
 
 hide_edge_borders both
 for_window [class="^.*"] border pixel 0
+for_window [class="qjackctl"] floating enable
 gaps inner 5
 gaps outer 5
 
@@ -128,7 +129,7 @@ bindsym $mod+n exec --no-startup-id mocp -f
 bindsym $mod+m exec $term -e mocp
 
 bindsym F1 exec --no-startup-id echo "help" > /dev/null
-# bindsym F2 
+bindsym F2 exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu'
 # bindsym F3
 # bindsym F4
 # bindsym F5
@@ -292,7 +293,7 @@ for_window [instance="dropdown"] move scratchpad; [instance="dropdown"] scratchp
 bindsym $mod+u [instance="dropdown"] scratchpad show
 
 # This is a custom sensor script for a sensor i have attached to my door.
-exec --no-startup-id python /home/wilvin/Development/DoorSensor/SensorService.py
+exec --no-startup-id /home/wilvin/Development/DoorSensor/venv/bin/python3.6 /home/wilvin/Development/DoorSensor/SensorService.py
 
 # For my emails
 exec --no-startup-id offlineimap

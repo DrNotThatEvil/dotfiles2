@@ -2,4 +2,7 @@ source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
 setopt HIST_IGNORE_SPACE
 alias jrnl=" jrnl"
-alias pac="sudo pacman"
+alias spac="sudo pacman"
+
+export JAVA_HOME="/usr/lib/jvm/java-7-openjdk"
+export PATH="$PATH:$HOME/.local/bin/"

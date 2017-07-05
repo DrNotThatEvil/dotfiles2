@@ -83,6 +83,7 @@ echo "=============================="
 
 typeset -A otherfiles
 otherfiles[~/.moc]=$DOTFILES/moc
+otherfiles[~/.offlineimap.py]=$DOTFILES/scripts/offlineimap/offlineimap.py
 
 for file in "${!otherfiles[@]}"; do
     if [ -e ${file} ]; then
