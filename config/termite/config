@@ -1,34 +1,50 @@
+[options]
+
+# cursor
+cursor_blink = system
+cursor_shape = ibeam
+
+# font type and size
+font = Droid Sans Mono Slashed for Powerline 10
+browser = firefox
+
 [colors]
-# Base16 Atelier Cave
-# Scheme: Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/cave)
 
-foreground      = #8b8792
-foreground_bold = #8b8792
-cursor          = #8b8792
-background      = rgba(25, 23, 28, 0.9)
+# special
+foreground      = #e7e7e9
+foreground_bold = #e7e7e9
+cursor          = #e7e7e9
+background      = #161718
 
-# 16 color space
-color0  = #19171c
-color1  = #be4678
-color2  = #2a9292
-color3  = #a06e3b
-color4  = #576ddb
-color5  = #955ae7
-color6  = #398bc6
-color7  = #8b8792
-color8  = #655f6d
-color9  = #be4678
-color10 = #2a9292
-color11 = #a06e3b
-color12 = #576ddb
-color13 = #955ae7
-color14 = #398bc6
-color15 = #efecf4
+# black
+color0  = #0b0d0f
+color8  = #3b4f61
 
-# 256 color space
-color16 = #aa573c
-color17 = #bf40bf
-color18 = #26232a
-color19 = #585260
-color20 = #7e7887
-color21 = #e2dfe7
+# red
+color1  = #483946
+color9  = #6cb3d6
+
+# green
+color2  = #72666e
+color10 = #79bcd6
+
+# yellow
+color3  = #b3cbd7
+color11 = #92c5d6
+
+# blue
+color4  = #48afde
+color12 = #006db9
+
+# magenta
+color5  = #4f6b85
+color13 = #212732
+
+# cyan
+color6  = #313f4d
+color14 = #919191
+
+# white
+color7  = #0037a4
+color15 = #4b85d1
+

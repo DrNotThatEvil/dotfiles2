@@ -16,6 +16,9 @@ if os.path.isfile(devicefile) and os.access(devicefile, os.R_OK):
     i3_output = i3_dir + '/config'
     
     i3_content = i3_dir + '/' + content
+    if not os.path.exists(i3_output):
+        open(i3_output, 'w').close()
+
     if os.path.isfile(i3_output) and os.access(i3_output, os.R_OK):
 
         if os.path.isfile(i3_content) and os.access(i3_content, os.R_OK):
