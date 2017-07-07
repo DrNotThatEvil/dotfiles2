@@ -1,7 +1,0 @@
-i3-gaps-git
-termite-git
-qutebrowser
-neomutt
-i3lock
-dunst-git
-ttf-inconsolata

@@ -1,0 +1,36 @@
+arduino-git 1.8.2.r18.gd4458c0ca-1
+bumblebee-status-git r292.188ee36-4
+chrome-gnome-shell-git 9.r2.ga691adb-1
+cower 17-2
+discord-canary 0.0.19-1
+dunst-git
+electrum-ltc
+gitflow-git
+gnoduino
+google-chrome
+grantlee-qt4
+i3-gaps-git
+libc++
+libc++abi
+libc++experimental
+light-git
+neomutt
+nerd-fonts-source-code-pro
+numix-circle-icon-theme-git
+numix-icon-theme-git
+numix-themes-archblue-git
+openvpn-update-resolv-conf
+pac
+pacaur
+python2-ltc_scrypt
+qownnotes
+ruby-maruku
+ruby-sass
+ruby-yard
+termite-git
+tor-browser-en
+ttf-droid-sans-mono-slashed-powerline-git
+weechat-git
+wimlib
+xorg-server-utils
+xorg-utils
