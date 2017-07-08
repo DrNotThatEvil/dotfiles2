@@ -1,8 +1,7 @@
-arduino-git 1.8.2.r18.gd4458c0ca-1
-bumblebee-status-git r292.188ee36-4
-chrome-gnome-shell-git 9.r2.ga691adb-1
+arduino-git
+bumblebee-status-git
 cower 17-2
-discord-canary 0.0.19-1
+discord-canary
 dunst-git
 electrum-ltc
 gitflow-git
