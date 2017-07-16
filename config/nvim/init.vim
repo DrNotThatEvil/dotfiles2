@@ -106,6 +106,8 @@
 " call dein#add('ryanoasis/vim-devicons')
 " call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
   call dein#add('Soares/base16.nvim')
+  call dein#add('godlygeek/tabular')
+  call dein#add('plasticboy/vim-markdown')
 
   if dein#check_install()
     call dein#install()

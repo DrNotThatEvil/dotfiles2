@@ -32,9 +32,11 @@ color normal default default
 color body brightred default [\-\.+)a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
 color body brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
 
+bind index g noop
+
 bind editor <space> noop
 bind index G last-entry
-bind index gg first-entry
+bind index g first-entry
 bind index d half-down
 bind index u half-up
 bind index D delete-message

@@ -139,8 +139,8 @@ bindsym F11 fullscreen toggle
 
 bindsym $mod+F3 exec arandr
 # bindsym $mod+F4 exec sudo systemctl supsend
-bindsym $mod+F5 exec --no-starup-id sudo systemctl restart NetworkManager
-bindsym $mod+F6 exec --no-startup-id keepass /home/wilvin/Stack/password_manager/MainDatabase.kdbx
+# bindsym $mod+F5 exec --no-starup-id sudo systemctl restart NetworkManager
+# bindsym $mod+F6 exec --no-startup-id keepass /home/wilvin/Stack/password_manager/MainDatabase.kdbx
 # bindsym $mod+F7
 # bindsym $mod+F8
 # bindsym $mod+F9
@@ -278,7 +278,7 @@ exec --no-startup-id xset s off -dpms
 # Other stuff im to lazy to start by hand. Strive to be lazy!
 exec --no-startup-id pulseaudio --start
 exec --no-startup-id dunst -config ~/.dunstrc
-exec --no-startup-id owncloud
+exec --no-startup-id exec owncloud
 exec_always --no-startup-id feh --bg-scale ~/.dotfiles/pictures/Wallpaper_new.png
 exec_always --no-startup-id python ~/.dotfiles/scripts/Shortcuts.py
 exec_always --no-startup-id python ~/.dotfiles/scripts/CombineI3.py
@@ -297,7 +297,7 @@ bindsym $mod+u [instance="dropdown"] scratchpad show
 # exec --no-startup-id /home/wilvin/Development/DoorSensor/venv/bin/python3.6 /home/wilvin/Development/DoorSensor/SensorService.py
 
 # For my emails
-exec --no-startup-id offlineimap
+exec --no-startup-id "sh -c 'sleep 10; exec offlineimap'"
 
 # About that wallpaper i have no idea where i found it once but
 # it looks nice. i have no idea if it's from a anime or something.

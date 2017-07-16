@@ -11,40 +11,40 @@ browser = firefox
 [colors]
 
 # special
-foreground      = #e7e7e9
-foreground_bold = #e7e7e9
-cursor          = #e7e7e9
-background      = #161718
+foreground      = #c5c8c6
+foreground_bold = #c5c8c6
+cursor          = #c5c8c6
+background      = #1d1f21
 
 # black
-color0  = #0b0d0f
-color8  = #3b4f61
+color0  = #1d1f21
+color8  = #969896
 
 # red
-color1  = #483946
-color9  = #6cb3d6
+color1  = #cc342b
+color9  = #cc342b
 
 # green
-color2  = #72666e
-color10 = #79bcd6
+color2  = #198844
+color10 = #198844
 
 # yellow
-color3  = #b3cbd7
-color11 = #92c5d6
+color3  = #fba922
+color11 = #fba922
 
 # blue
-color4  = #48afde
-color12 = #006db9
+color4  = #3971ed
+color12 = #3971ed
 
 # magenta
-color5  = #4f6b85
-color13 = #212732
+color5  = #a36ac7
+color13 = #a36ac7
 
 # cyan
-color6  = #313f4d
-color14 = #919191
+color6  = #3971ed
+color14 = #3971ed
 
 # white
-color7  = #0037a4
-color15 = #4b85d1
+color7  = #c5c8c6
+color15 = #ffffff
 

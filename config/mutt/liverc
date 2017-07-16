@@ -38,9 +38,9 @@ ignore *
 unignore from: to: cc: date: subject:
 hdr_order from: to: cc: date: subject:
 
-macro index gi "<change-folder>=main/INBOX<enter>" "Go to inbox"
-macro index gs "<change-folder>=main/Sent<enter>" "Go to sent"
-macro index gd "<change-folder>=main/Drafts<enter>" "Go to drafts"
-macro index gj "<change-folder>=main/Junk<enter>" "Go to junk"
-macro index gt "<change-folder>=main/Trash<enter>" "Go to trash"
+#macro index gi "<change-folder>=main/INBOX<enter>" "Go to inbox"
+#macro index gs "<change-folder>=main/Sent<enter>" "Go to sent"
+#macro index gd "<change-folder>=main/Drafts<enter>" "Go to drafts"
+#macro index gj "<change-folder>=main/Junk<enter>" "Go to junk"
+#macro index gt "<change-folder>=main/Trash<enter>" "Go to trash"
 

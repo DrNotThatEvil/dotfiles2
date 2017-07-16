@@ -1,35 +1,37 @@
-[2017-06-30 14:56:29] WeeChat 1.9-dev (git: v1.8-33-g65b1edf5b) (compiled on May 27 2017 22:11:31)
-[2017-06-30 14:56:29] Reading configuration file sec.conf
-[2017-06-30 14:56:29] Reading configuration file weechat.conf
-[2017-06-30 14:56:29] Reading configuration file plugins.conf
-[2017-06-30 14:56:29] Reading configuration file charset.conf
-[2017-06-30 14:56:29] Reading configuration file logger.conf
-[2017-06-30 14:56:29] Reading configuration file exec.conf
-[2017-06-30 14:56:29] Reading configuration file trigger.conf
-[2017-06-30 14:56:29] Reading configuration file aspell.conf
-[2017-06-30 14:56:29] Reading configuration file alias.conf
-[2017-06-30 14:56:29] Reading configuration file buflist.conf
-[2017-06-30 14:56:29] Reading configuration file fifo.conf
-[2017-06-30 14:56:29] Reading configuration file xfer.conf
-[2017-06-30 14:56:29] Reading configuration file irc.conf
-[2017-06-30 14:56:29] Reading configuration file relay.conf
-[2017-06-30 14:56:29] Reading configuration file script.conf
-[2017-06-30 14:56:29] irc: connecting to server spunkyhunky.duckdns.org/6660 (SSL)...
-[2017-06-30 14:56:29] irc: connecting to server spunkyhunky.duckdns.org/6660 (SSL)...
-[2017-06-30 14:56:29] irc: connecting to server spunkyhunky.duckdns.org/6660 (SSL)...
-[2017-06-30 15:38:23] Terminal lost, exiting WeeChat...
-[2017-06-30 15:38:23] Writing configuration file plugins.conf
-[2017-06-30 15:38:23] Writing configuration file charset.conf
-[2017-06-30 15:38:23] Writing configuration file aspell.conf
-[2017-06-30 15:38:23] Writing configuration file alias.conf
-[2017-06-30 15:38:23] Writing configuration file trigger.conf
-[2017-06-30 15:38:23] Writing configuration file relay.conf
-[2017-06-30 15:38:23] Writing configuration file logger.conf
-[2017-06-30 15:38:23] Writing configuration file fifo.conf
-[2017-06-30 15:38:23] Writing configuration file exec.conf
-[2017-06-30 15:38:23] Writing configuration file script.conf
-[2017-06-30 15:38:23] Writing configuration file irc.conf
-[2017-06-30 15:38:24] Writing configuration file xfer.conf
-[2017-06-30 15:38:24] Writing configuration file buflist.conf
-[2017-06-30 15:38:24] Writing configuration file weechat.conf
-[2017-06-30 15:38:24] Writing configuration file sec.conf
+[2017-07-16 14:50:21] WeeChat 2.0-dev (git: v1.9-186-g29d24c288) (compiled on Jul  8 2017 16:44:06)
+[2017-07-16 14:50:21] Reading configuration file sec.conf
+[2017-07-16 14:50:21] Reading configuration file weechat.conf
+[2017-07-16 14:50:21] Reading configuration file plugins.conf
+[2017-07-16 14:50:21] Reading configuration file charset.conf
+[2017-07-16 14:50:21] Reading configuration file logger.conf
+[2017-07-16 14:50:21] Reading configuration file exec.conf
+[2017-07-16 14:50:21] Reading configuration file trigger.conf
+[2017-07-16 14:50:21] Reading configuration file aspell.conf
+[2017-07-16 14:50:21] Reading configuration file alias.conf
+[2017-07-16 14:50:21] Reading configuration file buflist.conf
+[2017-07-16 14:50:21] Reading configuration file fifo.conf
+[2017-07-16 14:50:21] Reading configuration file xfer.conf
+[2017-07-16 14:50:21] Reading configuration file irc.conf
+[2017-07-16 14:50:21] Reading configuration file relay.conf
+[2017-07-16 14:50:21] Reading configuration file script.conf
+[2017-07-16 14:50:21] Reading configuration file fset.conf
+[2017-07-16 14:50:21] irc: connecting to server spunkyhunky.duckdns.org/6660 (SSL)...
+[2017-07-16 14:50:21] irc: connecting to server spunkyhunky.duckdns.org/6660 (SSL)...
+[2017-07-16 14:50:21] irc: connecting to server spunkyhunky.duckdns.org/6660 (SSL)...
+[2017-07-16 14:59:30] Terminal lost, exiting WeeChat...
+[2017-07-16 14:59:30] Writing configuration file plugins.conf
+[2017-07-16 14:59:30] Writing configuration file irc.conf
+[2017-07-16 14:59:30] Writing configuration file charset.conf
+[2017-07-16 14:59:30] Writing configuration file script.conf
+[2017-07-16 14:59:30] Writing configuration file exec.conf
+[2017-07-16 14:59:30] Writing configuration file relay.conf
+[2017-07-16 14:59:30] Writing configuration file fset.conf
+[2017-07-16 14:59:30] Writing configuration file fifo.conf
+[2017-07-16 14:59:30] Writing configuration file xfer.conf
+[2017-07-16 14:59:30] Writing configuration file logger.conf
+[2017-07-16 14:59:30] Writing configuration file aspell.conf
+[2017-07-16 14:59:30] Writing configuration file trigger.conf
+[2017-07-16 14:59:30] Writing configuration file buflist.conf
+[2017-07-16 14:59:30] Writing configuration file alias.conf
+[2017-07-16 14:59:30] Writing configuration file weechat.conf
+[2017-07-16 14:59:30] Writing configuration file sec.conf
