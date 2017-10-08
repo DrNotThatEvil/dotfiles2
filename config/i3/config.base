@@ -197,7 +197,7 @@ bindsym $mod+0 workspace $ws10
 
 assign [class="Firefox"] $ws2   
 #As i sad only firefox on workspace1.
-assign [class="Atom"] $ws3      
+# assign [class="Atom"] $ws3      
 #As i sad other text editor on 3
 assign [class="KeePass2"] $ws7  
 #As i sad keepass on workspace3

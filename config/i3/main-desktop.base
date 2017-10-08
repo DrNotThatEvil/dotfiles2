@@ -5,7 +5,7 @@ exec --no-startup-id python /home/wilvin/Development/DoorSensor/SensorService.py
 
 bar {
   font pango:Inconsolata 10
-  status_command /home/wilvin/.i3/bumblebee-status/bumblebee-status -m nic pacman disk datetime -p disk.path=/home datetime.format="%a, %b %d, %Y at %H:%M:%S" nic.exclude="enp3s0,lo" -t gruvbox-powerline
+  status_command /home/wilvin/.dotfiles/i3/bumblebee-status/bumblebee-status -m nic pacman disk datetime -p disk.path=/home datetime.format="%a, %b %d, %Y at %H:%M:%S" nic.exclude="enp3s0,lo" -t gruvbox-powerline
   position top
   tray_output none
 }

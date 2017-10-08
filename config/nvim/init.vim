@@ -108,6 +108,7 @@
   call dein#add('Soares/base16.nvim')
   call dein#add('godlygeek/tabular')
   call dein#add('plasticboy/vim-markdown')
+  call dein#add('davisdude/vim-love-docs')
 
   if dein#check_install()
     call dein#install()

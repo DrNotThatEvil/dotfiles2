@@ -96,10 +96,10 @@ maxconnections = 1
 [Repository transip-remote]
 type = IMAP
 ssl = yes
-remotehost = imap.transip.email
+remotehost = golduck.wilv.in
 remoteuser = electrum-servers@wilv.in
 remoteport = 993
-remotepass = get_pass("wil7vin@live.nl", "electrum") 
+remotepasseval = get_pass("wil7vin@live.nl", "electrum") 
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 #folderfilter = lambda foldername: foldername in ["Inbox", "Sent", "Drafts", "Junk"]
 keepalive = 60

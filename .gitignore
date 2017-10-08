@@ -14,3 +14,4 @@ config/weechat/irc.conf
 config/ranger/history
 
 **/cache/**
+moc/pid

@@ -2,8 +2,12 @@ setopt HIST_IGNORE_SPACE
 alias jrnl=" jrnl"
 alias spac="sudo pacman"
 
+export ANDROID_HOME="/opt/android-sdk"
 export JAVA_HOME="/usr/lib/jvm/java-7-openjdk"
 export PATH="$PATH:$HOME/.local/bin/"
+
+export BORG_REPO='backup@192.168.1.145:basestation-backup'
+export BORG_PASSPHRASE='c6Hwvid7qHRgFs5u7iaZ'
 
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
