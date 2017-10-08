@@ -18,6 +18,7 @@ if (!isdirectory(expand("$HOME/.config/nvim/repos/github.com/Shougo/dein.vim")))
     let bundleExists = 0
 endif
 
+
 " Adding dein to runtime path
 set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim/
 set runtimepath+=~/.fzf
@@ -61,6 +62,22 @@ call dein#end()
 
 " Begin nvim settings.
 colorscheme turtles
+
+set noshowmode
+set noswapfile
+filetype on
+filetype plugin on
+filetype indent on
+set number
+set tabstop=4
+set softtabstop=4
+set smarttab
+set autoindent
+set shiftwidth=4
+set expandtab
+set wildmenu
+set expandtab 
+set laststatus=2
 
 " Plugin settings
 

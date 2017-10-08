@@ -1,0 +1,137 @@
+"  _     _  ___   ___      __   __        ___   __    _ 
+" | | _ | ||   | |   |    |  | |  |      |   | |  |  | |
+" | || || ||   | |   |    |  |_|  |      |   | |   |_| |
+" |       ||   | |   |    |       |      |   | |       |
+" |       ||   | |   |___ |       | ___  |   | |  _    |
+" |   _   ||   | |       | |     | |   | |   | | | |   |
+" |__| |__||___| |_______|  |___|  |___| |___| |_|  |__|
+"
+" Author: Willmar Knikker Aka @DrNotThatEvil.
+" Reop: https://github.com/drnotthatevil/dotfiles2/
+" 
+
+  source $HOME/.config/nvim/neomutt-syntax.vim
+
+  set nocompatible
+
+  if (!isdirectory(expand("$HOME/.config/nvim/repos/github.com/Shougo/dein.vim")))
+    call system(expand("mkdir -p $HOME/.config/nvim/repos/github.com"))
+    call system(expand("git clone https://github.com/Shougo/dein.vim $HOME/.config/nvim/repos/github.com/Shougo/dein.vim"))
+    let bundleExists = 0
+  endif
+
+  set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim/
+  call dein#begin(expand('~/.config/nvim'))
+ 
+  " Shougo plugins
+  call dein#add('Shougo/dein.vim')
+  call dein#add('Shougo/deoplete.nvim') 
+  call dein#add('Shougo/denite.nvim')
+  call dein#add('Shougo/unite.vim')
+  " Neomake
+  call dein#add('neomake/neomake')
+  " deoplete clang 
+  call dein#add('zchee/deoplete-clang')
+  " Tmux plugins
+  call dein#add('christoomey/vim-tmux-navigator')
+  " Nerd tree
+  call dein#add('scrooloose/nerdtree')
+  " Gutter plugins 
+  call dein#add('airblade/vim-gitgutter')
+  " Other plugins.
+  call dein#add('godlygeek/tabular')
+  call dein#add('ervandew/supertab')
+  
+
+" Plugin settings.
+  let g:deoplete#enable_at_statup = 1
+  set completeopt=longest,menuone,preview
+  let g:deoplete#sources = {}
+  let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+  let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
+  
+" Color scheme
+  call dein#add('Soares/base16.nvim')
+
+  if dein#check_install()
+    call dein#install()
+    let pluginsExist=1
+  endif
+  
+  call dein#end()
+  filetype plugin indent on
+  
+" ENABLING THE BREAKING OF THE HABBIT!
+  imap <up> <nop>
+  imap <down> <nop>
+  imap <left> <nop>
+  imap <right> <nop>
+
+  map <up> <nop>
+  map <down> <nop>
+  map <left> <nop>
+  map <right> <nop>
+
+" Theme settings.
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+ 
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+ 
+  syntax enable
+  colorscheme atelier-cave
+  set background=dark
+
+  let g:vim_markdown_folding_disabled = 1
+  autocmd BufRead,BufNewFile *.blade.php set filetype=html
+  autocmd BufRead,BufNewFile *.vue set filetype=vue
+  autocmd FileType markdown,text,html setlocal spell complete+=kspell
+  autocmd FileType markdown,text,html hi SpellBad guibg=#ff2929 guifg=#ffffff" ctermbg=224
+  let g:instant_markdown_autostart = 0
+  autocmd TermOpen * set bufhidden=hide
+
+  let g:tex_conceal = ""
+  let g:vim_markdown_math = 1
+
+" Setting up some stuff.
+  set dictionary+=~/.vim/bundle/bootstrap-snippets/dictionary
+  set complete+=k
+  set t_Co=256
+  set pastetoggle=<f6>
+  set noshowmode
+  set noswapfile
+  filetype on
+  filetype plugin on
+  filetype indent on
+  set number
+  set tabstop=2 
+  set softtabstop=2
+  set smarttab
+  set autoindent
+  set shiftwidth=2
+  set expandtab
+  set wildmenu
+  set expandtab 
+  set laststatus=2
+  set wrap linebreak nolist
+  set wildmode=full
+  let mapleader = ','
+  set undofile
+  set undodir="$HOME/.VIM_UNDO_FILES"
+  nnoremap <silent> <leader>a :LinuxCodingStyle<cr> 
+
+  let g:pdv_template_dir = $HOME."/.config/nvim/repos/github.com/tobyS/pdv/templates_snip"
+
+" NERDTree {{{
+  set fillchars=vert:│,fold:─
+  let g:vimfiler_tree_leaf_icon = ""
+  let g:vimfiler_tree_opened_icon = "▼"
+  let g:vimfiler_tree_closed_icon = "▷"
+  map - :NERDTreeToggle<CR>
+  autocmd StdinReadPre * let s:std_in=1
+  let NERDTreeShowHidden=1
+  let g:NERDTreeWinSize=45
+  let g:NERDTreeAutoDeleteBuffer=1
+" }}}
+
