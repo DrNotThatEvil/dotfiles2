@@ -1,1 +1,1 @@
-mailboxes "+cockli/Drafts" "+cockli/INBOX" "+cockli/Junk" "+cockli/Sent Items" "+cockli/Trash" "+cockli_irc/INBOX" "+cockli_irc/Junk" "+cockli_irc/Trash" "+main/Drafts" "+main/Inbox" "+main/Junk" "+main/Sent"
+mailboxes "+cockli/Drafts" "+cockli/INBOX" "+cockli/Junk" "+cockli/Sent Items" "+cockli/Trash" "+cockli_irc/INBOX" "+cockli_irc/Junk" "+cockli_irc/Trash" "+electrum-server/Drafts" "+electrum-server/INBOX" "+electrum-server/Junk" "+electrum-server/Sent" "+electrum-server/Trash" "+golduck/INBOX" "+main/Drafts" "+main/Inbox" "+main/Junk" "+main/Sent"

@@ -2,10 +2,9 @@
 # get started fast.
 
 [general]
-accounts = main, cockli, electrum-server, cockli_irc
+accounts = main, cockli, electrum-server, cockli_irc, golduck
 maxsyncaccounts = 4
 pythonfile = ~/.offlineimap.py
-
 
 [Account main]
 localrepository = main-local
@@ -13,6 +12,13 @@ remoterepository = main-remote
 autorefresh = 0.5
 quick = 10
 postsynchook = /home/wilvin/.config/offlineimap/offlineimaphook.sh live main Inbox
+
+[Account golduck]
+localrepository = golduck-local
+remoterepository = golduck-remote
+autorefresh = 0.5
+quick = 10
+postsynchook = /home/wilvin/.config/offlineimap/offlineimaphook.sh golduck golduck INBOX
 
 [Account cockli]
 localrepository = cockli-local
@@ -29,8 +35,8 @@ quick = 10
 postsynchook = /home/wilvin/.config/offlineimap/offlineimaphook.sh cockli_irc irc INBOX
 
 [Account electrum-server]
-localrepository = transip-local
-remoterepository = transip-remote
+localrepository = electrum-local
+remoterepository = electrum-remote
 autorefresh = 0.5
 quick = 10
 postsynchook = /home/wilvin/.config/offlineimap/offlineimaphook.sh electrum transip-electrum INBOX
@@ -39,15 +45,19 @@ postsynchook = /home/wilvin/.config/offlineimap/offlineimaphook.sh electrum tran
 type = Maildir
 localfolders = ~/Mail/main
 
+[Repository golduck-local]
+type = Maildir
+localfolders = ~/Mail/golduck
+
 [Repository cockli-local]
 type = Maildir
 localfolders = ~/Mail/cockli
 
 [Repository cockli-irc-local]
 type = Maildir
-localfolders = ~/Mail/ggPhyduck
+localfolders = ~/Mail/irc
 
-[Repository transip-local]
+[Repository electrum-local]
 type = Maildir
 localfolders = ~/Mail/transip-electrum
 
@@ -63,6 +73,20 @@ folderfilter = lambda foldername: foldername in ["Inbox", "Sent", "Drafts", "Jun
 keepalive = 60
 holdconnectionopen = yes
 auth_mechanisms = GSSAPI, CRAM-MD5, PLAIN, LOGIN
+maxconnections = 1
+
+[Repository golduck-remote]
+type = IMAP
+ssl = yes
+remotehost = golduck.wilv.in
+remoteuser = willmar@golduck.wilv.in
+remoteport = 993
+remotepasseval = get_pass("wil7vin@live.nl", "golduck")
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+#folderfilter = lambda foldername: foldername in ["Inbox", "Sent", "Drafts", "Junk"]
+keepalive = 60
+holdconnectionopen = yes
+auth_mechanisms = PLAIN, LOGIN
 maxconnections = 1
 
 [Repository cockli-remote]
@@ -93,18 +117,18 @@ holdconnectionopen = yes
 auth_mechanisms = GSSAPI, CRAM-MD5, PLAIN, LOGIN
 maxconnections = 1
 
-[Repository transip-remote]
+[Repository electrum-remote]
 type = IMAP
 ssl = yes
-remotehost = imap.transip.email
+remotehost = wilv.in
 remoteuser = electrum-servers@wilv.in
 remoteport = 993
-remotepass = get_pass("wil7vin@live.nl", "electrum") 
+remotepasseval = get_pass("wil7vin@live.nl", "electrum") 
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 #folderfilter = lambda foldername: foldername in ["Inbox", "Sent", "Drafts", "Junk"]
 keepalive = 60
 holdconnectionopen = yes
-auth_mechanisms = GSSAPI, CRAM-MD5, PLAIN, LOGIN
+auth_mechanisms = PLAIN, LOGIN
 maxconnections = 1
 
 [mbnames]

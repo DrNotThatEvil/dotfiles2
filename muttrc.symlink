@@ -51,3 +51,4 @@ macro index K "<sync-mailbox><enter-command>source ~/.config/mutt/cocklirc<enter
 macro index H "<sync-mailbox><enter-command>source ~/.config/mutt/ircrc<enter><change-folder>!<enter>"
 macro index L "<sync-mailbox><enter-command>source ~/.config/mutt/electrumrc<enter><change-folder>!<enter>"
 macro index X "<sync-mailbox><enter-command>source ~/.config/mutt/liverc<enter><change-folder>!<enter>"
+macro index O "<sync-mailbox><enter-command>source ~/.config/mutt/golduckrc<enter><change-folder>!<enter>"
