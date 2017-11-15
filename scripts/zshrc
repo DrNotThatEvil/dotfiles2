@@ -1,6 +1,7 @@
 setopt HIST_IGNORE_SPACE
 alias jrnl=" jrnl"
 alias spac="sudo pacman"
+alias wifi_restart="sudo systemctl restart wpa_supplicant@wlp4s0.service && sudo systemctl restart openvpn-client@Netherlands.service"
 
 export ANDROID_HOME="/opt/android-sdk"
 export JAVA_HOME="/usr/lib/jvm/java-7-openjdk"

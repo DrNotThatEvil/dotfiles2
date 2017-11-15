@@ -87,7 +87,7 @@ bindsym $mod+y exec $term -e qalc
 bindsym $mod+s gaps inner current plus 5
 bindsym $mod+Shift+s gaps inner current minus 5
 
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec i3-dmenu-desktop
 bindsym $mod+Shift+d gaps inner all set 0; gaps outer all set 0
 
 bindsym $mod+f fullscreen toggle
@@ -279,7 +279,7 @@ exec --no-startup-id xset s off -dpms
 exec --no-startup-id pulseaudio --start
 exec --no-startup-id dunst -config ~/.dunstrc
 exec --no-startup-id exec owncloud
-exec_always --no-startup-id feh --bg-scale ~/.dotfiles/pictures/Wallpaper_new.png
+exec_always --no-startup-id feh --bg-scale ~/.dotfiles/pictures/WallpaperPoke.jpg
 exec_always --no-startup-id python ~/.dotfiles/scripts/Shortcuts.py
 exec_always --no-startup-id python ~/.dotfiles/scripts/CombineI3.py
 # This new script combines my needed i3 configs with the base config i use on all my systems
@@ -293,6 +293,7 @@ for_window [instance="dropdown"] move scratchpad; [instance="dropdown"] scratchp
 
 bindsym $mod+u [instance="dropdown"] scratchpad show
 
+exec --no-startup-id /home/wilvin/Development/Python/GitHubStreakReminder/venv/bin/python3.6 /home/wilvin/Development/Python/GitHubStreakReminder/gh_reminder.py
 # This is a custom sensor script for a sensor i have attached to my door.
 # exec --no-startup-id /home/wilvin/Development/DoorSensor/venv/bin/python3.6 /home/wilvin/Development/DoorSensor/SensorService.py
 

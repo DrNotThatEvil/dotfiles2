@@ -11,7 +11,7 @@ if os.path.isfile(devicefile) and os.access(devicefile, os.R_OK):
         content = f.readlines()
     content = [x.strip() for x in content]
     content = content[0]
-    
+
     i3_base = i3_dir + '/config.base'
     i3_output = i3_dir + '/config'
     
@@ -64,7 +64,7 @@ else:
     print("A new i3.base file will be created for you")
     selection = input("Please type your selection: ") + '.base'
     selection = selection.lower().strip() 
-    
+   
     if selection not in onlyfiles:
         # new file creation.
         with open(i3_dir + '/' + selection, 'w+') as new_base_obj:

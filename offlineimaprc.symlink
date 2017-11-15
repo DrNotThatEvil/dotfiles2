@@ -44,6 +44,7 @@ postsynchook = /home/wilvin/.config/offlineimap/offlineimaphook.sh electrum tran
 [Repository main-local]
 type = Maildir
 localfolders = ~/Mail/main
+sep = /
 
 [Repository golduck-local]
 type = Maildir
@@ -70,6 +71,8 @@ remoteport = 993
 remotepasseval = get_pass("wil7vin@live.nl", "main")
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 folderfilter = lambda foldername: foldername in ["Inbox", "Sent", "Drafts", "Junk"]
+nametrans = lambda foldername: re.sub('^Junk', 'root/Junk', re.sub('^Drafts', 'root/Drafts', re.sub('^Sent$', 'root/Sent',
+ re.sub('^Inbox', 'root', foldername))))
 keepalive = 60
 holdconnectionopen = yes
 auth_mechanisms = GSSAPI, CRAM-MD5, PLAIN, LOGIN

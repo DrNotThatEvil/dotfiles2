@@ -7,11 +7,4 @@ bindsym XF86WLAN exec sudo systemctl restart systemctl-networkd.service
 # bindsym XF86AudioLowerVolume 
 # bindsym XF86AudioRaiseVolume
 
-
-bar {
-  font pango:Source Code Pro for Powerline 8
-  status_command /home/wilvin/.dotfiles/i3/bumblebee-status/bumblebee-status -m battery nic pacman disk datetime -p disk.path=/home datetime.format="%a, %b %d, %Y at %H:%M:%S" nic.exclude="lo,wwp0s20f0u" -t evil-gruvbox-powerline
-  position top
-  tray_output none
-}
-
+exec_always --no-startup-id $HOME/.dotfiles/config/i3/scripts/launch_polybar.sh

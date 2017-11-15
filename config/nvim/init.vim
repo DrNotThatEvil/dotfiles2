@@ -61,7 +61,51 @@ endif
 call dein#end()
 
 " Begin nvim settings.
+
+" COLOR SCHEME 
+
+"=== SET COLOUR VARIABLES =====================================================
+
 colorscheme turtles
+
+"=== OPTIONS ==================================================================
+
+" disable highlighted CursorLineNr
+if exists('g:office_dark_CursorLineNr')
+if g:office_dark_CursorLineNr == 'off'
+cal <sid>h('CursorLineNr'     , s:g4 , s:g1 , s:t4 , s:t1 , 'none'      , ''  )
+endif
+endif
+
+" disable LineNr background altogether
+if exists('g:office_dark_LineNr')
+if g:office_dark_LineNr == 'off'
+cal <sid>h('CursorLineNr'     , s:g4 , s:g0 , s:t4 , s:t0 , 'none'      , ''  )
+cal <sid>h('LineNr'           , s:g4 , s:g0 , s:t4 , s:t0 , 'none'      , ''  )
+endif
+endif
+
+" END OF COLORSCHEME
+
+"=== OPTIONS ==================================================================
+
+" disable highlighted CursorLineNr
+if exists('g:office_dark_CursorLineNr')
+if g:office_dark_CursorLineNr == 'off'
+cal <sid>h('CursorLineNr'     , s:g4 , s:g1 , s:t4 , s:t1 , 'none'      , ''  )
+endif
+endif
+
+" disable LineNr background altogether
+if exists('g:office_dark_LineNr')
+if g:office_dark_LineNr == 'off'
+cal <sid>h('CursorLineNr'     , s:g4 , s:g0 , s:t4 , s:t0 , 'none'      , ''  )
+cal <sid>h('LineNr'           , s:g4 , s:g0 , s:t4 , s:t0 , 'none'      , ''  )
+endif
+endif
+
+
+" END OF COLORSCHEM
 
 set noshowmode
 set noswapfile

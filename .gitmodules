@@ -14,3 +14,9 @@
 	path = i3/bumblebee-status
 	url = git@github.com:DrNotThatEvil/bumblebee-status.git
 
+[submodule "pywal"]
+	path = pywal
+	url = git@github.com:dylanaraps/pywal.git
+[submodule "colors"]
+	path = colors
+	url = git://git.2f30.org/colors.git
