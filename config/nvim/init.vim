@@ -52,6 +52,9 @@ call dein#add('ervandew/supertab')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
 
+call dein#add('w0rp/ale')
+call dein#add('sbdchd/neoformat')
+
 " End plugin list
 
 " Check Dein install and install if necesarry
@@ -166,3 +169,10 @@ autocmd CompleteDone * silent! pclose!
 
 " NERDTree settings.
 map - :NERDTreeToggle<CR>
+
+map + :FZF<CR>
+
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
