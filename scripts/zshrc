@@ -1,8 +1,9 @@
 setopt HIST_IGNORE_SPACE
 alias jrnl=" jrnl"
 alias spac="sudo pacman"
-alias stopvpn="sudo systemctl stop openvpn-client@Netherlands.service"
-alias startvpn="sudo systemctl start openvpn-client@Netherlands.service"
+alias stopvpn="sudo systemctl stop openvpn-client@mullvad_nl.service"
+alias startvpn="sudo systemctl start openvpn-client@mullvad_nl.service"
+alias wifi_restart="sudo systemctl restart wpa_supplicant@wlp4s0.service && sudo systemctl restart openvpn-client@Netherlands.service"
 
 export ANDROID_HOME="/opt/android-sdk"
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
@@ -14,3 +15,5 @@ export BORG_PASSPHRASE='c6Hwvid7qHRgFs5u7iaZ'
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+
+[ -f $HOME/.fzf.zsh ] && source ~/.fzf.zsh

@@ -2,6 +2,7 @@ scripts/device
 
 weechat/logs/**
 weechat/irc.conf
+weechat/weechat.log
 
 config/nvim/temp
 config/nvim/merged
@@ -15,3 +16,7 @@ config/ranger/history
 
 **/cache/**
 moc/pid
+moc/last_directory
+
+
+*.log

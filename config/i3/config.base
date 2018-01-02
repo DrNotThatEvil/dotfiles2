@@ -279,7 +279,7 @@ exec --no-startup-id xset s off -dpms
 exec --no-startup-id pulseaudio --start
 exec --no-startup-id dunst -config ~/.dunstrc
 exec --no-startup-id exec owncloud
-exec_always --no-startup-id feh --bg-scale ~/.dotfiles/pictures/Wallpaper_new.png
+exec_always --no-startup-id feh --bg-scale ~/.dotfiles/pictures/WallpaperPoke.jpg
 exec_always --no-startup-id python ~/.dotfiles/scripts/Shortcuts.py
 exec_always --no-startup-id python ~/.dotfiles/scripts/CombineI3.py
 # This new script combines my needed i3 configs with the base config i use on all my systems
