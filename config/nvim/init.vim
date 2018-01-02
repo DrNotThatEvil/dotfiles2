@@ -49,6 +49,9 @@ call dein#add('tweekmonster/deoplete-clang2')
 " Supertab
 call dein#add('ervandew/supertab')
 
+call dein#add('w0rp/ale')
+call dein#add('sbdchd/neoformat')
+
 " End plugin list
 
 " Check Dein install and install if necesarry
@@ -134,3 +137,8 @@ let g:deoplete#enable_at_startup = 1
 map - :NERDTreeToggle<CR>
 
 map + :FZF<CR>
+
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
