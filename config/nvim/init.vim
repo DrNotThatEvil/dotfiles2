@@ -52,6 +52,9 @@ call dein#add('ervandew/supertab')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
 
+" Local vim rc
+call dein#add('embear/vim-localvimrc')
+
 call dein#add('w0rp/ale')
 call dein#add('sbdchd/neoformat')
 
@@ -161,11 +164,14 @@ nnoremap <leader>r :call NumberToggle()<cr>
 
 " Plugin settings
 
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 autocmd CompleteDone * silent! pclose!
+
+let g:clang2_placeholder_next = ''
+let g:ale_cpp_cppcheck_options = '--enable=style --suppress=missingIncludeSystem'
 
 " NERDTree settings.
 map - :NERDTreeToggle<CR>
@@ -176,3 +182,12 @@ augroup fmt
   autocmd!
   autocmd BufWritePre * undojoin | Neoformat
 augroup END
+
+function! s:insert_gates()
+  let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
+  execute "normal! i#ifndef " . gatename
+  execute "normal! o#define " . gatename . " "
+  execute "normal! Go#endif /* " . gatename . " */"
+  normal! kk
+endfunction
+autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()

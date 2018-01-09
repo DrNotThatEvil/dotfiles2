@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Setting this, so the repo does not need to be given on the commandline:
-export BORG_REPO=ssh://backup@192.168.1.145:22:basestation-backup
+export BORG_REPO=ssh://backup@192.168.1.214:22:basestation-backup
 
 # Setting this, so you won't be asked for your repository passphrase:
 export BORG_PASSPHRASE='c6Hwvid7qHRgFs5u7iaZ'
@@ -33,7 +33,7 @@ borg create                         \
     --exclude '/var/cache/*'        \
     --exclude '/var/tmp/*'          \
                                     \
-    'backup@192.168.1.145:basestation-backup'::'{hostname}-{now}'            \
+    'backup@192.168.1.214:basestation-backup'::'{hostname}-{now}'            \
     /etc                            \
     /home                           \
     /root                           \
@@ -56,7 +56,7 @@ borg prune                          \
     --keep-weekly   4               \
     --keep-monthly  6               \
                                     \
-    'backup@192.168.1.145:basestation-backup'
+    'backup@192.168.1.214:basestation-backup'
 
 prune_exit=$?
 

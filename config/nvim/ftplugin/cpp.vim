@@ -6,3 +6,5 @@ set tabstop=4
 
 " Tabs are now spaces
 set expandtab
+
+let b:ale_linters = ['cppcheck']

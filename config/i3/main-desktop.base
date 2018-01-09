@@ -1,9 +1,11 @@
 ## MAIN DESKTOP SETTINGS ##
 
+exec --no-startup-id /usr/bin/xset dpms force off;/usr/bin/xset dpms force on
+
 # This is a custom sensor script for a sensor i have attached to my door.
 exec --no-startup-id python /home/wilvin/Development/DoorSensor/SensorService.py
 exec --no-startup-id /home/wilvin/.dotfiles/config/i3/scripts/launch_polybar.sh
 
-workspace $ws2 output DP-2
+#workspace $ws2 output DP-4.1
 workspace $ws1 output DP-4.8
 workspace $ws3 output DP-1
