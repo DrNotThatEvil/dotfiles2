@@ -126,8 +126,8 @@ bindsym F1 exec --no-startup-id echo "help" > /dev/null
 #bindsym F2 exec --no-startup-id i3-dmenu-desktop
 # bindsym F3
 # bindsym F4
-bindsym F5 exec --no-startup-id "bash .config/i3/scripts/toggle_main_display.sh off"
-bindsym F6 exec --no-startup-id "bash .config/i3/scripts/toggle_main_display.sh on"
+# bindsym F5 exec --no-startup-id "bash .config/i3/scripts/toggle_main_display.sh off"
+# bindsym F6 exec --no-startup-id "bash .config/i3/scripts/toggle_main_display.sh on"
 # bindsym F7
 # bindsym F8
 # bindsym F9

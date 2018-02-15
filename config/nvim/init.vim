@@ -120,7 +120,7 @@ inoremap <silent><expr> <C-Space> deoplete#mappings#manual_complete()
 inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
 
 "disable clang_completion on . and ->
-let g:clang_complete_auto=0
+let g:clang_complete_auto=1
 
 set noshowmode
 set ruler
@@ -180,7 +180,7 @@ map + :FZF<CR>
 
 augroup fmt
   autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
+  au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
 augroup END
 
 function! s:insert_gates()
@@ -191,3 +191,19 @@ function! s:insert_gates()
   normal! kk
 endfunction
 autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
+
+" Deoplete 
+let g:deoplete#sources#clang#libclang_path="/usr/lib/libclang.so"
+let g:deopelete#sources#clang#clang_header="/usr/lib/clang"
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#file#enable_buffer_path = 1
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#max_list = 300
+let g:deoplete#auto_complete_delay = 150
+let deoplete#tag#cache_limit_size = 5000000
+
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
