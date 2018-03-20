@@ -1,11 +1,8 @@
-arduino-git
-bumblebee-status-git
 cower 17-2
 discord-canary
 dunst-git
 electrum-ltc
 gitflow-git
-gnoduino
 google-chrome
 grantlee-qt4
 i3-gaps-git
@@ -13,7 +10,6 @@ libc++
 libc++abi
 libc++experimental
 light-git
-neomutt
 nerd-fonts-source-code-pro
 numix-circle-icon-theme-git
 numix-icon-theme-git
@@ -33,3 +29,4 @@ weechat-git
 wimlib
 xorg-server-utils
 xorg-utils
+polybar-git

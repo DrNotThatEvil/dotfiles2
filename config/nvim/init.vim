@@ -1,4 +1,4 @@
-"
+"content
 "  __    __  ____  _      __ __     ____  ____       ____  ____   ____  ______   __ __  ____  ___ ___ 
 " |  |__|  ||    || |    |  |  |   |    ||    \     |    ||    \ |    ||      | |  |  ||    ||   |   |
 " |  |  |  | |  | | |    |  |  |    |  | |  _  |     |  | |  _  | |  | |      | |  |  | |  | | _   _ |
@@ -10,13 +10,14 @@
 "   Version 2.0  04/10/2017
 
 
-let mapleader=","
+let mapleader=" "
 let maplocalleader = "\\"
 
 " Setting up Dein
 if (!isdirectory(expand("$HOME/.config/nvim/repos/github.com/Shougo/dein.vim")))
     call system(expand("mkdir -p $HOME/.config/nvim/repos/github.com"))
-    call system(expand("git clone https://github.com/Shougo/dein.vim $HOME/.config/nvim/repos/github.com/Shougo/dein.vim"))
+    call system(expand("git clone https://github.com/Shougo/dein.vim"
+                \ + " $HOME/.config/nvim/repos/github.com/Shougo/dein.vim"))
     let bundleExists = 0
 endif
 
@@ -58,6 +59,15 @@ call dein#add('embear/vim-localvimrc')
 call dein#add('w0rp/ale')
 call dein#add('sbdchd/neoformat')
 
+" ctrlp vim
+call dein#add('kien/ctrlp.vim')
+
+" surround.vim
+call dein#add('tpope/vim-surround')
+
+" Git gutter.
+call dein#add('airblade/vim-gitgutter')
+
 " End plugin list
 
 " Check Dein install and install if necesarry
@@ -86,8 +96,8 @@ colorscheme turtles
   let g:airline#extensions#tabline#show_tab_nr = 1
   let g:airline_powerline_fonts = 1
   let g:airline_theme='jellybeans'
-  " let g:airline_theme='base16_solarized'
-  cnoreabbrev <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
+  cnoreabbrev <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 
+        \ 'Sayonara' : 'x'
   tmap <leader>x <c-\><c-n>:bp! <BAR> bd! #<CR>
   nmap <leader>t :term<cr>
   nmap <leader>, :bnext<CR>
@@ -109,7 +119,8 @@ colorscheme turtles
   set guifont=Sauce\ Code\ Pro\ Black\ Nerd\ Font\ Complete
 "=== OPTIONS ==================================================================
 
-" Enter: complete&close popup if visible (so next Enter works); else: break undo
+" Enter: complete&close popup if visible (so next Enter works);
+" else: break undo
 inoremap <silent><expr> <Cr> pumvisible() ?
             \ deoplete#mappings#close_popup() : "<C-g>u<Cr>"
 
@@ -122,6 +133,7 @@ inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
 "disable clang_completion on . and ->
 let g:clang_complete_auto=0
 
+set colorcolumn=80
 set noshowmode
 set ruler
 set nolazyredraw
@@ -144,9 +156,12 @@ set expandtab
 set wildmenu
 set expandtab 
 set laststatus=2
+set mouse-=a
+set updatetime=500
+let g:gitgutter_max_signs=10000
+
 
 " Keymappings
-noremap <Leader>f :Autoformat<CR>
 noremap <Leader>d dd
 
 " Relative numbering
@@ -180,7 +195,8 @@ map + :FZF<CR>
 
 augroup fmt
   autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
+  au BufWritePre * try | undojoin | Neoformat |
+        \ catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
 augroup END
 
 function! s:insert_gates()

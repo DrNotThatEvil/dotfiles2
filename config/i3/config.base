@@ -126,8 +126,8 @@ bindsym F1 exec --no-startup-id echo "help" > /dev/null
 #bindsym F2 exec --no-startup-id i3-dmenu-desktop
 # bindsym F3
 # bindsym F4
-bindsym F5 exec --no-startup-id "bash .config/i3/scripts/toggle_main_display.sh off"
-bindsym F6 exec --no-startup-id "bash .config/i3/scripts/toggle_main_display.sh on"
+# bindsym F5 exec --no-startup-id "bash .config/i3/scripts/toggle_main_display.sh off"
+# bindsym F6 exec --no-startup-id "bash .config/i3/scripts/toggle_main_display.sh on"
 # bindsym F7
 # bindsym F8
 # bindsym F9
@@ -139,6 +139,8 @@ bindsym F11 fullscreen toggle
 
 bindsym $mod+F3 exec arandr
 # bindsym $mod+F4 exec sudo systemctl supsend
+bindsym $mod+F5 exec --no-startup-id "bash .config/i3/scripts/toggle_main_display.sh off"
+bindsym $mod+F6 exec --no-startup-id "bash .config/i3/scripts/toggle_main_display.sh on"
 # bindsym $mod+F5 exec --no-starup-id sudo systemctl restart NetworkManager
 # bindsym $mod+F6 exec --no-startup-id keepass /home/wilvin/Stack/password_manager/MainDatabase.kdbx
 # bindsym $mod+F7
@@ -167,16 +169,16 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Right move right
 # end of arrow key stuff
 
-set $ws1 "1: "
-set $ws2 "2: "
-set $ws3 "3: "
-set $ws4 "4: "
-set $ws5 "5: "
-set $ws6 "6: "
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8: "
-set $ws9 "9: "
-set $ws10 "10: "
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -196,11 +198,15 @@ bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
 assign [class="Firefox"] $ws2   
-#As i sad only firefox on workspace1.
-# assign [class="Atom"] $ws3      
-#As i sad other text editor on 3
+#As i sad only firefox on workspace2.
+
 assign [class="KeePass2"] $ws7  
-#As i sad keepass on workspace3
+#As i sad keepass on workspace7
+#I keep my keepass hidden from view on this seprate workspace 
+#
+#just so nobody can spot it easily
+
+assign [class="Thunderbird"] $ws9
 
 for_window [class="^.*"] border pixel 1  
 # for_window [instance="sun-awt-X11-XFramePeer"] floating enable
@@ -279,9 +285,15 @@ exec --no-startup-id xset s off -dpms
 exec --no-startup-id pulseaudio --start
 exec --no-startup-id dunst -config ~/.dunstrc
 exec --no-startup-id exec owncloud
+exec --no-startup-id exec ~/.dotfiles/scripts/launchmail.sh
 exec_always --no-startup-id feh --bg-scale ~/.dotfiles/pictures/WallpaperPoke.jpg
 exec_always --no-startup-id python ~/.dotfiles/scripts/Shortcuts.py
 exec_always --no-startup-id python ~/.dotfiles/scripts/CombineI3.py
+
+exec --no-startup-id redshift
+
+assign [instance="irc"] $ws10
+exec --no-startup-id $term --name=irc -e tmux new-session
 # This new script combines my needed i3 configs with the base config i use on all my systems
 # its pretty cool it helps me move from system to system and have some bindings specific for each system
 # ( For multi monitor stuff for example )
@@ -298,9 +310,6 @@ exec --no-startup-id /home/wilvin/Development/Python/ghsteakreminder/venv/bin/py
 
 # This is a custom sensor script for a sensor i have attached to my door.
 # exec --no-startup-id /home/wilvin/Development/DoorSensor/venv/bin/python3.6 /home/wilvin/Development/DoorSensor/SensorService.py
-
-# For my emails
-exec --no-startup-id "sh -c 'sleep 10; exec /home/wilvin/.dotfiles/scripts/Email.sh'"
 
 # About that wallpaper i have no idea where i found it once but
 # it looks nice. i have no idea if it's from a anime or something.

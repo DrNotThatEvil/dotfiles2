@@ -4,17 +4,23 @@ if [ "$#" -ne 1 ]; then
     exit
 fi
 
+killall -q polybar
+
 if [ "$1" == "on" ]; then
-    xrandr --output DP-4.8 --mode 2560x1440 --left-of DP-1
-    killall -q polybar
-    MONITOR="DP-1" BAR_RIGHT="mocp pkg vpncheck date" polybar main_bar &
-    MONITOR="DP-4.8" BAR_RIGHT="mocp pkg vpncheck date" polybar main_bar &
+    xrandr --output HDMI-0 --mode 2560x1440 --left-of DVI-D-0
+    sleep 3
+    MONITOR="HDMI-8" BAR_RIGHT="mocp pkg vpncheck date" polybar main_bar &
+    MONITOR="DVI-D-0" BAR_RIGHT="mocp pkg vpncheck date" polybar main_bar &
+    i3-msg reload
+    i3-msg reload
     exit
 fi
 
 if [ "$1" == "off" ]; then
-    xrandr --output DP-4.8 --off
-    killall -q polybar
-    MONITOR="DP-1" BAR_RIGHT="mocp pkg vpncheck date" polybar main_bar &
+    xrandr --output HDMI-0 --off
+    sleep 3
+    i3-msg reload
+    i3-msg reload
+    MONITOR="DVI-D-0" BAR_RIGHT="mocp pkg vpncheck date" polybar main_bar &
     exit
 fi

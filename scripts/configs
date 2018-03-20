@@ -3,6 +3,7 @@ cfz	~/.dotfiles/scripts/zshrc
 cfv	~/.config/nvim/init.vim
 cfr	~/.config/ranger/rc.conf.base
 cfi	~/.config/i3/config.base
+cfri	~/.config/i3/ryzen-main.base
 cfq	~/.config/qutebrowser/keys.conf.base
 cfQ	~/.config/qutebrowser/qutebrowser.conf
 cfm	~/.muttrc
