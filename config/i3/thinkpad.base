@@ -7,4 +7,4 @@ bindsym XF86WLAN exec sudo systemctl restart systemctl-networkd.service
 # bindsym XF86AudioLowerVolume 
 # bindsym XF86AudioRaiseVolume
 
-exec_always --no-startup-id $HOME/.dotfiles/config/i3/scripts/launch_polybar.sh
+exec_always --no-startup-id LAPTOP="yes" $HOME/.dotfiles/config/i3/scripts/launch_polybar.sh
