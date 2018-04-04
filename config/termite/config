@@ -1,7 +1,17 @@
 [options]
+allow_bold = true
+audible_bell = false
+clickable_url = true
+dynamic_title = true
+scroll_on_keystroke = true
+scrollback_lines = -1
+urgent_on_bell = true
+hyperlinks = true
+filter_unmatched_urls = true
+scrollbar = off
 
 # cursor
-cursor_blink = system
+cursor_blink = true
 cursor_shape = ibeam
 
 # font type and size
@@ -9,42 +19,49 @@ font = Droid Sans Mono Slashed for Powerline 10
 browser = firefox
 
 [colors]
-
-# special
-foreground      = #c5c8c6
-foreground_bold = #c5c8c6
-cursor          = #c5c8c6
-background      = rgba(29, 31, 33, 0.9)
+foreground =        #eeffff
+foreground_bold =   #eeffff
+foreground_dim =    #8c8c8c
+cursor =            #eeffff
+cursor_foreground = #212121
+background =        rgba(17, 17, 17, 0.8)
 
 # black
-color0  = #282a2e
-color8  = #373b41
+color0 =            #212121
+color8 =            #4a4a4a
 
 # red
-color1  = #994422
-color9  = #ff9988
+color1 =            #f07178
+color9 =            #f07178
 
 # green
-color2  = #116644
-color10 = #55aa55
+color2 =            #5af78e
+color10 =           #5af78e
 
 # yellow
-color3  = #229977
-color11 = #bb9944
+color3 =            #ffcb6b
+color11 =           #ffcb6b
 
 # blue
-color4  = #114477
-color12 = #3388bb
+color4 =            #57c7ff
+color12 =           #57c7ff
 
 # magenta
-color5  = #dc98ed
-color13 = #99eedd
+color5 =            #c792ea
+color13 =           #c792ea
 
 # cyan
-color6  = #5e8d87
-color14 = #8abeb7
+color6 =            #89ddff
+color14 =           #89ddff
 
 # white
-color7  = #776655
-color15 = #ddccbb
+color7 =            #eeffff
+color15 =           #ffffff
 
+# Extra colors
+color16 =           #f78c6c
+color17 =           #ff5370
+color18 =           #303030
+color19 =           #353535
+color20 =           #b2ccd6
+color21 =           #eeffff

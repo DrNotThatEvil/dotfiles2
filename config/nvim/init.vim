@@ -31,6 +31,9 @@ call dein#begin(expand('~/.config/nvim'))
 
 " Begin plugin list
 
+" Nvim yarp
+call dein#add('roxma/nvim-yarp')
+
 " colorscheme
 call dein#add('beigebrucewayne/Turtles')
 
@@ -41,6 +44,7 @@ call dein#add('Shougo/denite.nvim')
 call dein#add('scrooloose/nerdtree')
 
 " Deoplete - Autocomplete
+call dein#add('Shougo/deoplete.nvim')
 call dein#add('Shougo/deoplete.nvim')
 
 " Deoplete - CLang
@@ -68,6 +72,12 @@ call dein#add('tpope/vim-surround')
 " Git gutter.
 call dein#add('airblade/vim-gitgutter')
 
+" Love2d 
+call dein#add('davisdude/vim-love-docs')
+
+" colorschemes
+call dein#add('flazz/vim-colorschemes')
+
 " End plugin list
 
 " Check Dein install and install if necesarry
@@ -85,7 +95,7 @@ call dein#end()
 
 "=== SET COLOUR VARIABLES =====================================================
 
-colorscheme turtles
+colorscheme Revolution
 
 "=== OPTIONS ==================================================================
 " vim-airline section

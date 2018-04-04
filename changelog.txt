@@ -1,11 +1,5 @@
 Version 2.1.1
-Added a official changelog so i can keep track of the stuff i do in my dot files witch is pretty good
-i'm currently reworking my dotfiles and my laptop since i find it to slightly inificient and you know us nerds
-we hate slightly inefficient stuff and want to replace it by mildly better improvments.
-These mildly better improvements will once become something quite significant and one day and i will be faster
-then i ever was using windows.
-LONG LIVE midly better improvements!..
-
+Initial version
 
 Changes 2.1.1
 -- Removed OhMyZ since it was not working with the soucing system if anybody
@@ -13,10 +7,26 @@ Changes 2.1.1
 -- Added mutt configs cause damm terminal all the things!
 -- Added System for hotkeys and quick config editing it works lovely!
 -- Added Script for my home workstation machine.
--- Added a glorious script to make my i3 configs its pretty neat
+-- Added a glorious script to make my i3 configs (ie append a base config with
+device specific i3 configurations )
 	
 
 Changes 2.1: 
 -- Removed all packages to start from scratch
 -- Moved to new branch so if my old setup does crash while writing this version i can still install it.
 -- Added OhMyZ and zsh to the system
+
+Changes 2.2:
+-- Removed OhMyZsh in place using zprezto
+-- Changed layouts to pokemon bakcground theme
+
+Changes 2.3:
+(Inspired by https://github.com/marcosmoura/dotfiles GIVE HIM A STAR)
+-- Major dotifles rewrite (new background, complete rewrite of my i3 base )
+-- Rewrite of my Neovim settup (I.E Remove unessary addons/reworked things)
+-- Added scripts for new Ryzen build.
+-- Added VFIO scripts for my new Ryzen VFIO build.
+-- Switched to compton compositor
+-- Changed style of all polybar
+-- Added new bottom polybar
+-- Removed mutt. I just like thunderbird a bit better.

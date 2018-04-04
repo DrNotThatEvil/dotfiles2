@@ -1,45 +1,62 @@
-! special
-*.foreground:   #c5c8c6
-*.background:   #1d1f21
-*.cursorColor:  #c5c8c6
+! =========================
+! ======== FONTS ==========
+! =========================
 
-! black
-*.color0:       #282a2e
-*.color8:       #373b41
-
-! red
-*.color1:       #994422
-*.color9:       #ff9988
-
-! green
-*.color2:       #116644
-*.color10:      #55aa55
-
-! yellow
-*.color3:       #229977
-*.color11:      #bb9944
-
-! blue
-*.color4:       #114477
-*.color12:      #3388bb
-
-! magenta
-*.color5:       #dc98ed
-*.color13:      #99eedd
-
-! cyan
-*.color6:       #5e8d87
-*.color14:      #8abeb7
-
-! white
-*.color7:       #776655
-*.color15:      #ddccbb
+Xft.dpi:            96
+Xft.antialias:      true
+Xft.hinting:        true
+Xft.rgba:           rgb
+Xft.autohint:       false
+Xft.hintstyle:      hintfull
+Xft.lcdfilter:      lcddefault
 
 
-*fading:                15
-*fadeColor:             black
-*pointerColorBackground:#2B2C2B
-*pointerColorForeground:#16A085
+! =========================
+! ========= ROFI ==========
+! =========================
 
-URxvt.font: xft:monaco:size=10
+rofi.terminal:      termite
+rofi.ssh-client:    ssh
+rofi.width:         30
 
+
+! =========================
+! ======== COLORS =========
+! =========================
+
+*background:  #111111
+*foreground:  #eeffff
+
+!black
+*trueblack:   #000000
+*black:       #111111
+*color0:      #212121
+*color8:      #8c8c8c
+
+!red
+*color1:      #f07178
+*color9:      #f07178
+
+!green
+*color2:      #5af78e
+*color10:     #5af78e
+
+!yellow
+*color3:      #ffcb6b
+*color11:     #ffcb6b
+
+!blue
+*color4:      #57c7ff
+*color12:     #57c7ff
+
+!magenta
+*color5:      #c792ea
+*color13:     #c792ea
+
+!cyan
+*color6:      #89ddff
+*color14:     #89ddff
+
+!white
+*color7:      #eeffff
+*color15:     #eeffff

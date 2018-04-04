@@ -1,81 +1,82 @@
 [colors]
-;My colors are set from .Xresources to match everything else
-my_background 	= ${xrdb:background}
-my_foreground 	= ${xrdb:foreground}
-my_color0	= ${xrdb:color0}
-my_color1	= ${xrdb:color1}
-my_color2	= ${xrdb:color2}
-my_color3	= ${xrdb:color3}
-my_color4	= ${xrdb:color4}
-my_color5	= ${xrdb:color5}
-my_color6	= ${xrdb:color6}
-my_color7	= ${xrdb:color7}
-my_color8	= ${xrdb:color8}
-my_color9	= ${xrdb:color9}
-my_color10	= ${xrdb:color10}
-my_color11	= ${xrdb:color11}
-my_color12	= ${xrdb:color12}
-my_color13	= ${xrdb:color13}
-my_color14	= ${xrdb:color14}
-my_color15	= ${xrdb:color15}
+background = #B2111111
+foreground = ${xrdb:foreground}
+foreground-alt= #528BFF
+black = #000000
+red = ${xrdb:color1}
+green = ${xrdb:color2}
+blue = ${xrdb:color4}
+yellow = ${xrdb:color3}
+magenta = ${xrdb:color5}
+cyan = ${xrdb:color6}
+white = ${xrdb:color7}
 
-[bar/main_bar]
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[bar/toolbar]
 monitor = ${env:MONITOR:eDP1}
-bottom = false
 width = 100%
-height = 30
-offset-x = 2.5%
-offset-y = 0%
-radius = 5.0
-fixed-center = true
+height = 28
+enable-ipc = true
 
-background = ${colors.my_color8}
-foreground =  ${colors.my_foreground}
+font-0 = Fira Code:pixelsize=11;3
+font-1 = octicons:pixelsize=14;3
+font-2 = Weather Icons:size=14;4
+font-3 = FontAwesome5Free:style=Solid:pixelsize=14;4
+font-4 = FontAwesome5Brands:style=Solid:pixelsize=14;4
+font-5 = MaterialIcons:pixelsize=13;4
+font-6 = Wuncon Siji:pixelsize=13;4
 
-line-size = 2.5
-line-color = ${colors.my_color4}
+padding-left = 1
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 1
 
-border-size = 15%
-border-top-size = 7%
-border-bottom-size = 0%
-border-color = rgba(0,0,0,0)
+background = ${colors.background}
+foreground = ${colors.foreground}
 
-padding-left = 5%
-padding-right = 5%
+modules-left = mocp
+modules-center = xwindow
+modules-right = ${env:BAR_RIGHT:vpncheck pkg date}
 
-module-margin-left = 2
-module-margin-right = 2
+[bar/bottombar]
+monitor = ${env:MONITOR:eDP1}
+width = 100%
+height = 28
+bottom = true
+enable-ipc = true
 
-font-2 = FontAwesome:fontformat=truetype:size=8;1
-font-0 = Droid Sans Mono Slashed for Powerline:fontformat=truetype:size=11;1
-font-1 = Droid Sans Mono Slashed for Powerline:fontformat=truetype:size=9;1
-
-
-modules-left = i3 
-modules-center = 
-modules-right = ${env:BAR_RIGHT:mocp pkg vpncheck battery date}
-
-tray-position = 
-tray-padding = 0
+tray-position = right
+tray-maxsize = 16
 tray-transparent = false
-tray-offset-y = 0%
-tray-offset-x = 0%
-tray-maxsize = 8
-tray-detached = false
-tray-background = ${colors.my_color8}
 
-; wm-restack = i3
+font-0 = Fira Code:pixelsize=11;3
+font-1 = octicons:pixelsize=14;3
+font-2 = Weather Icons:size=14;4
+font-3 = FontAwesome5Free:style=Solid:pixelsize=14;4
+font-4 = FontAwesome5Brands:style=Solid:pixelsize=14;4
+font-5 = MaterialIcons:pixelsize=13;4
+font-6 = Wuncon Siji:pixelsize=13;4
 
-; override-redirect = true
+padding-left = 1
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 1
 
-[module/vpncheck]
-type = custom/script
-exec = pgrep openvpn
-interval = 5
-label = vpn
-format-underline = #268bd2
-format-prefix = " "
-format-prefix-foreground = #5b
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+modules-left = cpu ram
+modules-center = i3
+modules-right = keyboard powermenu tray
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 [module/mocp]
 type = custom/script
@@ -87,122 +88,235 @@ click-left = mocp -f
 click-right = mocp -r
 click-middle = mocp -P
 
-[module/i3]
-type = internal/i3
-
-label-unfocused-underline = ${colors.my_color0}
-label-unfocused-background = ${colors.my_color8}
-label-unfocused-foreground = ${colors.my_foreground}
-
-label-mode = %mode%
-label-mode-padding = 2
-label-mode-background = ${colors.my_color4}
-
-label-focused = %index%
-label-focused-foreground = ${colors.my_foreground}
-label-focused-background = ${colors.my_color12}
-label-focused-underline = ${colors.my_color4}
-label-focused-padding = 2
-
-label-unfocused = %index%
-label-unfocused-padding = 2
-
-label-visible = %index%
-label-visible-underline = ${colors.my_foreground}
-label-visible-padding = 4
-
-label-urgent = %index%
-label-urgent-foreground = ${colors.my_color1}
-label-urgent-background = ${colors.my_color9}
-label-urgent-underline = ${colors.my_color1}
-label-urgent-padding = 2
-
 [module/pkg]
 type = custom/script
 interval = 1200
 format = <label>
+background = ${colors.background}
+foreground = ${colors.foreground}
 format-underline = #dc322f
 label = "%output:0:30%"
 exec = ~/.config/polybar/pkg.sh
 
-[module/mpv]
-type = custom/script
-exec = sh ~/.config/polybar/mpv.sh
-exec-if = pgrep -x mpv
+[module/wifi]
+type = internal/network
+
+interface = wlp3s0
 interval = 1
-format = <label>
+
+label-connected = %{A} %{A:wicd-client &:} %essid%%{A} | %local_ip%
+format-connected-foreground = ${colors.blue}
+
+format-disconnected-padding = 1
+format-disconnected-foreground = ${colors.yellow}
+
+label-disconnected = %{A:wicd-client &:} Disconnected%{A}
+
+[module/vpncheck]
+type = custom/script
+exec = pgrep openvpn
+interval = 5
+label = " Connected to VPN"
+format-prefix = "%{T4}%{T-} "
+format-foreground = ${colors.blue}
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+
+format-foreground = ${colors.yellow}
+
+label =  %{A:termite -e vtop &:}%percentage%%
+
+
+[module/temperature]
+label-padding-left = 1
+type = custom/script
+exec = $HOME/.config/polybar/temperature.sh
+interval = 1
+
+format-foreground = ${colors.magenta}
+
+label =  %output%°C
+
+
+[module/ram]
+label-padding-left = 1
+type = internal/memory
+interval = 3
+
+format-foreground = ${colors.green}
+
+label =  %{A:LANG=en_US.utf8 TERM=xterm-256color termite -e vtop &:}%percentage_used%%
+
+
+[module/weather]
+label-padding-left = 1
+type = custom/script
+exec = "sh $HOME/.config/polybar/weather.sh"
+interval = 600
+label-font = 3
+
+format-foreground = ${colors.blue}
+
 label = %output%
-format-padding = 10
-format-foreground = ${colors.my_color2}
+
+[module/xwindow]
+label-padding-left = 1
+type = internal/xwindow
+
+label = %title%
+label-maxlen = 70
+
+format-foreground = ${colors.foreground}
+format-prefix = " "
+format-suffix = " "
+
+format-margin = 5
+
+
+[module/clock]
+type = internal/date
+
+interval = 1.0
+
+time =  %H:%M
+
+format = <label>
+format-prefix = " "
+format-foreground = ${colors.yellow}
+
+label = %time%
+
 
 [module/date]
 type = internal/date
-interval = 1
 
-date =
-date-alt = "%d/%m/%Y"
+date =  %d/%m
 
-time = "%d/%m/%Y %H:%M:%S"
+format = <label>
+format-prefix = " "
+format-foreground = ${colors.magenta}
 
-time-alt = %H:%M
-
-format-prefix-foreground = ${colors.my_foreground}
-format-underline =
+label = %date%
 
 
-label = %date% %time%
+[module/powermenu]
+type = custom/menu
+
+format-prefix = " "
+
+label-open = 
+label-open-foreground = ${colors.red}
+label-close = 
+label-close-foreground = ${colors.red}
+label-separator = "  "
+
+menu-0-0 = Reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = Shutdown
+menu-0-1-exec = menu-open-2
+menu-0-2 = Exit
+menu-0-2-exec = menu-open-3
+
+menu-1-0 = 
+menu-1-0-exec = termite -e 'reboot'
+menu-1-1 = 
+menu-1-1-exec = menu-open-0
+
+menu-2-0 = 
+menu-2-0-exec = termite -e 'poweroff'
+menu-2-1 = 
+menu-2-1-exec = menu-open-0
+
+menu-3-0 = 
+menu-3-0-exec = herbstclient quit; bspc quit; exec i3-msg exit
+menu-3-1 = 
+menu-3-1-exec = menu-open-0
+
+[module/ewmh]
+type = internal/xworkspaces
+label-font = 3
+
+enable-click = true
+enable-scroll = true
+
+icon-0 = "term;"
+icon-1 = "code;"
+icon-2 = "web;"
+icon-3 = "social;"
+icon-4 = "music;"
+icon-5 = "misc;"
+icon-6 = "media;"
+icon-7 = "editor;"
+
+label-active = %icon%
+label-active-foreground = ${colors.black}
+label-active-background = ${colors.white}
+label-active-padding = 2
+
+label-urgent = %icon%
+label-urgent-foreground = #ffffff
+label-urgent-background = ${colors.red}
+label-urgent-padding = 2
+
+label-empty = %icon%
+label-empty-foreground = ${colors.white}
+label-empty-padding = 2
 
 
-[module/battery]
-type = internal/battery
-battery = BAT1
-adapter = AC
-full-at = 99
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+label-font = 4
 
-format-full-background = ${colors.my_color8}
-format-charging-background = ${colors.my_background}
-format-charging = "⁣  <label-charging> <animation-charging> "
-format-charging-underline = ${colors.my_color2}
+ws-icon-0 = "1;1: "
+ws-icon-1 = "2;2: "
+ws-icon-2 = "3;3: "
+ws-icon-3 = "4;4: "
+ws-icon-4 = "5;5: "
+ws-icon-5 = "6;6: "
+ws-icon-6 = "7;7: "
+ws-icon-7 = "8;8: "
+ws-icon-8 = "9;9: "
+ws-icon-9 = "10;10: "
 
-format-discharging-background = ${colors.my_color8}
-format-discharging = "⁣ <label-discharging> <ramp-capacity> "
-format-discharging-underline = ${self.format-charging-underline}
+index-sort = true
+wrapping-scroll = true
+strip-wsnumbers = true
 
-format-full-prefix-foreground = ${colors.my_background}
-format-full-underline = ${self.format-charging-underline}
+label-focused = "%icon%"
+label-focused-foreground = ${colors.black}
+label-focused-background = ${colors.white}
+label-focused-padding = 2
 
-format-charing-background = ${colors.my_background}
+label-unfocused = "%icon%"
+label-unfocused-padding = 2
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-foreground = ${colors.my_foreground}
+label-urgent = "%icon%"
+label-urgent-foreground = #ffffff
+label-urgent-background = ${colors.red}
+label-urgent-padding = 2
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-foreground = ${colors.my_foreground}
-animation-charging-framerate = 750
+label-visible = "%icon%"
+label-visible-padding = 2
 
-[settings]
-screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
+[module/keyboard]
+type = internal/xkeyboard
+
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+format = <label-indicator>
+label-indicator-padding = 1
+label-indicator-background = ${colors.white}
+label-indicator-foreground = ${colors.black}
 
 
-[global/wm]
-margin-top = 10
-margin-bottom = 10
+[module/spotify]
+type = custom/script
+exec = sh $HOME/.config/polybar/spotify.sh
 
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
-label-padding = 10
-label-foreground = ${colors.my_foreground}
+interval = 0.5
+label-maxlen = 70
+label-foreground = ${colors.yellow}
 
