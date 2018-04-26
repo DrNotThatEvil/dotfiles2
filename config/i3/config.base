@@ -77,9 +77,6 @@ set $email thunderbird
 ##> Autostart
 #################################################################
 
-# Launch compositor
-exec compton -c --config ~/.config/compton/config
-
 # Diable screen blacking
 exec --no-startup-id xset s off -dpms 
 

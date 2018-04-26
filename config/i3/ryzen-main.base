@@ -1,5 +1,8 @@
 ### NEW BASE FILE STARTS HERE ###
 
+# Launch compositor
+exec compton --backend glx -c --config ~/.config/compton/config
+
 exec --no-startup-id 'sudo /usr/bin/colctl --sensor_control'
 exec_always --no-startup-id /home/wilvin/.dotfiles/config/i3/scripts/launch_polybar.sh
 bindsym F8 exec "termite -e 'sudo sh /home/wilvin/.dotfiles/config/i3/scripts/launch_vm3.sh'"
