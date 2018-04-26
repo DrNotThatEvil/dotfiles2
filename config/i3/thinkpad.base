@@ -10,4 +10,4 @@ bindsym XF86WLAN exec sudo systemctl restart systemctl-networkd.service
 exec_always --no-startup-id LAPTOP="yes" $HOME/.dotfiles/config/i3/scripts/launch_polybar.sh
 
 # Launch compositor
-exec compton --backend glx -c --config ~/.config/compton/config
+exec compton --backend xrender -c --config ~/.config/compton/config
