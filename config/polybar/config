@@ -40,7 +40,7 @@ module-margin-right = 1
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-modules-left = mocp
+modules-left = mocp spotify
 modules-center = xwindow
 modules-right = ${env:BAR_RIGHT:vpncheck pkg date}
 
@@ -88,6 +88,14 @@ click-left = mocp -f
 click-right = mocp -r
 click-middle = mocp -P
 
+[module/spotify]
+type = custom/script
+interval = 1
+format = <label>
+format-prefix = " "
+exec = ~/.config/polybar/spotify.sh
+format-foreground = ${colors.green}
+
 [module/pkg]
 type = custom/script
 interval = 1200
@@ -114,10 +122,9 @@ label-disconnected = %{A:wicd-client &:} Disconnected%{A}
 
 [module/vpncheck]
 type = custom/script
-exec = pgrep openvpn
-interval = 5
-label = " Connected to VPN"
-format-prefix = "%{T4}%{T-} "
+exec = $HOME/.dotfiles/config/polybar/pub-ip.sh
+interval = 10
+label = " %output% "
 format-foreground = ${colors.blue}
 
 [module/cpu]
@@ -310,11 +317,6 @@ format = <label-indicator>
 label-indicator-padding = 1
 label-indicator-background = ${colors.white}
 label-indicator-foreground = ${colors.black}
-
-
-[module/spotify]
-type = custom/script
-exec = sh $HOME/.config/polybar/spotify.sh
 
 interval = 0.5
 label-maxlen = 70

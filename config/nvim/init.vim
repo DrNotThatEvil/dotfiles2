@@ -75,6 +75,9 @@ call dein#add('airblade/vim-gitgutter')
 " Love2d 
 call dein#add('davisdude/vim-love-docs')
 
+" Vue.js
+call dein#add('posva/vim-vue')
+
 " colorschemes
 call dein#add('flazz/vim-colorschemes')
 
@@ -203,10 +206,10 @@ map - :NERDTreeToggle<CR>
 
 map + :FZF<CR>
 
-augroup fmt
-  autocmd!
-  au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
-augroup END
+"augroup fmt
+"  autocmd!
+"  au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
+"augroup END
 
 function! s:insert_gates()
   let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")

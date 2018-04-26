@@ -27,7 +27,6 @@ while true; do
         sudo ddcutil -d 1 setvcp 60 0x12 sleep 2
         xrandr --output HDMI-0 --mode 2560x1440 --left-of DVI-D-0
         sleep 2
-        i3-msg reload
         break
         # Try additional commands here...
     else
@@ -37,12 +36,8 @@ while true; do
 done
 
 killall -q polybar
-MONITOR="HDMI-0" BAR_RIGHT="mocp pkg vpncheck date" polybar -r toolbar &
-MONITOR="HDMI-0" BAR_RIGHT="mocp pkg vpncheck date" polybar -r bottombar &
-
-MONITOR="DVI-D-0" BAR_RIGHT="mocp pkg vpncheck date" polybar -r toolbar &
-MONITOR="DVI-D-0" BAR_RIGHT="mocp pkg vpncheck date" polybar -r bottombar &
-
+i3-msg restart
+sleep 1
 #sudo virsh nodedev-reattach pci_0000_0c_00_0
 #sudo virsh nodedev-reset pci_0000_0c_00_0
 xmodmap -e 'clear Lock'
