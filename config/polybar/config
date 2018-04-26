@@ -88,7 +88,6 @@ click-left = mocp -f
 click-right = mocp -r
 click-middle = mocp -P
 
-<<<<<<< HEAD
 [module/spotify]
 type = custom/script
 interval = 1
@@ -96,14 +95,13 @@ format = <label>
 format-prefix = " "
 exec = ~/.config/polybar/spotify.sh
 format-foreground = ${colors.green}
-=======
+
 [module/dotdetector]
 type = custom/script
 interval = 1000
 format = <label>
 click-left = "termite -d $HOME/.dotfiles"
-exec = ~/.config/polybar/dot_detector.py
->>>>>>> bef33c2e03bc02544577f1d44f657018d65a794a
+exec = ~/.config/polybar/dot_detector.py fetch
 
 [module/pkg]
 type = custom/script
