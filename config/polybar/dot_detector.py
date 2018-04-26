@@ -10,7 +10,7 @@ repo = Repo(dotfiles)
 def detectChanges():
 	changedFiles = [ item.a_path for item in repo.index.diff(None) ]
 	changedFiles = changedFiles + repo.untracked_files
-	if len(changedFiles):
+	if len(changedFiles) > 0:
 		return "%{F5 F#f00}%{F-}%{F#f00} Dotfiles changed. Commit them!%{F-}"
 	return ""
 
