@@ -20,8 +20,7 @@ def detectChanges(args):
         return "%{F5 F#ff0}%{F-} Remote dotfiles changed. Pull them!%{F-}"
 
     if len(args) > 0:
-        for fetch_info in repo.remotes.origin.fetch():
-            print("Updated %s to %s" % (fetch_info.ref, fetch_info.commit))
+        repo.remotes.origin.fetch()
 
     return ""
 
