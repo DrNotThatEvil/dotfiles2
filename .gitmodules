@@ -10,10 +10,6 @@
 [submodule "fonts/nerd-fonts"]
 	path = fonts/nerd-fonts
 	url = git@github.com:ryanoasis/nerd-fonts.git
-[submodule "i3/bumblebee-status"]
-	path = i3/bumblebee-status
-	url = git@github.com:DrNotThatEvil/bumblebee-status.git
-
 [submodule "pywal"]
 	path = pywal
 	url = git@github.com:dylanaraps/pywal.git
