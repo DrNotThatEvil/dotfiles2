@@ -15,7 +15,7 @@ cursor_blink = true
 cursor_shape = ibeam
 
 # font type and size
-font = Droid Sans Mono Slashed for Powerline 10
+font = Droid Sans Mono for Powerline 10
 browser = firefox
 
 [colors]

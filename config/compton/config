@@ -1,8 +1,6 @@
 #################################
 #     GLX backend
 #################################
-
-backend = "glx";
 detect-rounded-corners = true;
 glx-copy-from-front = false;
 glx-no-rebind-pixmap = true;
@@ -73,6 +71,7 @@ inactive-opacity-override = false;
 opacity-rule = [
   "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
 ];
+
 
 
 #################################
