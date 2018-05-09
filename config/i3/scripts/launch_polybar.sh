@@ -15,15 +15,15 @@ if [ -z "$MAINDISABLE" ]; then
     MONITOR="eDP1" BAR_RIGHT="vpncheck pkg battery date" polybar bottombar &
   else
     # Launch bar1 and bar2
-    MONITOR="HDMI-0" BAR_RIGHT="vpncheck pkg date" polybar -r toolbar &
-    MONITOR="HDMI-0" BAR_RIGHT="vpncheck pkg date" polybar -r bottombar &
+    MONITOR="HDMI-0" BAR_RIGHT="vpncheck pkg date clock" polybar -r toolbar &
+    MONITOR="HDMI-0" BAR_RIGHT="vpncheck pkg date clock" polybar -r bottombar &
     #MONITOR="DP-4.1" BAR_RIGHT="mocp pkg vpncheck date" polybar main_bar &
-    MONITOR="DVI-D-0" BAR_RIGHT="vpncheck pkg date" polybar -r toolbar &
-    MONITOR="DVI-D-0" BAR_RIGHT="vpncheck pkg date" polybar -r bottombar &
+    MONITOR="DVI-D-0" BAR_RIGHT="vpncheck pkg date clock" polybar -r toolbar &
+    MONITOR="DVI-D-0" BAR_RIGHT="vpncheck pkg date clock" polybar -r bottombar &
   fi
 else
-    MONITOR="DVI-D-0" BAR_RIGHT="vpncheck pkg date" polybar -r toolbar &
-    MONITOR="DVI-D-0" BAR_RIGHT="vpncheck pkg date" polybar -r bottombar &
+    MONITOR="DVI-D-0" BAR_RIGHT="vpncheck pkg date clock" polybar -r toolbar &
+    MONITOR="DVI-D-0" BAR_RIGHT="vpncheck pkg date clock" polybar -r bottombar &
 fi
 
 echo "Bars launched..."

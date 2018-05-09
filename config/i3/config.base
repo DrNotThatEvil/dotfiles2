@@ -108,6 +108,9 @@ exec --no-startup-id redshift
 exec_always --no-startup-id xmodmap -e 'clear Lock'
 exec_always --no-startup-id xmodmap -e 'keycode 0x42=Escape' 
 
+exec --no-startup-id $term --name=irc -e weechat
+for_window [instance="irc"] move to workspace $ws10
+
 # Github steak reminder
 exec --no-startup-id /home/wilvin/Development/Python/ghsteakreminder/venv/bin/python3.6 /home/wilvin/Development/Python/ghsteakreminder/gh_reminder.py
 
