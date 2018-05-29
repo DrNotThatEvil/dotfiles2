@@ -40,7 +40,7 @@ module-margin-right = 1
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-modules-left = mocp dotdetector spotify
+modules-left = dotdetector spotify
 modules-center = xwindow
 modules-right = ${env:BAR_RIGHT:vpncheck pkg date}
 
