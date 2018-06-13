@@ -200,6 +200,9 @@ autocmd CompleteDone * silent! pclose!
 
 let g:clang2_placeholder_next = ''
 let g:ale_cpp_cppcheck_options = '--enable=style --suppress=missingIncludeSystem'
+let g:ale_linters = {
+  \ 'python': ['pycodestyle'] ,
+  \ }
 
 " NERDTree settings.
 map - :NERDTreeToggle<CR>

@@ -186,6 +186,10 @@ bindsym $mod+Shift+c reload
 # Start arandr
 bindsym $mod+F3 exec arandr
 
+# Move workspace
+bindsym $mod+F5 move workspace to output left
+bindsym $mod+F6 move workspace to output right
+
 # Disable help 
 bindsym F1 exec --no-startup-id echo "help" > /dev/null
 # My cries for help are in vain, Cause /dev/null has no shame
