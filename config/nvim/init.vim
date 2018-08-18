@@ -50,6 +50,9 @@ call dein#add('Shougo/deoplete.nvim')
 " Deoplete - CLang
 call dein#add('tweekmonster/deoplete-clang2')
 
+" Django+
+call dein#add('tweekmonster/django-plus.vim')
+
 " Supertab
 call dein#add('ervandew/supertab')
 
@@ -80,6 +83,7 @@ call dein#add('posva/vim-vue')
 
 " colorschemes
 call dein#add('flazz/vim-colorschemes')
+call dein#add('dylanaraps/wal.vim')
 
 " End plugin list
 
@@ -98,7 +102,7 @@ call dein#end()
 
 "=== SET COLOUR VARIABLES =====================================================
 
-colorscheme Revolution
+colorscheme wal
 
 "=== OPTIONS ==================================================================
 " vim-airline section
@@ -108,7 +112,7 @@ colorscheme Revolution
   let g:airline#extensions#tabline#fnamemod = ':t'
   let g:airline#extensions#tabline#show_tab_nr = 1
   let g:airline_powerline_fonts = 1
-  let g:airline_theme='jellybeans'
+  let g:airline_theme='base16'
   cnoreabbrev <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 
         \ 'Sayonara' : 'x'
   tmap <leader>x <c-\><c-n>:bp! <BAR> bd! #<CR>
@@ -129,7 +133,7 @@ colorscheme Revolution
   nmap <leader>9 <Plug>AirlineSelectTab9
   nmap <leader>- <Plug>AirlineSelectPrevTab
   nmap <leader>+ <Plug>AirlineSelectNextTab
-  set guifont=Sauce\ Code\ Pro\ Black\ Nerd\ Font\ Complete
+"  set guifont="Fira Mono for Powerline"
 "=== OPTIONS ==================================================================
 
 " Enter: complete&close popup if visible (so next Enter works);
