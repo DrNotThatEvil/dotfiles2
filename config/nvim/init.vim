@@ -31,6 +31,9 @@ call dein#begin(expand('~/.config/nvim'))
 
 " Begin plugin list
 
+" Some stuff
+call dein#add('roxma/vim-hug-neovim-rpc')
+
 " Nvim yarp
 call dein#add('roxma/nvim-yarp')
 
