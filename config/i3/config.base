@@ -309,9 +309,6 @@ bindsym $mod+b exec --no-startup-id mocp -r
 # Next song
 bindsym $mod+n exec --no-startup-id mocp -f
 
-# Start alsmixer volume control
-bindsym $mod+g exec --no-startup-id $term --name=audio -e alsamixer
-
 # Start music on console player
 bindsym $mod+m exec $term -e mocp
 
