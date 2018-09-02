@@ -18,6 +18,12 @@ focus_on_window_activation urgent
 force_focus_wrapping force
 
 for_window[class="keepass2"] floating enable
+for_window[class="mpv"] floating enable
+for_window[class="mpv"] border pixel 1
+
+# Steam update news can die...
+for_window[class="Steam - Update News"] kill
+
 
 # Setting up workspaces
 set $ws1 "1"
@@ -37,12 +43,10 @@ set $ws10 "10"
 #################################################################
 
 # Gaps 
-gaps inner 20
+gaps outer 10
+gaps inner 10
+
 smart_borders no_gaps
-workspace $ws2 gaps inner 0
-workspace $ws3 gaps inner 0
-workspace $ws5 gaps inner 0
-workspace $ws7 gaps inner 0
 
 # Borders
 for_window[class=".*"] border pixel 3
@@ -52,7 +56,7 @@ new_float pixel 3
 # Colors
 set_from_resource	    $background       background
 set_from_resource       $theme-active     foreground
-set_from_resource       $theme-inactive   trueblack
+set_from_resource       $theme-inactive   background
 
 client.background	    $background
 client.focused          $theme-active   $theme-active   $theme-inactive $theme-active   $theme-active
@@ -64,7 +68,7 @@ client.unfocused        $theme-inactive $theme-inactive $theme-active   $theme-i
 #################################################################
 
 # Set terminal to termite
-set $term termite
+set $term urxvt
 
 # Set browser to firefox
 set $browser firefox
@@ -81,7 +85,7 @@ set $email thunderbird
 exec --no-startup-id xset s off -dpms 
 
 # Start pulseaudio
-exec --no-startup-id pulseaudio --start
+# exec --no-startup-id pulseaudio
 
 # Start dunst
 exec --no-startup-id dunst -config ~/.dunstrc
@@ -93,7 +97,8 @@ exec --no-startup-id exec owncloud
 exec --no-startup-id exec ~/.dotfiles/scripts/launchmail.sh
 
 # Background
-exec_always --no-startup-id feh --bg-scale ~/.dotfiles/pictures/Samus.jpg
+exec_always --no-startup-id feh --bg-scale ~/.dotfiles/pictures/Wallpaper_anime3.png
+# exec_always --no-startup-id wal -i ~/.dotfiles/pictures/Wallpaper_anime3.png -n
 
 # Configure my shortcuts 
 exec_always --no-startup-id python ~/.dotfiles/scripts/Shortcuts.py
@@ -108,8 +113,8 @@ exec --no-startup-id redshift
 exec_always --no-startup-id xmodmap -e 'clear Lock'
 exec_always --no-startup-id xmodmap -e 'keycode 0x42=Escape' 
 
-exec --no-startup-id $term --name=irc -e weechat
-for_window [instance="irc"] move to workspace $ws10
+#exec --no-startup-id $term -name=irc -e weechat
+#for_window [instance="irc"] move to workspace $ws10
 
 # Github steak reminder
 exec --no-startup-id /home/wilvin/Development/Python/ghsteakreminder/venv/bin/python3.6 /home/wilvin/Development/Python/ghsteakreminder/gh_reminder.py
@@ -139,6 +144,9 @@ bindsym $mod+Tab workspace back_and_forth
 # Kill application
 bindsym $mod+q kill
 bindsym $mod+Shift+q kill
+
+# Startup Qutebrowser
+bindsym $mod+w exec --no-startup-id qutebrowser
 
 # Startup firefox
 bindsym $mod+Shift+w exec --no-startup-id $browser
@@ -171,7 +179,7 @@ bindsym $mod+Shift+s gaps inner current minus 10
 bindsym $mod+Shift+d gaps inner all set 0
 
 # Start dmenu
-bindsym $mod+d exec "rofi -modi run,drun,window -show drun"
+bindsym $mod+d exec "dmenu_run"
 
 # Fullscreen a window
 bindsym $mod+Shift+f fullscreen toggle
@@ -301,9 +309,6 @@ bindsym $mod+b exec --no-startup-id mocp -r
 # Next song
 bindsym $mod+n exec --no-startup-id mocp -f
 
-# Start pulseaudio volume control
-bindsym $mod+g exec --no-startup-id pavucontrol
-
 # Start music on console player
 bindsym $mod+m exec $term -e mocp
 
@@ -344,11 +349,11 @@ bindsym XF86AudioPrev exec --no-startup-id mocp -r
 bindsym XF86AudioNext exec --no-startup-id mocp -f
 
 # Decrease audio by 25
-bindsym $mod+minus exec pulseaudio-ctl down 25
+bindsym $mod+minus exec amixer -q set ODAC-revB 2db-
 
 # Decrease audio by 25
-bindsym $mod+plus exec pluseaudio-ctl up 25
-bindsym $mod+equal exec pluseaudio-ctl up 25
+bindsym $mod+plus exec amixer -q set ODAC-revB 2db+
+bindsym $mod+equal exec amixer -q set ODAC-revB 2db+
 
 # Mute
 bindsym $mod+backslash exec pulseaudio-ctl mute
@@ -386,8 +391,11 @@ assign [class="Thunderbird"] $ws9
 ##> Scratchpad
 #################################################################
 ## I saw this idea from Luke Smith. I thought I NEED THIS RIGHT NOW! Thanks Luke your videos make my i3 way more awesome then it was!
-exec --no-startup-id $term --name=dropdown -e tmux new-session
-for_window [instance="dropdown"] floating enable;
-for_window [instance="dropdown"] move scratchpad; [instance="dropdown"] scratchpad show; move scratchpad
 
-bindsym $mod+u [instance="dropdown"] scratchpad show
+# TODO: Fix this since this is broken due to new terminal choice.
+
+# exec --no-startup-id $term -name dropdown_term -e tmux new-session
+# for_window [class="dropdown_term"] floating enable;
+# for_window [class="dropdown_term"] move scratchpad; [class="dowpdown_term"] scratchpad show; move scratchpad
+
+bindsym $mod+u [class="dropdown_term"] scratchpad show

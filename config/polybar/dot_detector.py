@@ -12,12 +12,12 @@ def detectChanges(args):
     changedFiles = [ item.a_path for item in repo.index.diff(None) ]
     changedFiles = changedFiles + repo.untracked_files
     if len(changedFiles) > 0:
-        return "%{F5 F#f00}%{F-} Dotfiles changed. Commit them!%{F-}"
+        return "%{F5 F${colors.red}%{F-} Dotfiles changed. Commit them!%{F-}"
 
     # remoteChangedFiles = [ item.a_path for item in repo.index.diff(repo.remotes.origin) ]
     remoteChangedFiles = [ item.a_path for item in repo.index.diff(repo.remotes.origin.refs.master.commit) ]
     if len(remoteChangedFiles) > 0:
-        return "%{F5 F#ff0}%{F-} Remote dotfiles changed. Pull them!%{F-}"
+        return "%{F5 F${colors.yellow}%{F-} Remote dotfiles changed. Pull them!%{F-}"
 
     if len(args) > 0:
         repo.remotes.origin.fetch()

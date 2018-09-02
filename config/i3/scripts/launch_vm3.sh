@@ -6,25 +6,25 @@
 
 #sudo virsh nodedev-detach pci_0000_0c_00_0
 
-tmp=$(sudo virsh list --all | grep " win10 " | awk '{ print $3}')
+tmp=$(virsh --connect qemu:///system list --all | grep " win10 " | awk '{ print $3}')
 
 if ([ "x$tmp" == "x" ] || [ "x$tmp" != "xrunning" ]); then
-    sudo virsh start win10
+    virsh --connect qemu:///system start win10
 fi
 
-sudo ddcutil -d 1 setvcp 60 0x0f
+ddcutil -d 1 setvcp 60 0x0f
 sleep 6
 xrandr --output HDMI-0 --off
 sleep 3
 i3-msg reload
 
 while true; do 
-    tmp=$(sudo virsh list --all | grep " win10 " | awk '{ print $3}')
+    tmp=$(virsh --connect qemu:///system list --all | grep " win10 " | awk '{ print $3}')
     if ([ "x$tmp" == "x" ] || [ "x$tmp" != "xrunning" ]); then
         echo "VM does not exist or is shut down!"
         echo "Reseting everything back to normal...!"
 
-        sudo ddcutil -d 1 setvcp 60 0x12 sleep 2
+        ddcutil -d 1 setvcp 60 0x12 sleep 2
         xrandr --output HDMI-0 --mode 2560x1440 --left-of DVI-D-0
         sleep 2
         break

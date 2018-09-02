@@ -1,7 +1,7 @@
 #! /bin/bash
 
 if [ $(ps aux | grep openvpn | wc -l) -gt 1 ]; then
-    echo "%{F#0F0}  VPN Connected %{F-}"
+    echo "%{F${xrdb:color2:#222}}  VPN Connected %{F-}"
 else
-    echo "%{F#F00}  UNSECURE NO VPN %{F-}"
+    echo "%{F${xrdb:color1:#222}}  UNSECURE NO VPN %{F-}"
 fi
