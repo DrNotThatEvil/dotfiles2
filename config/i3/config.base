@@ -18,6 +18,12 @@ focus_on_window_activation urgent
 force_focus_wrapping force
 
 for_window[class="keepass2"] floating enable
+for_window[class="mpv"] floating enable
+for_window[class="mpv"] border pixel 1
+
+# Steam update news can die...
+for_window[class="Steam - Update News"] kill
+
 
 # Setting up workspaces
 set $ws1 "1"
@@ -139,6 +145,9 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+q kill
 bindsym $mod+Shift+q kill
 
+# Startup Qutebrowser
+bindsym $mod+w exec --no-startup-id qutebrowser
+
 # Startup firefox
 bindsym $mod+Shift+w exec --no-startup-id $browser
 
@@ -170,7 +179,7 @@ bindsym $mod+Shift+s gaps inner current minus 10
 bindsym $mod+Shift+d gaps inner all set 0
 
 # Start dmenu
-bindsym $mod+d exec "rofi -modi run,drun,window -show drun"
+bindsym $mod+d exec "dmenu_run"
 
 # Fullscreen a window
 bindsym $mod+Shift+f fullscreen toggle
