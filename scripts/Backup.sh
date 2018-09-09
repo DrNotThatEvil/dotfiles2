@@ -1,12 +1,14 @@
 #!/bin/sh
 
+DEVICE="$(cat $HOME/.dotfiles/scripts/device)"
+export BACKUP_DEVICE="${DEVICE%.*}"
+
 # Setting this, so the repo does not need to be given on the commandline:
-export BORG_REPO=ssh://backup@192.168.1.214:22:basestation-backup
+export BORG_REPO="ssh://backup@192.168.1.214:50683/~/${BACKUP_DEVICE}-backup"
 
 # Setting this, so you won't be asked for your repository passphrase:
-export BORG_PASSPHRASE='c6Hwvid7qHRgFs5u7iaZ'
 # or this to ask an external program to supply the passphrase:
-export BORG_PASSCOMMAND='pass show backup'
+export BORG_PASSCOMMAND="pass show ${BACKUP_DEVICE}-backup"
 
 # some helpers and error handling:
 info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
@@ -25,7 +27,8 @@ borg create                         \
     --show-rc                       \
     --compression lz4               \
     --exclude-caches                \
-    --exclude '/home/*/Downloads/*'   \
+    --exclude '/home/*/Stack'       \
+    --exclude '/home/*/Downloads/*' \
     --exclude '/home/*/.cache/*'    \
     --exclude '/home/*/.local/share/Steam' \
     --exclude '/home/*/.dotfiles'   \
@@ -33,7 +36,7 @@ borg create                         \
     --exclude '/var/cache/*'        \
     --exclude '/var/tmp/*'          \
                                     \
-    'backup@192.168.1.214:basestation-backup'::'{hostname}-{now}'            \
+    "$BORG_REPO"::'{hostname}-{now}'            \
     /etc                            \
     /home                           \
     /root                           \
@@ -55,8 +58,7 @@ borg prune                          \
     --keep-daily    7               \
     --keep-weekly   4               \
     --keep-monthly  6               \
-                                    \
-    'backup@192.168.1.214:basestation-backup'
+    "$BORG_REPO"                    \
 
 prune_exit=$?
 

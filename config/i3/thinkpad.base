@@ -1,5 +1,8 @@
 ### THINKPAD BASE STARTS HERE ###
 
+# Start alsmixer volume control 
+bindsym $mod+g exec --no-startup-id pavucontrol
+
 bindsym F6 exec light -A 20
 bindsym F5 exec light -U 20
 bindsym XF86WLAN exec sudo systemctl restart systemctl-networkd.service
