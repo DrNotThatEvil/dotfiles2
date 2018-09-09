@@ -24,9 +24,20 @@ rofi.width:         30
 ! =========================
 
  URxvt.depth: 32
- URxvt.font: xft:MesloLGMDZ Nerd Font:size=12
+ URxvt.font: xft:MesloLGMDZ Nerd Font:size=10
  URxvt.scrollBar: false
  URxvt.cursorColor: white
+
+ URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
+ URxvt.url-select.launcher:  firefox
+ URxvt.url-select.underline: true
+ URxvt.keysym.M-u:           perl:url-select:select_next
+ URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+ URxvt.keysym.M-s:           perl:keyboard-select:search
+
+ URxvt.keysym.C-M-c: perl:clipboard:copy
+ URxvt.keysym.C-M-v: perl:clipboard:paste
+
 
 ! =========================
 ! ======== COLORS =========

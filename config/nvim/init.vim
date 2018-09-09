@@ -1,4 +1,4 @@
-"content
+"
 "  __    __  ____  _      __ __     ____  ____       ____  ____   ____  ______   __ __  ____  ___ ___ 
 " |  |__|  ||    || |    |  |  |   |    ||    \     |    ||    \ |    ||      | |  |  ||    ||   |   |
 " |  |  |  | |  | | |    |  |  |    |  | |  _  |     |  | |  _  | |  | |      | |  |  | |  | | _   _ |
@@ -48,7 +48,7 @@ call dein#add('Shougo/deoplete.nvim')
 call dein#add('Shougo/deoplete.nvim')
 
 " Deoplete - CLang
-call dein#add('tweekmonster/deoplete-clang2')
+call dein#add('zchee/deoplete-clang')
 
 " Django+
 call dein#add('tweekmonster/django-plus.vim')
@@ -82,6 +82,7 @@ call dein#add('davisdude/vim-love-docs')
 call dein#add('posva/vim-vue')
 
 " colorschemes
+call dein#add('drewtempelmeyer/palenight.vim')
 call dein#add('flazz/vim-colorschemes')
 call dein#add('dylanaraps/wal.vim')
 
@@ -102,7 +103,8 @@ call dein#end()
 
 "=== SET COLOUR VARIABLES =====================================================
 
-colorscheme wal
+set background=dark
+colorscheme palenight
 
 "=== OPTIONS ==================================================================
 " vim-airline section
@@ -230,6 +232,9 @@ autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
 " Deoplete 
 let g:deoplete#sources#clang#libclang_path="/usr/lib/libclang.so"
 let g:deopelete#sources#clang#clang_header="/usr/lib/clang"
+let g:deoplete#sources#clang#std#cpp = 'c++11'
+let g:deoplete#sources#clang#sort_algo = 'priority'
+
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 1
 let g:deoplete#enable_smart_case = 1

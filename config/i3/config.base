@@ -11,7 +11,7 @@ floating_modifier $mod
 focus_follows_mouse no
 
 # Font 
-font pango: Inconsolata 7
+font pango:MesloLGMDZ Nerd Font 5
 
 # Focus on open
 focus_on_window_activation urgent
@@ -24,7 +24,6 @@ for_window[class="mpv"] border pixel 1
 # Steam update news can die...
 for_window[class="Steam - Update News"] kill
 
-
 # Setting up workspaces
 set $ws1 "1"
 set $ws2 "2"
@@ -36,7 +35,6 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
-
 
 #################################################################
 ##> Theme
@@ -348,6 +346,10 @@ bindsym XF86AudioPrev exec --no-startup-id mocp -r
 # Next song
 bindsym XF86AudioNext exec --no-startup-id mocp -f
 
+#################################################################
+##> Window resizing
+#################################################################
+
 # Decrease audio by 25
 bindsym $mod+minus exec amixer -q set ODAC-revB 2db-
 
@@ -359,7 +361,8 @@ bindsym $mod+equal exec amixer -q set ODAC-revB 2db+
 bindsym $mod+backslash exec pulseaudio-ctl mute
 
 # mute input
-bindsym $mod+Shift+backslash exec pulseaudio-ctl mute-input
+# bindsym $mod+Shift+backslash exec pulseaudio-ctl mute-input
+# TODO: Move this to to system specific setup
 
 #################################################################
 ##> Window resizing
@@ -392,10 +395,8 @@ assign [class="Thunderbird"] $ws9
 #################################################################
 ## I saw this idea from Luke Smith. I thought I NEED THIS RIGHT NOW! Thanks Luke your videos make my i3 way more awesome then it was!
 
-# TODO: Fix this since this is broken due to new terminal choice.
+exec --no-startup-id $term -name dropdown_term -e bash -c "tmux new-session"
+for_window [instance="dropdown_term"] floating enable;
+for_window [instance="dropdown_term"] move scratchpad; [instance="dowpdown_term"] scratchpad show; move position 0px 22px; resize shrink height 300px; resize grow width 683px; move scratchpad
 
-# exec --no-startup-id $term -name dropdown_term -e tmux new-session
-# for_window [class="dropdown_term"] floating enable;
-# for_window [class="dropdown_term"] move scratchpad; [class="dowpdown_term"] scratchpad show; move scratchpad
-
-bindsym $mod+u [class="dropdown_term"] scratchpad show
+bindsym $mod+u [instance="dropdown_term"] scratchpad show
