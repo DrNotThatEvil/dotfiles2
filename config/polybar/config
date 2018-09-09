@@ -78,15 +78,15 @@ modules-right = keyboard powermenu tray
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-[module/mocp]
-type = custom/script
-interval = 1
-format = <label>
-format-prefix = "  "
-exec = ~/.config/polybar/mocp.py
-click-left = mocp -f
-click-right = mocp -r
-click-middle = mocp -P
+#[module/mocp]
+#type = custom/script
+#interval = 1
+#format = <label>
+#format-prefix = "  "
+#exec = ~/.config/polybar/mocp.py
+#click-left = mocp -f
+#click-right = mocp -r
+#click-middle = mocp -P
 
 [module/spotify]
 type = custom/script
