@@ -304,7 +304,7 @@ label-empty-padding = 2
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
-label-font = 4
+label-font = 3
 
 ws-icon-0 = "1;1: "
 ws-icon-1 = "2;2: "
@@ -322,7 +322,7 @@ wrapping-scroll = true
 strip-wsnumbers = true
 
 label-focused = "%icon%"
-label-focused-foreground = ${colors.black}
+label-focused-foreground = ${colors.green}
 label-focused-background = ${colors.white}
 label-focused-padding = 2
 

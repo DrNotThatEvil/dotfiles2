@@ -11,8 +11,8 @@ echo $LAPTOP
 if [ -z "$MAINDISABLE" ]; then
   if [ ! -z "$LAPTOP" ]; then
     echo "LAPTOP DETECTED"
-    MONITOR="eDP1" BAR_RIGHT="vpncheck pkg battery date clock" polybar toolbar &
-    MONITOR="eDP1" BAR_RIGHT="vpncheck pkg battery date" polybar bottombar &
+    MONITOR="eDP1" BAR_RIGHT="vpncheck pkg battery date clock" polybar -r toolbar &
+    MONITOR="eDP1" BAR_RIGHT="vpncheck pkg battery date" polybar -r bottombar &
   else
     # Launch bar1 and bar2
     MONITOR="HDMI-0" BAR_RIGHT="vpncheck pkg date clock" polybar -r toolbar &

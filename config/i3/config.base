@@ -66,7 +66,7 @@ client.unfocused        $theme-inactive $theme-inactive $theme-active   $theme-i
 #################################################################
 
 # Set terminal to termite
-set $term urxvt
+set $term urxvtc
 
 # Set browser to firefox
 set $browser firefox
@@ -395,8 +395,9 @@ assign [class="Thunderbird"] $ws9
 #################################################################
 ## I saw this idea from Luke Smith. I thought I NEED THIS RIGHT NOW! Thanks Luke your videos make my i3 way more awesome then it was!
 
-exec --no-startup-id $term -name dropdown_term -e bash -c "tmux new-session"
-for_window [instance="dropdown_term"] floating enable;
-for_window [instance="dropdown_term"] move scratchpad; [instance="dowpdown_term"] scratchpad show; move position 0px 22px; resize shrink height 300px; resize grow width 683px; move scratchpad
+exec $HOME/.dotfiles/config/i3/scripts/i3start.sh
+#exec --no-startup-id $term -name dropdown_term -e bash -c "tmux new-session"
+#for_window [class="dropdown_term"] floating enable;
+#for_window [class="dropdown_term"] move scratchpad; [class="dowpdown_term"] scratchpad show; move position 0px 22px; resize shrink height 300px; resize grow width 683px; move scratchpad
 
 bindsym $mod+u [instance="dropdown_term"] scratchpad show

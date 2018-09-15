@@ -3,11 +3,14 @@ alias jrnl=" jrnl"
 alias spac="sudo pacman"
 alias stopvpn="sudo systemctl stop openvpn-client@mullvad_nl.service"
 alias startvpn="sudo systemctl start openvpn-client@mullvad_nl.service"
-alias wifi_restart="sudo systemctl restart wpa_supplicant@wlp4s0.service && sudo systemctl restart openvpn-client@Netherlands.service"
+alias wifi_restart="sudo systemctl restart wpa_supplicant@wlp4s0.service"
 
 alias restart="sudo systemctl restart $1"
 alias nlssh="ssh drnevil@149.210.189.232 -p 50683"
 alias genshortcuts="python $HOME/.dotfiles/scripts/Shortcuts.py && echo \"Shortcuts generated!\""
+
+alias bootwin="i3-msg 'exec virsh -c qemu:///system start win10'"
+alias startwin="i3-msg 'exec virt-viewer -c qemu:///system win10'"
 
 export EDITOR="nvim"
 export ANDROID_HOME="/opt/android-sdk"
