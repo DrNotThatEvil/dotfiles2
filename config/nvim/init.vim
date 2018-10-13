@@ -48,7 +48,10 @@ call dein#add('scrooloose/nerdtree')
 
 " Deoplete - Autocomplete
 call dein#add('Shougo/deoplete.nvim')
-call dein#add('Shougo/deoplete.nvim')
+call dein#add('Shougo/neoinclude.vim')
+
+" Debugging
+call dein#add('dbgx/lldb.nvim')
 
 " Deoplete - CLang
 call dein#add('zchee/deoplete-clang')
@@ -182,6 +185,20 @@ set mouse-=a
 set updatetime=500
 let g:gitgutter_max_signs=10000
 
+" Debugging 
+nnoremap <c-d>n :LLsession new<CR>
+nnoremap <c-d>b <Plug>LLBreakSwitch
+nnoremap <c-d>c :LL continue<CR>
+nnoremap <c-d>s :LL step<CR>
+nnoremap <c-d>d :LLmode debug<CR>
+nnoremap <c-d>z :LLmode code<CR>
+nnoremap <c-d>l :LL process launch<CR>
+nnoremap <c-d>p :LL print <C-R>=expand('<cword>')<CR>
+vnoremap <c-d>p :<C-U>LL print <C-R>=lldb#util#get_selection()<CR><CR>
+
+" build 
+noremap <S-F4> :!premake5 gmake<cr>
+noremap <leader><F5> :!./run.sh<cr>
 
 " Keymappings
 noremap <Leader>d dd

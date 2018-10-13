@@ -12,6 +12,7 @@ alias genshortcuts="python $HOME/.dotfiles/scripts/Shortcuts.py && echo \"Shortc
 alias bootwin="i3-msg 'exec virsh -c qemu:///system start win10'"
 alias startwin="i3-msg 'exec virt-viewer -c qemu:///system win10'"
 
+export {http,https,ftp}_proxy="http://127.0.0.1:8123"
 export EDITOR="nvim"
 export ANDROID_HOME="/opt/android-sdk"
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"

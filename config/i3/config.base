@@ -83,7 +83,7 @@ set $email thunderbird
 exec --no-startup-id xset s off -dpms 
 
 # Start pulseaudio
-# exec --no-startup-id pulseaudio
+exec --no-startup-id pulseaudio -D
 
 # Start dunst
 exec --no-startup-id dunst -config ~/.dunstrc
