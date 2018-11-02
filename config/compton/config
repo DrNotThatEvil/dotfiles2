@@ -28,6 +28,7 @@ blur-background-exclude = [
   "name = 'Screenshot'",
   "class_i *= 'tray'",
   "class_g = 'Firefox' && argb",
+  "class_g = 'URxvt'",
   "class_g ?= 'maim'",
   "class_g ?= 'slop'",
   "fullscreen",
