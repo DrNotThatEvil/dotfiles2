@@ -1,2 +1,10 @@
 #!/usr/bin/env bash
-sh -c "$(curl -fsSl https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+echo "=============================="
+echo -e "Installing zprezto"
+target=$HOME/.zprezto
+if [ -e $target ]; then
+    git clone --recursive git@github.com:DrNotThatEvil/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+else
+    echo -e "\n.zprezto already installed."
+fi

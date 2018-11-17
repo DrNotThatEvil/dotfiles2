@@ -1,107 +1,141 @@
-# unbind default prefix and set it to Ctrl+a
-unbind C-b
-set -g prefix C-a
-bind C-a send-prefix
-
-# for nested tmux sessions
-bind-key a send-prefix
-
-# tmux display things in 256 colors
-set -g default-terminal "xterm-256color"
-
-set -g history-limit 20000
-
-# Activity Monitoring
-setw -g monitor-activity off
-set -g visual-activity off
-
-# Rather than constraining window size to the maximum size of any client
-# # connected to the *session*, constrain window size to the maximum size of any
-# # client connected to *that window*. Much more reasonable.
-setw -g aggressive-resize on
-
-# make delay shorter
-set -sg escape-time 0
-
-# tile all windows
-unbind =
-bind = select-layout tiled
-
-# make window/pane index start with 1
-set -g base-index 1
-setw -g pane-base-index 1
-
-# set titles
-set-option -g set-titles on
-set-option -g set-titles-string "#T - #W"
-
-# ENTERING KEYBIND TERITORY. NOTE TO SELF: REMEMBER THIS STUFF PLZ
-# reload config file
-bind r source-file ~/.tmux.conf \; display "Config Reloaded!"
-
-# quickly open a new window
-bind N new-window
-
-# split window and fix path for tmux 1.9
-bind | split-window -h -c "#{pane_current_path}"
-bind - split-window -v -c "#{pane_current_path}"
-
-# synchronize all panes in a window
-bind y setw synchronize-panes
-
-# pane movement shortcuts
-bind h select-pane -L
-bind j select-pane -D
-bind k select-pane -U
-bind l select-pane -R
-
-bind -r C-h select-window -t :-
-bind -r C-l select-window -t :+
-
-# resize pane shortcuts
-bind -r H resize-pane -L 10
-bind -r J resize-pane -D 10
-bind -r K resize-pane -U 10
-bind -r L resize-pane -R 10
-
-# enable mouse support for switching panes/windows
-setw -g mouse on
-
-# maximizing and restoring windows
-unbind Up
-bind Up new-window -d -n fullscreen \; swap-pane -s fullscreen.1 \; select-window -t fullscreen
-unbind Down
-bind Down last-window \; swap-pane -s fullscreen.1 \; kill-window -t fullscreen
-
-# set vi mode for copy mode
-setw -g mode-keys vi
-# # more settings to make copy-mode more vim-like
-unbind [
-bind Escape copy-mode
-unbind p
-bind p paste-buffer
-bind-key -Tcopy-mode-vi 'v' send -X begin-selection
-bind-key -Tcopy-mode-vi 'y' send -X copy-selection
-
-##############################
-#### Color & Style Settings ###
-###############################
+#-------~---~----------~----------~----
+#       .---..-.-.-..-..-..-..-.
+#       `| |'| | | || || | >  <
+#        `-' `-'-'-'`----''-''-'
+#-------~---~----------~----------~----
+# file: $HOME/.tmux.conf
+#-------~---~----------~----------~----
 #
-source ~/.dotfiles/tmux/theme.sh
+# @user:       crshd <crshd@mail.com>
+# @updated:    2011/06/24
+# @revision:   2
+#
+#-------~---~----------~----------~----
+#
+# + Software used ATOC:
+# `-> tmux      => 1.4-3
+#
+#-------~---~----------~----------~----
 
-# Smart pane switching with awareness of Vim splits.
-# See: https://github.com/christoomey/vim-tmux-navigator
+#-------~---~----------~----------~----
+# KEYBINDS
+#-------~---~----------~----------~----
 
+set -g prefix ^a
+set -g status-keys vi
+setw -g mode-keys vi
 
-is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
-    | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
-bind-key -n C-h if-shell "$is_vim" "send-keys C-h"  "select-pane -L"
-bind-key -n C-j if-shell "$is_vim" "send-keys C-j"  "select-pane -D"
-bind-key -n C-k if-shell "$is_vim" "send-keys C-k"  "select-pane -U"
-bind-key -n C-l if-shell "$is_vim" "send-keys C-l"  "select-pane -R"
-bind-key -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
-bind-key -T copy-mode-vi C-h select-pane -L
-bind-key -T copy-mode-vi C-j select-pane -D
-bind-key -T copy-mode-vi C-k select-pane -U
-bind-key -T copy-mode-vi C-l select-pane -R
-bind-key -T copy-mode-vi C-\ select-pane -l
+# Unbinds
+# `-> these are part of the default mappings 
+#     and will get new functionality
+unbind c
+unbind i
+unbind l
+unbind s
+unbind w
+
+bind F12 source-file ~/.tmux.conf
+bind w neww
+bind m choose-window
+bind a choose-session
+bind c kill-pane
+bind t set status
+
+bind -n ^F1 select-window -t 1
+bind -n ^F2 select-window -t 2
+bind -n ^F3 select-window -t 3
+bind -n ^F4 select-window -t 4
+bind -n ^F5 select-window -t 5
+bind -n ^F6 select-window -t 6
+bind -n ^F7 select-window -t 7
+bind -n ^F8 select-window -t 8
+bind -n ^F9 select-window -t 9
+bind -n ^F10 select-window -t 10
+bind -n ^F11 select-window -t 11
+bind -n ^F12 select-window -t 12
+
+bind ^h select-pane -L
+bind ^j select-pane -D
+bind ^k select-pane -U
+bind ^l select-pane -R
+
+bind h resize-pane -L
+bind j resize-pane -D
+bind k resize-pane -U
+bind l resize-pane -R
+
+bind F1 select-pane -t 1
+bind F2 select-pane -t 2
+bind F3 select-pane -t 3
+bind F4 select-pane -t 4
+bind F5 select-pane -t 5
+bind F6 select-pane -t 6
+bind F7 select-pane -t 7
+bind F8 select-pane -t 8
+bind F9 select-pane -t 9
+bind F10 select-pane -t 10
+bind F11 select-pane -t 11
+# bind F12 select-pane -t 12
+
+bind i split-window -h
+bind s split-window
+
+# bind t attach -d -t tmux
+# bind i attach -d -t irc
+# bind r attach -d -t rails
+
+#-------~---~----------~----------~----
+# WINDOWS & PANES
+#-------~---~----------~----------~----
+
+# Start counting at 1
+set -g base-index 1
+
+set -g pane-border-fg black
+set -g pane-active-border-fg red
+set -g display-panes-colour white
+set -g display-panes-active-colour red
+set -g display-panes-time 1000
+
+setw -g automatic-rename on
+setw -g monitor-activity on
+
+#-------~---~----------~----------~----
+# MISC SETTINGS
+#-------~---~----------~----------~----
+
+set -g default-shell /bin/zsh
+set -g default-command /bin/zsh
+set -g set-titles on
+set -g set-titles-string 'tmux: #T'
+set -g repeat-time 100
+set -g default-terminal "screen-256color"
+setw -g clock-mode-colour red
+setw -g clock-mode-style 12
+setw -g alternate-screen on
+
+# Don't close windows
+
+#-------~---~----------~----------~----
+# STATUS & MESSAGE
+#-------~---~----------~----------~----
+
+set -g message-attr bold
+set -g message-fg black
+set -g message-bg yellow
+
+set -g status-justify right
+set -g status-bg black
+set -g status-fg white
+set -g status-interval 5
+
+setw -g window-status-current-fg red
+setw -g window-status-current-attr none
+setw -g window-status-format '#[fg=white]#I-#W#F'
+setw -g window-status-current-format '#[fg=colour3] #I-#W#F '
+
+set -g status-left '#[fg=magenta] #S#[fg=white]:#P #[fg=yellow] #H #[fg=black,bold] > #T'
+set -g status-left-length 40
+set -g status-left-fg black
+
+set -g status-right '#(cat /proc/loadavg | cut -d\\  -f-3) #[fg=black,bold]| %H:%M '
