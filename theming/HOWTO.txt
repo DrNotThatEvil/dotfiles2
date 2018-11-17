@@ -1,0 +1,47 @@
+Hello Myself,
+Yes your Linux Rice is the nicest in town
+(Not really but i'm talking to myself here give me some slack)
+
+But if your reading this you have probably changed some aspects
+probably the background but you now find your rice ofset with the previous
+colors being used in the terminal and several other places. 
+Well my friend that's why I your past self have made this!
+
+This folder is used for themeing it's pretty important,
+your new color pallet should follow the base16-color style guide,
+sadly the base16 rules don't translate directly to just mapping them to 
+.Xresources even more sadly base16 isn't the standard out put of most 
+tools to setup your color pallet that's why i made some tools to set it up.
+
+First head over to terminal.sexy and create your pallete.
+When creating your should disregard what the pallete looks like in the 
+viewer just make sure the colors0-15 are the same colors you would use
+when writing the base16 pallete.
+
+Then take this output in json format and in the imports folder under direct 
+imports. Direct imports map their colors not acourding to how they would look
+in Xresources but what the base16 should look like.
+
+Now copy that same file here and name it import_<NAME>.json.
+using this you run:
+setup_theme.py x_to_theme <NAME> raw 
+make sure you specify raw. this just translates the pallete to a yaml format.
+it's just a conversion nothing more but it's a great way to generate a base to work from.
+
+This format can now be used to generate other formats using base16-builder.
+Sadly I suspect it's not gonna be perfect the first time around but that's okay!
+Generate your .Xresources and test it out if you need to tweak it head to 
+terminal.sexy once again. Now import this .Xresources into the editor.
+
+The colors will have jumped around in the creator but that's fine!
+you can now use the code viewer to start tweaking it and make it just perfect!
+once your satisfied this needs to be translated to the base16 format once more.
+
+As you know .Xresources != base16 format, So it has to be translated back again.
+just put the new json file here naming it import_<another_name>.json
+and run the setup_theme.py script again with the following flags:
+
+setup_theme.py x_to_theme <ANOTHER_NAME>.json unraw
+
+this will translate it to a yaml file again but the colors will be rearanged to
+match base16 again. Repeat the tweaking until your happy!

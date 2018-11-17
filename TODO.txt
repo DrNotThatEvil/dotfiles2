@@ -1,0 +1,1 @@
+# Improve new theme and it's use in polybars

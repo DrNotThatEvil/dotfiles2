@@ -1,0 +1,57 @@
+#include "/home/wilvin/.dotfiles/xresources/colors"
+
+! =========================
+! ======== FONTS ==========
+! =========================
+
+! Xft.dpi:            96
+Xft.antialias:        true
+Xft.hinting:          true
+! Xft.rgba:           rgb
+! xft.autohint:       false
+! Xft.hintstyle:      hintfull
+! Xft.lcdfilter:      lcddefault
+
+! =========================
+! ========= URxvt =========
+! =========================
+
+ URxvt.depth: 32
+ URxvt.font: xft:MesloLGM Nerd Font Mono:size=12
+ URxvt.scrollBar: false
+ URxvt.cursorColor: white
+
+ URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
+ URxvt.url-select.launcher:  firefox
+ URxvt.url-select.underline: true
+ URxvt.keysym.M-u:           perl:url-select:select_next
+ URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+ URxvt.keysym.M-s:           perl:keyboard-select:search
+
+ URxvt.keysym.C-M-c: perl:clipboard:copy
+ URxvt.keysym.C-M-v: perl:clipboard:paste
+
+! Xclock colors.
+XClock*foreground:  base05
+XClock*background:  base00
+XClock*majorColor:  rgba:c1/a5/b7/ff
+XClock*minorColor:  rgba:c1/a5/b7/ff
+XClock*hourColor:   rgba:c1/a5/b7/ff
+XClock*minuteColor: rgba:c1/a5/b7/ff
+XClock*secondColor: rgba:c1/a5/b7/ff
+
+! Set depth to make transparency work.
+URxvt*depth: 32
+
+emacs*foreground:   base05
+emacs*background:   base00
+
+URxvt*foreground:   base05
+URxvt*background:   base00
+URxvt*borderColor:  base00
+
+XTerm*foreground:   base00
+XTerm*background:   base00
+
+UXTerm*foreground:  base05
+UXTerm*background:  base00

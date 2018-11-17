@@ -1,62 +1,58 @@
 #################################
 #     GLX backend
 #################################
-detect-rounded-corners = true;
-glx-copy-from-front = false;
-glx-no-rebind-pixmap = true;
-glx-no-stencil = true;
-glx-swap-method = 1;
-glx-use-gpushader4 = true;
-mark-ovredir-focused = true;
-mark-wmwin-focused = true;
-paint-on-overlay = true;
-refresh-rate = 0;
-use-ewmh-active-win = true;
+backend = "glx";
 vsync = "opengl-swc";
-xrender-sync-fence = true;
-
-
+glx-no-stencil = true;
+glx-no-rebind-pixmap = true;
 
 #################################
 #       Blur
 #################################
 blur-background = true;
-blur-background-fixed = true;
-blur-method = "kawase";
-blur-strength = 8;
-blur-background-exclude = [
-  "name = 'Screenshot'",
-  "class_i *= 'tray'",
-  "class_g = 'Firefox' && argb",
-  "class_g = 'URxvt'",
-  "class_g ?= 'maim'",
-  "class_g ?= 'slop'",
-  "fullscreen",
-  "x<=3 && x2>= 1920 && y <= 30 && y2 >=853"
+blur-background-frame = true;
+blur-background-fixed = false;
+blur-kern = [
+	"3x3gaussian",
+	"11x11gaussian", 
 ];
 
+blur-background-exclude = [
+  "class_g *= 'Compton'",
+  "class_g *= 'compton'",
+  "_GTK_FRAME_EXTENDS@:c",
+#  "name = 'Screenshot'",
+#  "class_i *= 'tray'",
+#  "class_g = 'Firefox'",
+#  "class_g = 'URxvt'",
+#  "class_g ?= 'maim'",
+#  "class_g ?= 'slop'",
+#  "fullscreen",
+#  "x<=3 && x2>= 1920 && y <= 30 && y2 >=853"
+];
 
 
 #################################
 #       Shadows
 #################################
-clear-shadow = true;
-no-dnd-shadow = true;
-no-dock-shadow = false;
 shadow = true;
 shadow-ignore-shaped = true;
-shadow-offset-x = -10;
-shadow-offset-y = -10;
-shadow-opacity = 0.85;
-shadow-radius = 7;
+shadow-radius = 10;
+shadow-offset-x = -15;
+shadow-offset-y = -15;
+shadow-opacity = 0.5;
+no-dock-shadow = false;
+no-dnd-shadow = true;
 shadow-exclude = [
   "class_i *= 'tray'",
   "class_g *= 'Compton'",
   "class_g *= 'compton'",
   "class_g = 'Firefox' && argb",
+  "class_g = 'URxvt'",
+  "class_g = 'polybar'",
   "class_g ?= 'maim'",
   "fullscreen",
-  "x<=3 && x2>= 1920 && y <= 30 && y2 >=853"
+  "_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
 ];
 
 
@@ -64,15 +60,23 @@ shadow-exclude = [
 #################################
 #       Opacity
 #################################
-menu-opacity = 0.8;
-inactive-opacity = 1;
 active-opacity = 1;
-frame-opacity = 0.8;
+menu-opacity = 1;
+frame-opacity = 1;
+inactive-opacity = 1;
 inactive-opacity-override = false;
-opacity-rule = [
-  "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
-];
 
+opacity-rule = [
+  "90:focused = 1 && WM_NAME@:s *?= 'VIM'",
+  "0:_NET_WM_STATE@[0]:32a *= '_NET_WM_STATE_HIDDEN'",
+  "0:_NET_WM_STATE@[1]:32a *= '_NET_WM_STATE_HIDDEN'",
+  "0:_NET_WM_STATE@[2]:32a *= '_NET_WM_STATE_HIDDEN'",
+  "0:_NET_WM_STATE@[3]:32a *= '_NET_WM_STATE_HIDDEN'",
+  "0:_NET_WM_STATE@[4]:32a *= '_NET_WM_STATE_HIDDEN'",
+  "75:class_g = 'Polybar'",
+  "80:focused = 1 && class_g = 'URxvt' && WM_NAME@:s !*?= 'VIM'",
+  "50:focused = 0 && class_g = 'URxvt' && WM_NAME@:s !*?= 'VIM'",
+];
 
 
 #################################

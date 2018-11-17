@@ -1,0 +1,18 @@
+base00 -> color00
+base01 -> color10
+base02 -> color11
+base03 -> color08
+base04 -> color12
+base05 -> color07
+base06 -> color13
+base07 -> color15
+base08 -> color01
+base09 -> color09
+base0A -> color03
+base0B -> color02
+base0C -> color06
+base0D -> color04
+base0E -> color05
+base0F -> color14
+
+

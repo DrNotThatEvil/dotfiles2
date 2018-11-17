@@ -3,9 +3,12 @@
 # Start alsmixer volume control 
 bindsym $mod+g exec --no-startup-id pavucontrol
 
+bindsym $mod+shift+F3 xrandr --output HDMI2 --same-as ePD1
+
 bindsym F6 exec light -A 20
 bindsym F5 exec light -U 20
 bindsym XF86WLAN exec sudo systemctl restart systemctl-networkd.service
+
 
 # bindsym XF86AudioLowerVolume 
 # bindsym XF86AudioRaiseVolume
@@ -13,4 +16,4 @@ bindsym XF86WLAN exec sudo systemctl restart systemctl-networkd.service
 exec_always --no-startup-id LAPTOP="yes" $HOME/.dotfiles/config/i3/scripts/launch_polybar.sh
 
 # Launch compositor
-exec compton --backend xrender -c --config ~/.config/compton/config
+exec compton -c --config ~/.config/compton/config

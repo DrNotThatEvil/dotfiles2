@@ -1,6 +1,3 @@
-
-
-
 #################################################################
 ##> Globals 
 #################################################################
@@ -54,27 +51,15 @@ for_window[class=".*"] border pixel 3
 new_window pixel 3
 new_float pixel 3
 
-set $base00 #130c0f
-set $base01 #6d4556
-set $base02 #8d596f
-set $base03 #a67289
-set $base04 #ba92a3
-set $base05 #ceb1bd
-set $base06 #e1d0d8
-set $base07 #f5eff2
-set $base08 #da65c3
-set $base09 #d47084
-set $base0A #3b4d67
-set $base0B #c81e1e
-set $base0C #81a2be
-set $base0D #549266
-set $base0E #14ffff
-set $base0F #963940
+# Colors
+set_from_resource	    $background       background
+set_from_resource       $theme-active     foreground
+set_from_resource       $theme-inactive   background
 
-client.focused $base0D $base0D $base00 $base01
-client.focused_inactive $base02 $base02 $base03 $base01
-client.unfocused $base01 $base01 $base03 $base01
-client.urgent $base02 $base08 $base07 $base08
+client.background	    $background
+client.focused          $theme-active   $theme-active   $theme-inactive $theme-active   $theme-active
+client.focused_inactive $theme-inactive $theme-inactive $theme-active   $theme-active   $theme-inactive
+client.unfocused        $theme-inactive $theme-inactive $theme-active   $theme-inactive $theme-inactive
 
 #################################################################
 ##> Applications

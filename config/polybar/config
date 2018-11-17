@@ -1,15 +1,20 @@
 [colors]
-background = ${xrdb:background}
-foreground = ${xrdb:foreground}
-foreground-alt= #528BFF
-black = ${xrdb:color0}
-red = ${xrdb:color1}
-green = ${xrdb:color2}
-blue = ${xrdb:color4}
-yellow = ${xrdb:color3}
-magenta = ${xrdb:color5}
-cyan = ${xrdb:color6}
-white = ${xrdb:color7}
+base00 = ${xrdb:color0:#000000}
+base01 = ${xrdb:color10:#000000}
+base02 = ${xrdb:color11:#000000}
+base03 = ${xrdb:color8:#000000}
+base04 = ${xrdb:color12:#000000}
+base05 = ${xrdb:color7:#000000}
+base06 = ${xrdb:color13:#000000}
+base07 = ${xrdb:color15:#000000}
+base08 = ${xrdb:color1:#000000}
+base09 = ${xrdb:color9:#000000}
+base0A = ${xrdb:color3:#000000}
+base0B = ${xrdb:color2:#000000}
+base0C = ${xrdb:color6:#000000}
+base0D = ${xrdb:color4:#000000}
+base0E = ${xrdb:color5:#000000}
+base0F = ${xrdb:color14:#000000}
 
 [settings]
 screenchange-reload = true
@@ -24,6 +29,8 @@ width = 100%
 height = 28
 enable-ipc = true
 
+line-size = 2
+
 font-0 = MesloLGMDZ Nerd Font:pixelsize=12;3
 font-1 = octicons:pixelsize=10;3
 font-2 = Weather Icons:size=10;4
@@ -37,8 +44,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${colors.base00}
+foreground = ${colors.base05}
 
 modules-left = dotdetector spotify
 modules-center = xwindow
@@ -68,8 +75,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${colors.base00}
+foreground = ${colors.base05}
 
 modules-left = cpu ram
 modules-center = i3
@@ -94,23 +101,19 @@ interval = 1
 format = <label>
 format-prefix = " "
 exec = ~/.config/polybar/spotify.sh
-format-foreground = ${colors.green}
+format-foreground = ${colors.base05}
 
 [module/dotdetector]
 type = custom/script
 interval = 1000
 format = <label>
-click-left = "termite -d $HOME/.dotfiles"
+click-left = "urxvtc -name dotgit -e zsh -c 'cd $HOME/.dotfiles; git status; zsh'" 
 exec = ~/.config/polybar/dot_detector.py fetch
 
 [module/pkg]
 type = custom/script
 interval = 1200
 format = <label>
-background = ${colors.background}
-foreground = ${colors.foreground}
-format-underline = #dc322f
-label = "%output:0:30%"
 exec = ~/.config/polybar/pkg.sh
 
 [module/wifi]
@@ -120,10 +123,10 @@ interface = wlp4s0
 interval = 1
 
 label-connected = %{A} %{A:wicd-client &:} %essid%%{A} | %local_ip%
-format-connected-foreground = ${colors.blue}
+format-connected-foreground = ${colors.base05}
 
 format-disconnected-padding = 1
-format-disconnected-foreground = ${colors.yellow}
+format-disconnected-foreground = ${colors.base05}
 
 label-disconnected = %{A:wicd-client &:} Disconnected%{A}
 
@@ -132,13 +135,13 @@ type = custom/script
 exec = $HOME/.dotfiles/config/polybar/pub-ip.sh
 interval = 10
 label = " %output% "
-format-foreground = ${colors.blue}
+format-foreground = ${colors.base05}
 
 [module/cpu]
 type = internal/cpu
 interval = 1
 
-format-foreground = ${colors.yellow}
+format-foreground = ${colors.base05}
 
 label =  %{T4}%{T-} %{A:termite -e vtop &:}%percentage%%
 
@@ -149,7 +152,7 @@ type = custom/script
 exec = $HOME/.config/polybar/temperature.sh
 interval = 1
 
-format-foreground = ${colors.magenta}
+format-foreground = ${colors.base05}
 
 label =  %output%°C
 
@@ -159,7 +162,7 @@ label-padding-left = 1
 type = internal/memory
 interval = 3
 
-format-foreground = ${colors.green}
+format-foreground = ${colors.base05}
 
 label = %{T4}%{T-} %{A:LANG=en_US.utf8 TERM=xterm-256color termite -e vtop &:}%percentage_used%%
 
@@ -168,22 +171,23 @@ type = internal/battery
 battery = BAT1
 adapter = AC
 full-at = 99
-format-charging = "%{T4}%{T-} <label-charging> <animation-charging> "
-format-discharging = "⁣ <label-discharging> <ramp-capacity> "
+label-charging = "%{T4}%{T-}%{T0} %percentage%% %{T-}"
+format-charging = "<label-charging> <animation-charging> Charging..."
+format-discharging = " <label-discharging> <ramp-capacity> "
 
 ramp-capacity-0 = "%{T4}%{T-}"
 ramp-capacity-1 = "%{T4}%{T-}"
 ramp-capacity-2 = "%{T4}%{T-}"
 ramp-capacity-3 = "%{T4}%{T-}"
 ramp-capacity-4 = "%{T4}%{T-}"
-ramp-capacity-foreground = ${colors.red}
+ramp-capacity-foreground = ${colors.base06}
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = ${colors.green}
+animation-charging-foreground = ${colors.base0E}
 animation-charging-framerate = 750
 
 [module/weather]
@@ -193,7 +197,7 @@ exec = "sh $HOME/.config/polybar/weather.sh"
 interval = 600
 label-font = 3
 
-format-foreground = ${colors.blue}
+format-foreground = ${colors.base05}
 
 label = %output%
 
@@ -204,37 +208,24 @@ type = internal/xwindow
 label = %title%
 label-maxlen = 70
 
-format-foreground = ${colors.foreground}
+format-foreground = ${colors.base05}
 format-prefix = " "
 format-suffix = " "
 
 format-margin = 5
 
-
-[module/clock]
-type = internal/date
-
-interval = 1.0
-
-time = %{T4} %{T-}%H:%M
-
-format = <label>
-format-prefix = " "
-format-foreground = ${colors.yellow}
-
-label = %time%
-
-
 [module/date]
 type = internal/date
 
-date = %{F5} %{F-}%d/%m
+date = "%{F3}%{F-} %d-%m-%y%{T-}"
+time = "%{F3}%{F-} %H:%M:%S"
 
-format = <label>
-format-prefix = " "
-format-foreground = ${colors.blue}
+format = "<label>"
+format-foreground = ${colors.base05}
+format-background = ${colors.base02}
+format-underline = ${colors.base0E}
 
-label = %date%
+label = " %date% %time% "
 
 
 [module/powermenu]
@@ -243,9 +234,9 @@ type = custom/menu
 format-prefix = " "
 
 label-open = "%{T4}%{T-}"
-label-open-foreground = ${colors.red}
+label-open-foreground = ${colors.base05}
 label-close = "%{T4}%{T-}"
-label-close-foreground = ${colors.red}
+label-close-foreground = ${colors.base05}
 label-separator = "  "
 
 menu-0-0 = Reboot
@@ -287,55 +278,63 @@ icon-6 = "media;"
 icon-7 = "editor;"
 
 label-active = %icon%
-label-active-foreground = ${colors.black}
-label-active-background = ${colors.white}
+label-active-foreground = ${colors.base05}
+label-active-background = ${colors.base00}
 label-active-padding = 2
 
 label-urgent = %icon%
 label-urgent-foreground = #ffffff
-label-urgent-background = ${colors.red}
+label-urgent-background = ${colors.base0F}
 label-urgent-padding = 2
 
 label-empty = %icon%
-label-empty-foreground = ${colors.white}
+label-empty-foreground = ${colors.base05}
 label-empty-padding = 2
 
 
 [module/i3]
 type = internal/i3
-format = <label-state> <label-mode>
+format = "<label-state>"
+format-background = ${colors.base09}
 label-font = 3
 
-ws-icon-0 = "1;1: "
-ws-icon-1 = "2;2: "
-ws-icon-2 = "3;3: "
-ws-icon-3 = "4;4: "
-ws-icon-4 = "5;5: "
-ws-icon-5 = "6;6: "
-ws-icon-6 = "7;7: "
-ws-icon-7 = "8;8: "
-ws-icon-8 = "9;9: "
-ws-icon-9 = "10;10: "
+ws-icon-0 = "1;"
+ws-icon-1 = "2;"
+ws-icon-2 = "3;"
+ws-icon-3 = "4;"
+ws-icon-4 = "5;"
+ws-icon-5 = "6;"
+ws-icon-6 = "7;"
+ws-icon-7 = "8;"
+ws-icon-8 = "9;"
+ws-icon-9 = "10;"
 
 index-sort = true
 wrapping-scroll = true
 strip-wsnumbers = true
 
-label-focused = "%icon%"
-label-focused-foreground = ${colors.green}
-label-focused-background = ${colors.white}
-label-focused-padding = 2
+label-focused = "%icon% %index%"
+label-focused-foreground = ${colors.base00}
+label-focused-background = ${colors.base05}
+label-focused-padding = 3
 
-label-unfocused = "%icon%"
-label-unfocused-padding = 2
+label-unfocused = "%icon% %index%"
+label-unfocused-background = ${colors.base02}
+label-unfocused-foreground = ${colors.base01}
+label-unfocused-padding = 1
 
-label-urgent = "%icon%"
-label-urgent-foreground = #ffffff
-label-urgent-background = ${colors.red}
-label-urgent-padding = 2
+label-urgent = "%icon% %index%"
+label-urgent-foreground = ${colors.base0B}
+label-urgent-background = ${colors.base03}
+label-urgent-padding = 3
 
 label-visible = "%icon%"
 label-visible-padding = 2
+
+label-separator = %{T3}%{T-}
+label-separator-padding = 1
+label-separator-foreground = ${colors.base02}
+label-separator-background = ${colors.base01}
 
 [module/keyboard]
 type = internal/xkeyboard
@@ -344,10 +343,10 @@ blacklist-0 = num lock
 blacklist-1 = scroll lock
 format = <label-indicator>
 label-indicator-padding = 1
-label-indicator-background = ${colors.white}
-label-indicator-foreground = ${colors.black}
+label-indicator-background = ${colors.base00}
+label-indicator-foreground = ${colors.base05}
 
 interval = 0.5
 label-maxlen = 70
-label-foreground = ${colors.yellow}
+label-foreground = ${colors.base05}
 
