@@ -16,24 +16,21 @@ for file in $linkables ; do
 done
 
 echo "=============================="
-echo -e "\nLinking .i3 folder"
-target="$HOME/.i3"
-if [ -e $target ]; then
-    echo "~${target#$HOME} already exists.... skipping"
-else 
-    echo "Creating symlink for .i3 folder"
-    ln -s "$DOTFILES/i3" $target
-fi
-
+echo -e "\nCreating .i3-logs folder"
 if [ ! -d $HOME/.i3-logs ]; then
     echo "Creating ~/.i3-logs"
     mkdir -p $HOME/.i3-logs
+else 
+    echo -e "\n.i3-logs folder already created"
 fi
 
 echo "=============================="
+echo -e "\nCreating .config folder"
 if [ ! -d $HOME/.config ]; then
     echo "Creating ~/.config"
     mkdir -p $HOME/.config
+else
+    echo "~/.config Already created"
 fi
 # configs=$( find -path "$DOTFILES/config.symlink" -maxdepth 1 )
 for config in $DOTFILES/config/*; do
@@ -51,7 +48,7 @@ if [ ! -d $HOME/.local/share ]; then
     echo "Creating ~/.local/share"
     mkdir -p $HOME/.local/share
 fi
-# configs=$( find -path "$DOTFILES/config.symlink" -maxdepth 1 )
+
 for config in $DOTFILES/local/share/*; do
     target=$HOME/.local/share/$( basename $config )
     if [ -e $target ]; then

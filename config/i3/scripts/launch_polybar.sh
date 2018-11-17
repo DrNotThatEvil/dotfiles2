@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
 
-# Terminate already running bar instances
-killall -q polybar
 
 # Wait until the processes have been shut down
-while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
-
-echo $LAPTOP
+if pgrep -u $UID -x polybar > /dev/null; then
+    # Terminate already running bar instances
+    killall -q polybar
+    while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+fi
 
 if [ -z "$MAINDISABLE" ]; then
   if [ ! -z "$LAPTOP" ]; then

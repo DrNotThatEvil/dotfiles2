@@ -89,7 +89,7 @@ exec --no-startup-id pulseaudio -D
 exec --no-startup-id dunst -config ~/.dunstrc
 
 # Start owncloud
-exec --no-startup-id exec owncloud
+exec --no-startup-id exec nextcloud
 
 # Start thunderbird
 exec --no-startup-id exec ~/.dotfiles/scripts/launchmail.sh
@@ -160,9 +160,6 @@ bindsym $mod+Shift+t gaps inner all set 20
 
 # Set gap to 0
 bindsym $mod+Ctrl+t gaps inner all set 0
-
-# Start htop
-bindsym $mod+i exec $term -e htop
 
 # Start calculator
 bindsym $mod+y exec $term -e qalc
