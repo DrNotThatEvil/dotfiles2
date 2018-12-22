@@ -3,7 +3,7 @@
 assign [class="gta-sa.exe"] $ws1
 
 # Start alsmixer volume control 
-bindsym $mod+g exec --no-startup-id $term --name=audio -e alsamixer
+bindsym $mod+g exec --no-startup-id pavucontrol
 
 # Launch compositor
 exec compton --backend glx -c --config ~/.config/compton/config

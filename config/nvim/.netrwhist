@@ -1,3 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/home/wilvin/.vim'
+let g:netrw_dirhist_2='/home/wilvin/.dotfiles/weechat'
+let g:netrw_dirhist_3='/home/wilvin/.local/share/Steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg'
