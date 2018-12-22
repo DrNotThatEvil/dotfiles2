@@ -21,4 +21,4 @@ else
   fi
 fi
 
-echo "$bg$pac %{F$COLOR_BASE0E}%{F-} $aur%{B-}"
+echo "$bg $pac %{F$COLOR_BASE0E}%{F-} $aur %{B-}"

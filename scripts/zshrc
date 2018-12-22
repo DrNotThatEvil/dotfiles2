@@ -11,6 +11,7 @@ alias restart="sudo systemctl restart $1"
 alias stop="sudo systemctl stop $1"
 
 alias journal="sudo journalctl -u $@"
+alias startns="dotnet run -p ./NSInzichtRijstijlBackend/NSInzichtRijstijlBackend.csproj"
 
 alias nlssh="ssh drnevil@149.210.189.232 -p 50683"
 alias genshortcuts="python $HOME/.dotfiles/scripts/Shortcuts.py && echo \"Shortcuts generated!\" && source ~/.zshrc"
@@ -22,8 +23,8 @@ alias startwin="i3-msg 'exec virt-viewer -c qemu:///system win10'"
 #export {http,https,ftp}_proxy="http://127.0.0.1:8123"
 export EDITOR="nvim"
 export ANDROID_HOME="/opt/android-sdk"
-export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
-export PATH="$PATH:$HOME/.local/bin/:$HOME/.gem/ruby/2.4.0/bin:$HOME/.npm-global/bin"
+export JAVA_HOME="/usr/lib/jvm/jdk1.8.0_191"
+export PATH="$PATH:$HOME/.dotnet/tools:$JAVA_HOME/bin:$HOME/.local/bin/:$HOME/.gem/ruby/2.4.0/bin:$HOME/.npm-global/bin"
 
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"

@@ -188,6 +188,9 @@ bindsym $mod+Shift+d gaps inner all set 0
 # Start dmenu
 bindsym $mod+d exec "dmenu_run"
 
+# Passmenu 
+bindsym $mod+p exec "passmenu"
+
 # Fullscreen a window
 bindsym $mod+Shift+f fullscreen toggle
 bindsym F11 fullscreen toggle
