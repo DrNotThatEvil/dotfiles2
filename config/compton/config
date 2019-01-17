@@ -67,7 +67,7 @@ inactive-opacity = 1;
 inactive-opacity-override = false;
 
 opacity-rule = [
-  "90:focused = 1 && WM_NAME@:s *?= 'VIM'",
+#  "90:focused = 1 && WM_NAME@:s *?= 'VIM'",
   "0:_NET_WM_STATE@[0]:32a *= '_NET_WM_STATE_HIDDEN'",
   "0:_NET_WM_STATE@[1]:32a *= '_NET_WM_STATE_HIDDEN'",
   "0:_NET_WM_STATE@[2]:32a *= '_NET_WM_STATE_HIDDEN'",
