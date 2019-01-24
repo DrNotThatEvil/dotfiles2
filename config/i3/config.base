@@ -87,7 +87,6 @@ set $browser firefox
 # Set up email
 set $email thunderbird
 
-
 #################################################################
 ##> Autostart
 #################################################################
@@ -101,12 +100,8 @@ exec --no-startup-id dunst -config ~/.dunstrc
 # Start owncloud
 exec --no-startup-id exec nextcloud
 
-# Start thunderbird
-exec --no-startup-id exec ~/.dotfiles/scripts/launchmail.sh
-
 # Background
 exec_always --no-startup-id feh --bg-scale ~/.dotfiles/pictures/Wallpaper_anime3.png
-# exec_always --no-startup-id wal -i ~/.dotfiles/pictures/Wallpaper_anime3.png -n
 
 # Configure my shortcuts 
 exec_always --no-startup-id python ~/.dotfiles/scripts/Shortcuts.py
@@ -118,14 +113,11 @@ exec_always --no-startup-id python ~/.dotfiles/scripts/CombineI3.py
 exec --no-startup-id redshift
 
 # Make capslock the exit key
+
+exec_always --no-startup-id numlockx on
+exec_always --no-startup-id xmodmap -e 'clear Lock'
 exec_always --no-startup-id xmodmap -e 'clear Lock'
 exec_always --no-startup-id xmodmap -e 'keycode 0x42=Escape' 
-
-#exec --no-startup-id $term -name=irc -e weechat
-#for_window [instance="irc"] move to workspace $ws10
-
-# Github steak reminder
-exec --no-startup-id /home/wilvin/Development/Python/ghsteakreminder/venv/bin/python3.6 /home/wilvin/Development/Python/ghsteakreminder/gh_reminder.py
 
 #################################################################
 ##> Keyboard shortcuts
@@ -357,8 +349,9 @@ bindsym XF86AudioPrev exec --no-startup-id mocp -r
 bindsym XF86AudioNext exec --no-startup-id mocp -f
 
 #################################################################
-##> Window resizing
+##> Audio
 #################################################################
+# Todo fix this section... 
 
 # Decrease audio by 25
 bindsym $mod+minus exec amixer -q set ODAC-revB 2db-
@@ -394,11 +387,7 @@ bindsym $mod+Shift+o resize grow width 10 px or 10ppt
 ##> Window and Workspace assignments
 #################################################################
 
-assign [class="^Firefox$" instance="^(?!Dialog)"] $ws2   
-
-assign [class="KeePass2"] $ws7  
-
-assign [class="Thunderbird"] $ws9
+assign [class="^Firefox$" window_role="^(?!GtkFileChooserDialog)"] $ws2   
 
 #################################################################
 ##> Scratchpad

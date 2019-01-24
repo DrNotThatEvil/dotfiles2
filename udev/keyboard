@@ -1,0 +1,6 @@
+#!/bin/bash
+DISPLAY=":0"
+HOME=/home/wilvin
+XAUTHORITY=$HOME/.Xauthority
+export DISPLAY XAUTHORITY HOME
+notify-send "This notification is being shown!"

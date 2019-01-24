@@ -1,5 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/home/wilvin/.vim'
 let g:netrw_dirhist_2='/home/wilvin/.dotfiles/weechat'
 let g:netrw_dirhist_3='/home/wilvin/.local/share/Steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg'
+let g:netrw_dirhist_4='/home/wilvin/.dotfiles/scripts'
+let g:netrw_dirhist_5='/etc/libvirt/hooks/qemu.d/win10/release/end'
+let g:netrw_dirhist_6='/etc/libvirt/hooks/qemu.d/win10/started'
+let g:netrw_dirhist_7='/etc/libvirt/hooks/qemu.d/win10/started/begin'
+let g:netrw_dirhist_8='/home/wilvin/shr/cnf/backup'
