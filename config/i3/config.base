@@ -3,12 +3,18 @@
 #################################################################
 
 # Set Keys 
-set $mod Mod1
+set $mod Mod4
+# Switched it to the windows key.
+# I picked alt because originally I learned to use i3 in a vm.
+# so alt worked better, but now i walk into issues with using alt as
+# my mod key way more often then ever. So i'm gonna switch sorry myself
+# ... You will thank me later.. i hope
+
 floating_modifier $mod
 
 # Let try this for a change
 # Diable mouse focus 
-focus_follows_mouse no
+focus_follows_mouse yes
 
 # Font 
 font pango:MesloLGMDZ Nerd Font 5
@@ -17,7 +23,6 @@ font pango:MesloLGMDZ Nerd Font 5
 focus_on_window_activation urgent
 force_focus_wrapping force
 
-for_window[class="keepass2"] floating enable
 for_window[class="mpv"] floating enable
 for_window[class="mpv"] border pixel 1
 for_window[class="Tor Browser"] border pixel 10
@@ -42,15 +47,15 @@ set $ws10 "10"
 #################################################################
 
 # Gaps 
-gaps outer 10
-gaps inner 10
+gaps outer 2
+gaps inner 2
 
 smart_borders no_gaps
 
 # Borders
-for_window[class=".*"] border pixel 3
-new_window pixel 3
-new_float pixel 3
+for_window[class=".*"] border pixel 1
+new_window pixel 1
+new_float pixel 1
 
 set $base00 #130c0f
 set $base01 #6d4556
@@ -112,9 +117,9 @@ exec_always --no-startup-id python ~/.dotfiles/scripts/CombineI3.py
 # Start redshift
 exec --no-startup-id redshift
 
-# Make capslock the exit key
-
 exec_always --no-startup-id numlockx on
+
+# Make capslock the escape key
 exec_always --no-startup-id xmodmap -e 'clear Lock'
 exec_always --no-startup-id xmodmap -e 'clear Lock'
 exec_always --no-startup-id xmodmap -e 'keycode 0x42=Escape' 
@@ -193,6 +198,10 @@ bindsym $mod+Shift+c reload
 
 # Start arandr
 bindsym $mod+F3 exec arandr
+
+# Move to Scratchpad 
+bindsym F2 move scratchpad
+bindsym F3 scratchpad show
 
 # Move workspace
 bindsym $mod+F5 move workspace to output left
