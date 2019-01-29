@@ -2,17 +2,12 @@
 
 assign [class="gta-sa.exe"] $ws1
 
-# Start alsmixer volume control 
 bindsym $mod+g exec --no-startup-id pavucontrol
 
 # Launch compositor
 exec compton --backend glx -c --config ~/.config/compton/config
 
-exec --no-startup-id 'sudo /usr/bin/colctl --sensor_control'
 exec_always --no-startup-id /home/wilvin/.dotfiles/config/i3/scripts/launch_polybar.sh
-
-exec --no-startup-id /home/wilvin/Development/Python/SoftKVM/venv/bin/python /home/wilvin/Development/Python/SoftKVM/softkvm.py
-bindsym F8 exec "i3-nagbar -t warning -m 'Do you really want to start your windows vm?' -b 'Yes, start it' 'bash /home/wilvin/.dotfiles/config/i3/scripts/launch_vm3.sh'"
 
 workspace $ws1 output HDMI-0
 workspace $ws2 output DVI-D-0
