@@ -57,6 +57,7 @@ setxkbmap -option ctrl:nocaps
 
 case $WM in
 xfce) 
+    xrdb -merge -I$HOME ~/.Xresources
     exec startxfce4
   ;;
 i3)
