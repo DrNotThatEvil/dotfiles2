@@ -105,6 +105,9 @@ exec --no-startup-id dunst -config ~/.dunstrc
 # Start owncloud
 # exec --no-startup-id exec nextcloud
 
+# Start thunderbird
+# exec --no-startup-id exec ~/.dotfiles/scripts/launchmail.sh
+
 # Background
 exec_always --no-startup-id feh --bg-scale ~/.dotfiles/pictures/Wallpaper_anime3.png
 
