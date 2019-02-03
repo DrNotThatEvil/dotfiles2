@@ -7,7 +7,7 @@ bindsym $mod+g exec --no-startup-id pavucontrol
 # Launch compositor
 exec compton --backend glx -c --config ~/.config/compton/config
 
-exec_always --no-startup-id /home/wilvin/.dotfiles/config/i3/scripts/launch_polybar.sh
+exec --no-startup-id /home/wilvin/.dotfiles/config/i3/scripts/launch_polybar.sh
 
 workspace $ws1 output HDMI-0
 workspace $ws2 output DVI-D-0
