@@ -60,6 +60,10 @@ xfce)
     xrdb -merge -I$HOME ~/.Xresources
     exec startxfce4
   ;;
+gnome)
+    export GDK_BACKEND=x11
+    exec gnome-session
+  ;;
 i3)
     urxvtd -o -q -f
     exec i3
