@@ -26,9 +26,14 @@ export ANDROID_HOME="/opt/android-sdk"
 export JAVA_HOME="/usr/lib/jvm/jdk1.8.0_171"
 export PATH="$PATH:/opt/android-sdk/platform-tools:$HOME/.dotnet/tools:$JAVA_HOME/bin:$HOME/.local/bin/:$HOME/.gem/ruby/2.4.0/bin:$HOME/.npm-global/bin"
 
+export PATH=$PATH:$(go env GOPATH)/bin
+export GOPATH=$(go env GOPATH)
+
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 [ -f $HOME/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f $HOME/.dotfiles/theming/env_vars.sh ] && source $HOME/.dotfiles/theming/env_vars.sh
+
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx -- vt1; fi
