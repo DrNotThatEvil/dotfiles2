@@ -109,7 +109,7 @@ set -g default-command /bin/zsh
 set -g set-titles on
 set -g set-titles-string 'tmux: #T'
 set -g repeat-time 100
-set -g default-terminal "screen-256color"
+set -g default-terminal "st-256color"
 setw -g clock-mode-colour red
 setw -g clock-mode-style 12
 setw -g alternate-screen on
