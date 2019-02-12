@@ -63,8 +63,7 @@ echo -e "\n\nCreating vim symlinks"
 echo "=============================="
 
 typeset -A vimfiles
-vimfiles[~/.vim]=$DOTFILES/config/nvim
-vimfiles[~/.vimrc]=$DOTFILES/config/nvim/init.vim
+vimfiles[~/.vim]=$DOTFILES/vim
 
 for file in "${!vimfiles[@]}"; do
     if [ -e ${file} ]; then

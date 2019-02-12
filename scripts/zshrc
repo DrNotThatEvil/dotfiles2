@@ -21,13 +21,19 @@ alias bootwin="i3-msg 'exec urxvtc -e bash -c $HOME/.dotfiles/scripts/bootwin.sh
 alias startwin="i3-msg 'exec virt-viewer -c qemu:///system win10'"
 
 #export {http,https,ftp}_proxy="http://127.0.0.1:8123"
-export EDITOR="nvim"
 export ANDROID_HOME="/opt/android-sdk"
 export JAVA_HOME="/usr/lib/jvm/jdk1.8.0_171"
 export PATH="$PATH:/opt/android-sdk/platform-tools:$HOME/.dotnet/tools:$JAVA_HOME/bin:$HOME/.local/bin/:$HOME/.gem/ruby/2.4.0/bin:$HOME/.npm-global/bin"
 
 export PATH=$PATH:$(go env GOPATH)/bin
 export GOPATH=$(go env GOPATH)
+
+export VIMCONFIG=~/.config/nvim
+export VIMDATA=~/.local/share/nvim
+export EDITOR=nvim
+export VISUAL=nvim
+alias vim=nvim
+alias vi=nvim
 
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"

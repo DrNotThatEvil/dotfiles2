@@ -1,0 +1,92 @@
+" Basic options
+
+let mapleader = ","
+let maplocalleader = "\\"
+
+set tabstop=4
+set softtabstop=4
+set expandtab
+set number 
+set showcmd
+set cursorline
+set lazyredraw
+set showmatch
+ 
+"   Search settings
+set incsearch
+set hlsearch
+nnoremap <leader><space> :nohlsearch<CR>
+
+"   Folding
+set foldenable 
+set foldnestmax=10
+set foldmethod=indent
+noremap <space> za
+
+"   Movement
+nnoremap j gj
+nnoremap k gk
+
+"   Buffers
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
+
+filetype indent on
+
+" Plugin
+call plug#begin('~/.vim/plugged')
+
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2'
+
+Plug 'junegunn/fzf.vim'
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+Plug 'junegunn/seoul256.vim'
+Plug 'tpope/vim-dispatch'
+Plug 'radenling/vim-dispatch-neovim'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+call plug#end()
+
+" Plugin confiuration
+"       Neovim Completion Manager 2
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+"       Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+
+
+let g:LanguageClient_serverCommands = {
+\ 'cpp': ['/usr/bin/cquery', 
+\ '--log-file=/tmp/cq.log', 
+\ '--init={"cacheDirectory":"/tmp/cquery/"}']
+\ }
+
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+
+colo seoul256
+
+let g:ncm2_pyclang#library_path = '/usr/lib64/libclang.so'
+let g:ncm2_pyclang#database_path = [
+            \ 'compile_commands.json',
+            \ 'build/compile_commands.json',
+            \ 'builddir/compile_commands.json'
+            \ ]
+
+" Keyboard rebinds
+nnoremap<C-p> :<C-u>FZF<CR>

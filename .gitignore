@@ -14,6 +14,9 @@ config/i3/config
 config/weechat/irc.conf
 config/ranger/history
 
+vim/plugged
+vim/plugged/**
+
 **/cache/**
 moc/pid
 moc/last_directory
