@@ -69,7 +69,7 @@ call plug#end()
 
 " Plugin confiuration
 "       Neovim Completion Manager 2
-autocmd BufEnter * call ncm2#enable_for_buffer()
+autocmd InsertEnter * call ncm2#enable_for_buffer()
 
 let g:chromatica#libclang_path='/usr/lib/libclang.so'
 let g:chromatica#enable_at_startup = 1
@@ -175,6 +175,6 @@ function! CreateHeaderAndSource(folder, filename)
     execute "!mkdir " . src_target
   endif
 
-  execute "tabedit " . include_target . "/" . a:filename . ".hpp"
-  execute "tabedit " . src_target . "/" . a:filename . ".cpp"
+  execute ".tabnew " . include_target . "/" . a:filename . ".hpp"
+  execute ".tabnew " . src_target . "/" . a:filename . ".cpp"
 endfunction
