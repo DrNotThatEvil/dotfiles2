@@ -3,25 +3,20 @@
 let mapleader = ","
 let maplocalleader = "\\"
 
+set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set expandtab
 set number 
 set showcmd
 set cursorline
-set lazyredraw
+set nolazyredraw
 set showmatch
  
 "   Search settings
 set incsearch
 set hlsearch
 nnoremap <leader><space> :nohlsearch<CR>
-
-"   Folding
-set foldenable 
-set foldnestmax=10
-set foldmethod=indent
-noremap <space> za
 
 "   Movement
 nnoremap j gj
@@ -34,6 +29,12 @@ nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 
 filetype indent on
+syntax on
+
+augroup project
+    autocmd!
+    autocmd BufRead,BufNewFile *.hpp,*.cpp set filetype=cpp
+augroup END
 
 " Plugin
 call plug#begin('~/.vim/plugged')
@@ -48,6 +49,8 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
+Plug 'ncm2/ncm2-pyclang'
+
 Plug 'junegunn/seoul256.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
@@ -55,11 +58,21 @@ Plug 'radenling/vim-dispatch-neovim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'arakashic/chromatica.nvim'
+
+Plug 'morhetz/gruvbox'
+Plug 'gilgigilgil/anderson.vim'
+
+Plug 'igankevich/mesonic'
+
 call plug#end()
 
 " Plugin confiuration
 "       Neovim Completion Manager 2
 autocmd BufEnter * call ncm2#enable_for_buffer()
+
+let g:chromatica#libclang_path='/usr/lib/libclang.so'
+let g:chromatica#enable_at_startup = 1
 
 "       Airline
 let g:airline#extensions#tabline#enabled = 1
@@ -68,6 +81,20 @@ let g:airline#extensions#tabline#buffer_idx_mode = 1
 
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+
+
+" cpp highlighting
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+let g:cpp_no_function_highlight = 1
 
 
 let g:LanguageClient_serverCommands = {
@@ -79,7 +106,13 @@ let g:LanguageClient_serverCommands = {
 " IMPORTANT: :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
 
-colo seoul256
+
+" Scheme settings
+set t_8f=^[[38;2;%lu;%lu;%lum        " set foreground color
+set t_8b=^[[48;2;%lu;%lu;%lum        " set background color
+colorscheme anderson
+set t_Co=256                         " Enable 256 colors
+set termguicolors                    " Enable GUI colors for the terminal to get truecolor
 
 let g:ncm2_pyclang#library_path = '/usr/lib64/libclang.so'
 let g:ncm2_pyclang#database_path = [
@@ -90,3 +123,58 @@ let g:ncm2_pyclang#database_path = [
 
 " Keyboard rebinds
 nnoremap<C-p> :<C-u>FZF<CR>
+
+" My functions
+
+function! s:insert_gates()
+  let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
+  execute "normal! i#ifndef " . gatename
+  execute "normal! o#define " . gatename . " "
+  execute "normal! Go#endif /* " . gatename . " */"
+  normal! kk
+endfunction
+autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
+
+function! s:gen_meson()
+  let gatename = expand("%:h")
+  let dirname = fnamemodify(gatename, ":t")
+
+  if fnamemodify(gatename, ":h") == "include" 
+    execute "normal! iproject_header_files += files('<FILENAME>.hpp')"
+  end
+  if fnamemodify(gatename, ":h") == "src" 
+    execute "normal! i" . dirname . "_source = files('<FILENAME>.cpp')"
+    execute "normal! oproject_sources += " . dirname . "_source"
+    execute "normal! o" . dirname . "_lib = static_library('" . dirname . "',"
+    execute "normal! o" . dirname . "_source,"
+    execute "normal! oinclude_directories : inc)"
+  end
+endfunction
+autocmd BufNewFile meson.build call <SID>gen_meson()
+
+function! CreateHeaderAndSource(folder, filename)
+  let include_dir = getcwd() . "/include"
+  let src_dir = getcwd() . "/src"
+
+  if empty(glob(include_dir))
+    echo "Include dir not found"
+  endif
+ 
+  if empty(glob(src_dir))
+    echo "Src dir not found"
+  endif
+
+  let include_target = include_dir . "/" . a:folder
+  let src_target = src_dir . "/" . a:folder
+
+  if empty(glob(include_target))
+    execute "!mkdir " . include_target
+  endif
+
+  if empty(glob(src_target))
+    execute "!mkdir " . src_target
+  endif
+
+  execute "tabedit " . include_target . "/" . a:filename . ".hpp"
+  execute "tabedit " . src_target . "/" . a:filename . ".cpp"
+endfunction
