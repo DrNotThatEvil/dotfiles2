@@ -5,7 +5,7 @@
 
 colors=($(xrdb -query parmater expression get index| sed -n 's/.*color\([0-9]\)/\1/p' | sort -nu | cut -f2))
 
-source $HOME/.dotfiles/theming/env_vars.sh
+source /home/wilvin/.dotfiles/theming/env_vars.sh
 if pgrep -u $UID -x polybar > /dev/null; then
     # Terminate already running bar instances
     killall -q polybar
