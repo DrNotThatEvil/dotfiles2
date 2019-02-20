@@ -84,7 +84,7 @@ client.urgent $base02 $base08 $base07 $base08
 #################################################################
 
 # Set terminal to termite
-set $term urxvtc
+set $term st
 
 # Set browser to firefox
 set $browser firefox

@@ -35,6 +35,8 @@ export VISUAL=nvim
 alias vim=nvim
 alias vi=nvim
 
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*" --glob "!builddir/*" --glob "!*.d"'
+
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi

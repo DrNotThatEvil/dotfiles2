@@ -64,6 +64,7 @@ Plug 'morhetz/gruvbox'
 Plug 'gilgigilgil/anderson.vim'
 
 Plug 'igankevich/mesonic'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 call plug#end()
 
@@ -87,6 +88,7 @@ nmap <leader>5 <Plug>AirlineSelectTab5
 nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 
+map <C-n> :NERDTreeToggle<CR>
 
 " cpp highlighting
 let g:cpp_class_scope_highlight = 1
