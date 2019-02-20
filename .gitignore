@@ -23,3 +23,5 @@ moc/last_directory
 
 
 *.log
+
+vim/.netrwhist
